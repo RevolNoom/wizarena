@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://AstralTable.tscn" type="PackedScene" id=4]
+
+[node name="Arena" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 743.9, 203.125 )
+
+[node name="GUI" parent="." instance=ExtResource( 2 )]
+
+[node name="AstralTable" parent="." instance=ExtResource( 4 )]
+position = Vector2( 484.461, 211.265 )
