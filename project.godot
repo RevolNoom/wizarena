@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Wizarena"
-run/main_scene="res://Arena.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[debug]
+
+gdscript/warnings/unused_variable=false
 
 [rendering]
 

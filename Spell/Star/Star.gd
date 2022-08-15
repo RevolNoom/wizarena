@@ -1,12 +1,15 @@
 extends Area2D
 
 # Emits when this star is touched in valid state
-# Should unlock
+# Should unlock stars that this one locked
 signal unlock(selfStar)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Deactivate()
+
+func SetMasterSpell(spell):
+	_masterSpell = spell
 
 func Activate():
 	_locks = []
@@ -44,17 +47,20 @@ func _on_Star_unlock(locker):
 	_locks.erase(locker)
 	disconnect("unlock", locker, "_on_Star_unlock")
 
-func _on_Star_mouse_entered():
-	
+
+func _on_Star_input_event(viewport, event, shape_idx):
+	if not event is InputEventMouse:
+		return
+
 	if IsLocked():
-		# TODO:
-		pass #_master.FailSpell()
+		_masterSpell.FailedByStarLock(self)
+		return 
 		
 	if IsTouchable():
 		$Sprite.modulate = $Sprite.modulate.lightened(0.2)
 		Deactivate()
+		_masterSpell._on_StarTouched(self)
 		emit_signal("unlock")
-		
-		
-#var _masterSpell
+
+var _masterSpell
 var _locks
