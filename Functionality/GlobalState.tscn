@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Functionality/AstralTable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Functionality/SpellWheel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Functionality/GlobalState.gd" type="Script" id=4]
+
+[node name="GlobalState" type="Node"]
+script = ExtResource( 4 )
+
+[node name="AstralTable" parent="." instance=ExtResource( 1 )]
+position = Vector2( 523.842, 312.718 )
+
+[node name="ProjectileDump" type="Node" parent="."]
+
+[node name="SpellWheel" parent="." instance=ExtResource( 2 )]
+position = Vector2( -11.1119, 12.6992 )

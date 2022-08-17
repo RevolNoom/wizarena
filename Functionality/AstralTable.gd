@@ -1,10 +1,15 @@
 extends Node2D
 
+
+func _ready():
+	set_process_input(false)
+
 # TODO:
 func PrepareSpell(spell):
 	_spellInWeaving = spell
 	spell.SetAstralTable(self)
 	PutStarsOnTable(spell.GetStarList())
+	set_process_input(true)
 	
 func PutStarsOnTable(arrayOfStars):
 	_starsOnTable = arrayOfStars
@@ -24,6 +29,7 @@ func CleanUp():
 	for star in _starsOnTable:
 		remove_child(star)
 		star.Deactivate()
+	set_process_input(false)
 	
 func _on_AstralTable_mouse_unpress():
 	_isWeaving = false
@@ -54,10 +60,10 @@ func _on_AstralTable_input_event(_viewport, event, _shape_idx):
 		((event is InputEventMouseButton and event.pressed) or \
 		(event is InputEventMouseMotion and event.pressure != 0)):
 			_isWeaving = true
+			# TODO: Defer weaving until the first star is touched
 			_spellInWeaving.StartWeaving()
 	
 	
-			
 
 
 # When the player has drawn on at least one star
@@ -65,3 +71,4 @@ func _on_AstralTable_input_event(_viewport, event, _shape_idx):
 var _isWeaving = false
 var _spellInWeaving
 var _starsOnTable
+

@@ -8,20 +8,33 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "Spell",
+"language": "GDScript",
+"path": "res://Spell/Spell.gd"
+} ]
 _global_script_class_icons={
-
+"Spell": ""
 }
 
 [application]
 
 config/name="Wizarena"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Functionality/Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GlobalState="*res://Functionality/GlobalState.tscn"
 
 [debug]
 
 gdscript/warnings/unused_variable=false
+
+[physics]
+
+2d/default_gravity=0
 
 [rendering]
 

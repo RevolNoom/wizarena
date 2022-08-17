@@ -15,7 +15,7 @@ func _process(_delta):
 	if Input.is_action_pressed("ui_down"):
 		velocity.y = _speed
 		
-	move_and_slide(velocity)
+	var dontcare = move_and_slide(velocity)
 	
 	
 	

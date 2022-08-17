@@ -4,10 +4,13 @@
 
 extends Node
 
+class_name Spell
+
 func _ready():
+	_activable = get_node(_activable_path)
+	
 	# Keep the references to children
 	# But they won't show up in the scene
-	# This is better, to 
 	_starList = $Star.get_children()
 	for star in _starList:
 		$Star.remove_child(star)
@@ -44,15 +47,14 @@ func _on_MouseUnpress():
 	EndWeaving()
 
 func _on_StarTouched(_star):
-	var completed = TestCompleteness()
-	print("Completeness: " + str(completed))
-	if completed:
+	if IsCompleted():
 		EndWeaving()
+		GlobalState.SetSpell(_activable)
 
-func FailedByStarLock(lockedStar):
+func FailedByStarLock(_lockedStar):
 	print("Spell failed: Mouse drawn over locked star.")
 	
-func TestCompleteness():
+func IsCompleted():
 	for star in _starList:
 		if not star.IsTouched():
 			return false
@@ -61,3 +63,10 @@ func TestCompleteness():
 # The astral table to communicate with
 var _masterTable
 var _starList
+
+
+export(StreamTexture) var _icon_texture
+
+export(NodePath) var _activable_path
+var _activable
+	

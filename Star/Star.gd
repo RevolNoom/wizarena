@@ -41,14 +41,14 @@ func IsTouched():
 func LockedBy(anotherStar):
 	if not IsTouched():
 		_locks.append(anotherStar)
-		connect("unlock", anotherStar, "_on_Star_unlock")
+		var err = connect("unlock", anotherStar, "_on_Star_unlock")
 
 func _on_Star_unlock(locker):
 	_locks.erase(locker)
 	disconnect("unlock", locker, "_on_Star_unlock")
 
 
-func _on_Star_input_event(viewport, event, shape_idx):
+func _on_Star_input_event(_viewport, event, _shape_idx):
 	if not event is InputEventMouse:
 		return
 
