@@ -9,8 +9,10 @@ func RefersTo(newSpell: Spell):
 	# TODO: Uniformly resize texture size
 	# $Sprite.texture.get_size()
 	
-
 var _spell
+func GetSpell():
+	return _spell
+	
 
 # Two Signals to work-around a problem
 # SpellWheel can intercept InputEventMouseButton
@@ -32,6 +34,5 @@ func _on_Button_mouse_exited():
 	
 func _on_mouse_unclick():
 	if _isHoveredOn:
-		GlobalState.get_node("AstralTable").PrepareSpell(_spell)
-	_isHoveredOn = false
-	
+		_isHoveredOn = false
+		get_parent().ASlotIsChosen(self) # Parent is SpellWheel	

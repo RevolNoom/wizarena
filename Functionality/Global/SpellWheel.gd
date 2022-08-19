@@ -11,19 +11,25 @@ func AddNewSpell(newSpell: Spell):
 		print("Can't find empty slot")
 		return
 		
-	var ss = preload("res://Functionality/SpellSlot.tscn")
+	var ss = preload("res://Functionality/Global/SpellSlot.tscn")
 	var newSS = ss.instance()
 		
 	emptyslot.add_child(newSS)
 	newSS.RefersTo(newSpell)
 	
-
+# Called from a slot
+func ASlotIsChosen(_chosenSlot):
+	DisableUntilAstralTableDone()
+	GlobalState.GetAstralTable().PrepareSpell(_chosenSlot.GetSpell())
+	
+	
 func FindEmptySlot():
 	for i in range(0, 8):
 		var slot = get_node("SpellSlot"+str(i))
 		if slot.get_child_count() == 0:
 			return slot
 	return null
+	
 	
 var _isHolding = false
 func _unhandled_input(event):
@@ -48,3 +54,11 @@ func CloseWheel():
 func NotifySlotsOnMouseUnclick():
 	for slot in get_children():
 		slot._on_mouse_unclick()
+	
+func DisableUntilAstralTableDone():
+	CloseWheel()
+	set_process_unhandled_input(false)
+	
+# Handle to call from AstralTable
+func Reenable():
+	set_process_unhandled_input(true)

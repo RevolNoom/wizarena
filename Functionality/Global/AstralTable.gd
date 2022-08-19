@@ -30,6 +30,8 @@ func CleanUp():
 		remove_child(star)
 		star.Deactivate()
 	set_process_input(false)
+	GlobalState.GetSpellWheel().Reenable()
+	
 	
 func _on_AstralTable_mouse_unpress():
 	_isWeaving = false

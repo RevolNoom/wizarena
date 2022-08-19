@@ -8,3 +8,9 @@ var _player
 func SetSpell(spell):
 	#_spellSlot = spell
 	emit_signal("spell_changed", spell)
+
+func GetAstralTable():
+	return $CanvasLayer/AstralTable
+	
+func GetSpellWheel():
+	return $CanvasLayer/SpellWheel

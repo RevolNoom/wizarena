@@ -11,6 +11,12 @@ func _ready():
 func SetMasterSpell(spell):
 	_masterSpell = spell
 
+# TODO: Reset will be called by Spell
+# after each completed weaving
+# to set them back mint state
+func Reset():
+	pass
+
 func Activate():
 	_locks = []
 	input_pickable = true
