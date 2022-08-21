@@ -21,9 +21,10 @@ func GetRandomizedStarList():
 	# TODO: Randomize dependencies
 	return _starList.shuffle()
 	
+# Called by AstralTable on Preparation:
+func DoPreparation():
+	pass
 
-func SetAstralTable(masterAstralTable):
-	_masterTable = masterAstralTable
 
 func StartWeaving():
 	for star in _starList:
@@ -32,24 +33,20 @@ func StartWeaving():
 func EndWeaving():
 	for star in _starList:
 		star.Deactivate()
-	_masterTable.CleanUp()
-	_masterTable = null
 	
 func GetStarList():
 	return _starList
 	
 func _on_MouseOffTable():
 	print("Spell failed: Mouse goes off table before all stars are drawn")
-	EndWeaving()
 	
 func _on_MouseUnpress():
 	print("Spell failed: Mouse unpress before all stars are drawn.")
-	EndWeaving()
 
 func _on_StarTouched(_star):
 	if IsCompleted():
 		EndWeaving()
-		GlobalState.SetSpell(_activable)
+		GlobalState.SpellWeavedSuccessfully(self)
 
 func FailedByStarLock(_lockedStar):
 	print("Spell failed: Mouse drawn over locked star.")
@@ -60,13 +57,12 @@ func IsCompleted():
 			return false
 	return true
 
-# The astral table to communicate with
-var _masterTable
 var _starList
-
-
 export(StreamTexture) var _icon_texture
 
 export(NodePath) var _activable_path
 var _activable
 	
+export var _hp_cost = 0
+export var _mana_cost = 0
+export var _focus_per_sec = 0

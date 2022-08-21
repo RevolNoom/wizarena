@@ -17,10 +17,6 @@ func AddNewSpell(newSpell: Spell):
 	emptyslot.add_child(newSS)
 	newSS.RefersTo(newSpell)
 	
-# Called from a slot
-func ASlotIsChosen(_chosenSlot):
-	DisableUntilAstralTableDone()
-	GlobalState.GetAstralTable().PrepareSpell(_chosenSlot.GetSpell())
 	
 	
 func FindEmptySlot():

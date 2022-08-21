@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Functionality/Main/Main.gd" type="Script" id=1]
-[ext_resource path="res://Functionality/Main/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Functionality/GUI/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Functionality/Main/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Functionality/Main/Arena.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
@@ -13,7 +12,3 @@ position = Vector2( 488.294, 311.039 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 501.577, 375.96 )
-
-[node name="CanvasLayerGUI" type="CanvasLayer" parent="."]
-
-[node name="GUI" parent="CanvasLayerGUI" instance=ExtResource( 4 )]

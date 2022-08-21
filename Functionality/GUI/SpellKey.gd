@@ -1,6 +1,6 @@
 extends TextureButton
 
-var _activable
+var _spell
 export var _keyBinding = ""
 
 
@@ -10,11 +10,11 @@ func _ready():
 	err = GlobalState.connect("spell_changed", self, "change_spell")
 
 func _on_SpellKey_pressed():
-	if _activable == null:
+	if _spell == null:
 		return
 		
 	# TODO: Check InputInspector return
-	_activable.Activate(GlobalState._player)
+	_spell._activable.Activate(GlobalState._player)
 	change_spell(null)
 
 func _unhandled_key_input(event):
@@ -22,8 +22,6 @@ func _unhandled_key_input(event):
 		_on_SpellKey_pressed()
 
 func change_spell(spell):
-	if _activable != null:
-		_activable.queue_free()
-	_activable = spell
+	_spell = spell
 	
 	
