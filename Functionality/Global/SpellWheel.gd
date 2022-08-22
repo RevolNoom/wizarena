@@ -3,7 +3,7 @@ extends Path2D
 #TODO: There's add new spell, there should be remove spell
 
 func _ready():
-	$SpellSlot0.RefersTo($SpellSlot0/Spell)
+	AddNewSpell($SpellFireball)
 
 func AddNewSpell(newSpell: Spell):
 	var emptyslot = FindEmptySlot()
@@ -11,18 +11,18 @@ func AddNewSpell(newSpell: Spell):
 		print("Can't find empty slot")
 		return
 		
-	var ss = preload("res://Functionality/Global/SpellSlot.tscn")
-	var newSS = ss.instance()
-		
-	emptyslot.add_child(newSS)
-	newSS.RefersTo(newSpell)
+	emptyslot.RefersTo(newSpell)
 	
+func GetSlots():
+	var slots = []
+	for i in range(0, 8):
+		slots.push_back(get_node("SpellSlot"+str(i)))
+	return slots
 	
 	
 func FindEmptySlot():
-	for i in range(0, 8):
-		var slot = get_node("SpellSlot"+str(i))
-		if slot.get_child_count() == 0:
+	for slot in GetSlots():
+		if slot.IsEmpty():
 			return slot
 	return null
 	
@@ -48,7 +48,7 @@ func CloseWheel():
 
 # See SpellSlot for reason why I have to do this
 func NotifySlotsOnMouseUnclick():
-	for slot in get_children():
+	for slot in GetSlots():
 		slot._on_mouse_unclick()
 	
 func DisableUntilAstralTableDone():

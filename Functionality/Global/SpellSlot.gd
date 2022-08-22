@@ -22,6 +22,9 @@ var _spell
 #		if event.pressed == false:
 #			print("SetSpell")
 	
+func IsEmpty():
+	return _spell == null
+	
 var _isHoveredOn
 func _on_Button_mouse_entered():
 	_isHoveredOn = true
@@ -30,6 +33,6 @@ func _on_Button_mouse_exited():
 	_isHoveredOn = false
 	
 func _on_mouse_unclick():
-	if _isHoveredOn:
+	if _isHoveredOn and not IsEmpty():
 		_isHoveredOn = false
 		GlobalState.StartWeavingProcedure(_spell)

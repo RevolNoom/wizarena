@@ -18,6 +18,9 @@ func _process(_delta):
 	if Input.is_action_pressed("ui_down"):
 		velocity.y = $Speed.value
 		
+	#TODO: 
+	set_global_rotation((get_global_mouse_position() - global_position).angle())
+		
 	var dontcare = move_and_slide(velocity)
 	
 # Try to make the player pay for the spell price
@@ -46,7 +49,7 @@ func StopPayingSpell():
 func ConnectToGUI(hpBar, manaBar, focusBar):
 	$Health.share(hpBar)
 	$Mana.share(manaBar)
-	$Focus.share(focusBar)
+	$Focus.share(focusBar)	
 	
 func ExhaustedFromSpellWeaving():
 	if _currentWeavingSpell != null:

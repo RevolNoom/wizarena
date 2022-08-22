@@ -7,7 +7,8 @@ func _ready():
 # TODO:
 func PrepareSpell(spell):
 	_spellInWeaving = spell
-	PutStarsOnTable(spell.GetStarList())
+	PutStarsOnTable(spell.GetRandomizedStarList())
+	spell.ActivateStarsInputProcessing()
 	set_process_input(true)
 	
 func PutStarsOnTable(arrayOfStars):
@@ -19,23 +20,30 @@ func PutStarsOnTable(arrayOfStars):
 		star.position = pos
 		add_child(star)
 
-# Handle for Spell to call 
+# Handle for GlobalState
 # when spell is done or failed
 func CleanUp():
-	_isWeaving = false
+	
+	# Try to finish cleaning up the table before jumping to spell
+	var spell = _spellInWeaving
 	_spellInWeaving = null
+	
+	_isWeaving = false 
+	
 	for star in _starsOnTable:
 		remove_child(star)
-		star.Deactivate()
 	set_process_input(false)
 	
+	spell.DeactivateStarsInputProcessing()
+	
+	
 func _on_AstralTable_mouse_unpress():
-	_spellInWeaving._on_MouseUnpress()
+	print("Spell failed: Mouse unpress before all stars are drawn.")
 	GlobalState.StopWeavingProcedure()
 	
 func _on_AstralTable_mouse_exited():
 	if _isWeaving and _spellInWeaving != null:
-		_spellInWeaving._on_MouseOffTable()
+		print("Spell failed: Mouse goes off table before all stars are drawn")
 		GlobalState.StopWeavingProcedure()
 	
 
@@ -59,7 +67,6 @@ func _on_AstralTable_input_event(_viewport, event, _shape_idx):
 		((event is InputEventMouseButton and event.pressed) or \
 		(event is InputEventMouseMotion and event.pressure != 0)):
 			_isWeaving = true
-			_spellInWeaving.StartWeaving()
 	
 
 # When the player has start pressed and hold the mouse

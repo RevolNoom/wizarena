@@ -1,6 +1,6 @@
 # ObjectPool
-# +) Manage Stars
-# +) Test spell weaving condition
+# +) Manage Stars states
+# +) Test spell complete conditions
 
 extends Node
 
@@ -18,34 +18,22 @@ func _ready():
 		star.SetMasterSpell(self)
 	
 func GetRandomizedStarList():
-	# TODO: Randomize dependencies
-	return _starList.shuffle()
+	for star in _starList:
+		star.Reset()
+	_starList.shuffle()
+	return _starList
 	
-# Called by AstralTable on Preparation:
-func DoPreparation():
-	pass
 
-
-func StartWeaving():
+func ActivateStarsInputProcessing():
 	for star in _starList:
 		star.Activate()
 		
-func EndWeaving():
+func DeactivateStarsInputProcessing():
 	for star in _starList:
 		star.Deactivate()
-	
-func GetStarList():
-	return _starList
-	
-func _on_MouseOffTable():
-	print("Spell failed: Mouse goes off table before all stars are drawn")
-	
-func _on_MouseUnpress():
-	print("Spell failed: Mouse unpress before all stars are drawn.")
 
 func _on_StarTouched(_star):
 	if IsCompleted():
-		EndWeaving()
 		GlobalState.SpellWeavedSuccessfully(self)
 
 func FailedByStarLock(_lockedStar):

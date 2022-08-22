@@ -1,5 +1,6 @@
 extends Node
 
+# For now, only GUI spell key connects to this signal
 signal spell_changed(spell)
 
 var _player
@@ -22,14 +23,21 @@ func StartWeavingProcedure(spell):
 		print("Not enough resource for spell")
 		return
 		
+	_weavingSpell = spell
+		
 	GetSpellWheel().DisableUntilAstralTableDone()
 	GetAstralTable().PrepareSpell(spell)
 	
 	
 func StopWeavingProcedure():
-	GetAstralTable().CleanUp()
-	GetSpellWheel().Reenable()
 	_player.StopPayingSpell()
+	
+	GetAstralTable().CleanUp()
+	
+	_weavingSpell = null
+	
+	GetSpellWheel().Reenable()
+	
 	
 	
 func SpellWeavedSuccessfully(spell):
@@ -45,3 +53,5 @@ func GetSpellWheel():
 
 func GetGUI():
 	return $CanvasLayer/GUI
+	
+var _weavingSpell
