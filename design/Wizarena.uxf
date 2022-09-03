@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>6</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>126</x>
-      <y>516</y>
-      <w>162</w>
-      <h>60</h>
+      <x>147</x>
+      <y>861</y>
+      <w>189</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>AstralTable
 --
@@ -18,10 +18,10 @@ Randomize star positions
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>402</x>
-      <y>516</y>
-      <w>216</w>
-      <h>150</h>
+      <x>469</x>
+      <y>861</y>
+      <w>252</w>
+      <h>175</h>
     </coordinates>
     <panel_attributes>Spell
 --
@@ -41,10 +41,10 @@ more stars
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>750</x>
-      <y>516</y>
-      <w>192</w>
-      <h>120</h>
+      <x>875</x>
+      <y>861</y>
+      <w>224</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>Stars
 --
@@ -60,10 +60,10 @@ Alert spell when it's touched</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>402</x>
-      <y>678</y>
-      <w>210</w>
-      <h>102</h>
+      <x>469</x>
+      <y>1050</y>
+      <w>245</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>StarVector
 --
@@ -77,9 +77,9 @@ locking (prevent unbreakable cycle)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>0</x>
-      <y>876</y>
-      <w>204</w>
-      <h>36</h>
+      <y>1281</y>
+      <w>238</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 1. input Spell
@@ -89,10 +89,10 @@ AstralTable.prepareSpell()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>186</x>
-      <y>888</y>
-      <w>330</w>
-      <h>36</h>
+      <x>217</x>
+      <y>1295</y>
+      <w>385</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 2. Request Stars
@@ -102,10 +102,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>498</x>
-      <y>900</y>
-      <w>354</w>
-      <h>30</h>
+      <x>581</x>
+      <y>1309</y>
+      <w>413</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 3. Randomize stars' dependencies</panel_attributes>
@@ -114,10 +114,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>186</x>
-      <y>924</y>
-      <w>330</w>
-      <h>30</h>
+      <x>217</x>
+      <y>1337</y>
+      <w>385</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;
 4. Return Star list</panel_attributes>
@@ -126,10 +126,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>186</x>
-      <y>978</y>
-      <w>180</w>
-      <h>54</h>
+      <x>217</x>
+      <y>1400</y>
+      <w>210</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;
 5. PutStarsOnTable()</panel_attributes>
@@ -138,10 +138,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>18</x>
-      <y>1038</y>
-      <w>186</w>
-      <h>36</h>
+      <x>21</x>
+      <y>1470</y>
+      <w>217</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 6. Input mouse drag
@@ -151,10 +151,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>186</x>
-      <y>1056</y>
-      <w>666</w>
-      <h>30</h>
+      <x>217</x>
+      <y>1491</y>
+      <w>777</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 7. Make Stars accept mouse event</panel_attributes>
@@ -164,9 +164,9 @@ Spell.GetRandomizedStarList()</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>0</x>
-      <y>1098</y>
-      <w>894</w>
-      <h>264</h>
+      <y>1540</y>
+      <w>1043</w>
+      <h>308</h>
     </coordinates>
     <panel_attributes>optional</panel_attributes>
     <additional_attributes/>
@@ -174,10 +174,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>24</x>
-      <y>1170</y>
-      <w>180</w>
-      <h>30</h>
+      <x>28</x>
+      <y>1624</y>
+      <w>210</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 8. Mouse stops dragging</panel_attributes>
@@ -186,10 +186,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>186</x>
-      <y>1242</y>
-      <w>666</w>
-      <h>30</h>
+      <x>217</x>
+      <y>1708</y>
+      <w>777</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 9. Stop Stars from receiving mouse events</panel_attributes>
@@ -198,10 +198,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>186</x>
-      <y>1272</y>
-      <w>120</w>
-      <h>54</h>
+      <x>217</x>
+      <y>1743</y>
+      <w>140</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 10. Clean table</panel_attributes>
@@ -210,10 +210,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>186</x>
-      <y>1308</y>
-      <w>330</w>
-      <h>30</h>
+      <x>217</x>
+      <y>1785</y>
+      <w>385</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 11. Alert Spell</panel_attributes>
@@ -222,10 +222,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>12</x>
-      <y>1128</y>
-      <w>876</w>
-      <h>36</h>
+      <x>14</x>
+      <y>1575</y>
+      <w>1022</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>either</panel_attributes>
     <additional_attributes/>
@@ -233,10 +233,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>666</x>
-      <y>1128</y>
-      <w>186</w>
-      <h>30</h>
+      <x>777</x>
+      <y>1575</y>
+      <w>217</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 8. Mouse stops dragging</panel_attributes>
@@ -245,10 +245,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>186</x>
-      <y>1140</y>
-      <w>666</w>
-      <h>30</h>
+      <x>217</x>
+      <y>1589</y>
+      <w>777</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 8.1. Alert Table</panel_attributes>
@@ -257,10 +257,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>462</x>
-      <y>828</y>
-      <w>78</w>
-      <h>30</h>
+      <x>539</x>
+      <y>1225</y>
+      <w>91</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Spell</panel_attributes>
     <additional_attributes/>
@@ -268,10 +268,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>156</x>
-      <y>828</y>
-      <w>78</w>
-      <h>30</h>
+      <x>182</x>
+      <y>1225</y>
+      <w>91</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>AstralTable</panel_attributes>
     <additional_attributes/>
@@ -279,10 +279,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>804</x>
-      <y>828</y>
-      <w>78</w>
-      <h>30</h>
+      <x>938</x>
+      <y>1225</y>
+      <w>91</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Stars</panel_attributes>
     <additional_attributes/>
@@ -290,10 +290,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>186</x>
-      <y>852</y>
-      <w>18</w>
-      <h>498</h>
+      <x>217</x>
+      <y>1253</y>
+      <w>21</w>
+      <h>581</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;810.0</additional_attributes>
@@ -301,10 +301,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>498</x>
-      <y>852</y>
-      <w>18</w>
-      <h>498</h>
+      <x>581</x>
+      <y>1253</y>
+      <w>21</w>
+      <h>581</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;810.0</additional_attributes>
@@ -312,10 +312,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>834</x>
-      <y>852</y>
-      <w>18</w>
-      <h>498</h>
+      <x>973</x>
+      <y>1253</y>
+      <w>21</w>
+      <h>581</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;810.0</additional_attributes>
@@ -323,10 +323,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>12</x>
-      <y>1164</y>
-      <w>876</w>
-      <h>36</h>
+      <x>14</x>
+      <y>1617</y>
+      <w>1022</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>or</panel_attributes>
     <additional_attributes/>
@@ -334,10 +334,10 @@ Spell.GetRandomizedStarList()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>678</x>
-      <y>1374</y>
-      <w>174</w>
-      <h>36</h>
+      <x>791</x>
+      <y>1862</y>
+      <w>203</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 8. Weaving Spell
@@ -347,10 +347,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>186</x>
-      <y>1338</y>
-      <w>12</w>
-      <h>12</h>
+      <x>217</x>
+      <y>1820</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -358,10 +358,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>498</x>
-      <y>1338</y>
-      <w>12</w>
-      <h>12</h>
+      <x>581</x>
+      <y>1820</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -369,10 +369,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>834</x>
-      <y>1338</y>
-      <w>12</w>
-      <h>12</h>
+      <x>973</x>
+      <y>1820</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -380,10 +380,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>834</x>
-      <y>1356</y>
-      <w>18</w>
-      <h>390</h>
+      <x>973</x>
+      <y>1841</y>
+      <w>21</w>
+      <h>455</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;630.0</additional_attributes>
@@ -391,10 +391,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>498</x>
-      <y>1356</y>
-      <w>18</w>
-      <h>390</h>
+      <x>581</x>
+      <y>1841</y>
+      <w>21</w>
+      <h>455</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;630.0</additional_attributes>
@@ -402,10 +402,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>186</x>
-      <y>1356</y>
-      <w>18</w>
-      <h>396</h>
+      <x>217</x>
+      <y>1841</y>
+      <w>21</w>
+      <h>462</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;640.0</additional_attributes>
@@ -413,10 +413,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>12</x>
-      <y>1200</y>
-      <w>876</w>
-      <h>36</h>
+      <x>14</x>
+      <y>1659</y>
+      <w>1022</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>or</panel_attributes>
     <additional_attributes/>
@@ -424,10 +424,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>24</x>
-      <y>1206</y>
-      <w>180</w>
-      <h>30</h>
+      <x>28</x>
+      <y>1666</y>
+      <w>210</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 8. Mouse off table</panel_attributes>
@@ -436,10 +436,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>498</x>
-      <y>1410</y>
-      <w>354</w>
-      <h>30</h>
+      <x>581</x>
+      <y>1904</y>
+      <w>413</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;
 9. Spell gets notified of touched star</panel_attributes>
@@ -448,10 +448,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>498</x>
-      <y>1452</y>
-      <w>354</w>
-      <h>30</h>
+      <x>581</x>
+      <y>1953</y>
+      <w>413</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 10. Spell sends the list of stars</panel_attributes>
@@ -460,10 +460,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>834</x>
-      <y>1548</y>
-      <w>246</w>
-      <h>48</h>
+      <x>973</x>
+      <y>2065</y>
+      <w>287</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;
 12. Star lock &amp; unlock other stars</panel_attributes>
@@ -472,10 +472,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
-      <y>1488</y>
-      <w>204</w>
-      <h>54</h>
+      <x>875</x>
+      <y>1995</y>
+      <w>238</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;
 11. Change star state to "touched"</panel_attributes>
@@ -484,10 +484,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>498</x>
-      <y>1608</y>
-      <w>174</w>
-      <h>54</h>
+      <x>581</x>
+      <y>2135</y>
+      <w>203</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;
 13. Test completeness</panel_attributes>
@@ -496,10 +496,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>186</x>
-      <y>1656</y>
-      <w>330</w>
-      <h>30</h>
+      <x>217</x>
+      <y>2191</y>
+      <w>385</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;
 14. On complete, tell Table to clean up</panel_attributes>
@@ -508,10 +508,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>498</x>
-      <y>1692</y>
-      <w>246</w>
-      <h>42</h>
+      <x>581</x>
+      <y>2233</y>
+      <w>287</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;
 15. Output an Activable Spell effect</panel_attributes>
@@ -520,10 +520,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>186</x>
-      <y>1740</y>
-      <w>12</w>
-      <h>12</h>
+      <x>217</x>
+      <y>2289</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -531,10 +531,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>498</x>
-      <y>1734</y>
-      <w>12</w>
-      <h>12</h>
+      <x>581</x>
+      <y>2282</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -542,10 +542,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>834</x>
-      <y>1734</y>
-      <w>12</w>
-      <h>12</h>
+      <x>973</x>
+      <y>2282</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -554,9 +554,9 @@ with mouse drags</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>0</x>
-      <y>1440</y>
-      <w>894</w>
-      <h>48</h>
+      <y>1939</y>
+      <w>1043</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>optional</panel_attributes>
     <additional_attributes/>
@@ -564,10 +564,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>906</x>
-      <y>60</y>
-      <w>180</w>
-      <h>30</h>
+      <x>1057</x>
+      <y>329</y>
+      <w>210</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>MovementControl</panel_attributes>
     <additional_attributes/>
@@ -575,10 +575,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>930</x>
-      <y>252</y>
-      <w>378</w>
-      <h>192</h>
+      <x>1085</x>
+      <y>553</y>
+      <w>441</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes>Player
 --
@@ -594,10 +594,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>936</x>
-      <y>324</y>
-      <w>138</w>
-      <h>18</h>
+      <x>1092</x>
+      <y>637</y>
+      <w>161</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Activatable Spell Queue</panel_attributes>
     <additional_attributes/>
@@ -605,10 +605,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>906</x>
-      <y>126</y>
-      <w>180</w>
-      <h>24</h>
+      <x>1057</x>
+      <y>406</y>
+      <w>210</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>SpellcastControl</panel_attributes>
     <additional_attributes/>
@@ -616,10 +616,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>906</x>
-      <y>96</y>
-      <w>180</w>
-      <h>24</h>
+      <x>1057</x>
+      <y>371</y>
+      <w>210</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>GlyphDrawingControl</panel_attributes>
     <additional_attributes/>
@@ -627,10 +627,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>936</x>
-      <y>354</y>
-      <w>138</w>
-      <h>48</h>
+      <x>1092</x>
+      <y>672</y>
+      <w>161</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Effect Queue
 --</panel_attributes>
@@ -639,10 +639,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>948</x>
-      <y>378</y>
-      <w>114</w>
-      <h>18</h>
+      <x>1106</x>
+      <y>700</y>
+      <w>133</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Effect</panel_attributes>
     <additional_attributes/>
@@ -650,10 +650,10 @@ with mouse drags</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1122</x>
-      <y>0</y>
-      <w>132</w>
-      <h>114</h>
+      <x>1309</x>
+      <y>259</y>
+      <w>154</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Activatable Spell
 --
@@ -663,10 +663,10 @@ Activate()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1134</x>
-      <y>60</y>
-      <w>108</w>
-      <h>24</h>
+      <x>1323</x>
+      <y>329</y>
+      <w>126</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>ControlSystem</panel_attributes>
     <additional_attributes/>
@@ -674,10 +674,10 @@ Activate()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1128</x>
-      <y>36</y>
-      <w>120</w>
-      <h>54</h>
+      <x>1316</x>
+      <y>301</y>
+      <w>140</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>Effect</panel_attributes>
     <additional_attributes/>
@@ -685,10 +685,10 @@ Activate()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1302</x>
-      <y>24</y>
-      <w>114</w>
-      <h>66</h>
+      <x>1519</x>
+      <y>287</y>
+      <w>133</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>{Command}
 Effect
@@ -700,10 +700,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>906</x>
-      <y>156</y>
-      <w>180</w>
-      <h>24</h>
+      <x>1057</x>
+      <y>441</y>
+      <w>210</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>SpellActivateControl</panel_attributes>
     <additional_attributes/>
@@ -711,10 +711,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>786</x>
-      <y>36</y>
-      <w>306</w>
-      <h>150</h>
+      <x>917</x>
+      <y>301</y>
+      <w>357</w>
+      <h>175</h>
     </coordinates>
     <panel_attributes>ControlSystem
 --
@@ -724,10 +724,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1206</x>
-      <y>156</y>
-      <w>180</w>
-      <h>24</h>
+      <x>1407</x>
+      <y>441</y>
+      <w>210</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>SpellBoard</panel_attributes>
     <additional_attributes/>
@@ -735,10 +735,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1572</x>
-      <y>822</y>
-      <w>96</w>
-      <h>30</h>
+      <x>1834</x>
+      <y>1218</y>
+      <w>112</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>ActivableSpell</panel_attributes>
     <additional_attributes/>
@@ -746,10 +746,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1326</x>
-      <y>822</y>
-      <w>78</w>
-      <h>30</h>
+      <x>1547</x>
+      <y>1218</y>
+      <w>91</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Player</panel_attributes>
     <additional_attributes/>
@@ -757,10 +757,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1362</x>
-      <y>846</y>
-      <w>18</w>
-      <h>390</h>
+      <x>1589</x>
+      <y>1246</y>
+      <w>21</w>
+      <h>455</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;630.0</additional_attributes>
@@ -768,10 +768,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1614</x>
-      <y>846</y>
-      <w>18</w>
-      <h>390</h>
+      <x>1883</x>
+      <y>1246</y>
+      <w>21</w>
+      <h>455</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;630.0</additional_attributes>
@@ -779,10 +779,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1362</x>
-      <y>870</y>
-      <w>270</w>
-      <h>30</h>
+      <x>1589</x>
+      <y>1274</y>
+      <w>315</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 1. Press Key</panel_attributes>
@@ -791,10 +791,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1614</x>
-      <y>900</y>
-      <w>270</w>
-      <h>36</h>
+      <x>1883</x>
+      <y>1309</y>
+      <w>315</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 2. Get some game states
@@ -804,10 +804,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1824</x>
-      <y>822</y>
-      <w>96</w>
-      <h>30</h>
+      <x>2128</x>
+      <y>1218</y>
+      <w>112</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>GameState</panel_attributes>
     <additional_attributes/>
@@ -815,10 +815,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1866</x>
-      <y>846</y>
-      <w>24</w>
-      <h>390</h>
+      <x>2177</x>
+      <y>1246</y>
+      <w>28</w>
+      <h>455</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;20.0;630.0</additional_attributes>
@@ -826,10 +826,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>1266</x>
-      <y>900</y>
-      <w>888</w>
-      <h>54</h>
+      <x>1477</x>
+      <y>1309</y>
+      <w>1036</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>Either</panel_attributes>
     <additional_attributes/>
@@ -837,10 +837,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>1266</x>
-      <y>954</y>
-      <w>888</w>
-      <h>444</h>
+      <x>1477</x>
+      <y>1372</y>
+      <w>1036</w>
+      <h>518</h>
     </coordinates>
     <panel_attributes>Or</panel_attributes>
     <additional_attributes/>
@@ -848,10 +848,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1614</x>
-      <y>960</y>
-      <w>480</w>
-      <h>36</h>
+      <x>1883</x>
+      <y>1379</y>
+      <w>560</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 2. Require extra input
@@ -861,10 +861,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>1278</x>
-      <y>1032</y>
-      <w>870</w>
-      <h>354</h>
+      <x>1491</x>
+      <y>1463</y>
+      <w>1015</w>
+      <h>413</h>
     </coordinates>
     <panel_attributes>Loop</panel_attributes>
     <additional_attributes/>
@@ -872,10 +872,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2034</x>
-      <y>822</y>
-      <w>96</w>
-      <h>30</h>
+      <x>2373</x>
+      <y>1218</y>
+      <w>112</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>InputInspector</panel_attributes>
     <additional_attributes/>
@@ -883,10 +883,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2076</x>
-      <y>846</y>
-      <w>18</w>
-      <h>390</h>
+      <x>2422</x>
+      <y>1246</y>
+      <w>21</w>
+      <h>455</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;630.0</additional_attributes>
@@ -894,10 +894,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1362</x>
-      <y>996</y>
-      <w>732</w>
-      <h>30</h>
+      <x>1589</x>
+      <y>1421</y>
+      <w>854</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 3. Inspect input for Activable Spell</panel_attributes>
@@ -906,10 +906,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1362</x>
-      <y>1080</y>
-      <w>732</w>
-      <h>30</h>
+      <x>1589</x>
+      <y>1519</y>
+      <w>854</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 5. Request more</panel_attributes>
@@ -918,10 +918,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1362</x>
-      <y>1038</y>
-      <w>732</w>
-      <h>30</h>
+      <x>1589</x>
+      <y>1470</y>
+      <w>854</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 4. Gives input</panel_attributes>
@@ -930,10 +930,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>1290</x>
-      <y>1080</y>
-      <w>852</w>
-      <h>36</h>
+      <x>1505</x>
+      <y>1519</y>
+      <w>994</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>Either</panel_attributes>
     <additional_attributes/>
@@ -941,10 +941,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>1290</x>
-      <y>1116</y>
-      <w>852</w>
-      <h>36</h>
+      <x>1505</x>
+      <y>1561</y>
+      <w>994</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>Or</panel_attributes>
     <additional_attributes/>
@@ -952,10 +952,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>1290</x>
-      <y>1248</y>
-      <w>852</w>
-      <h>126</h>
+      <x>1505</x>
+      <y>1715</y>
+      <w>994</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>Or</panel_attributes>
     <additional_attributes/>
@@ -963,10 +963,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1362</x>
-      <y>1116</y>
-      <w>732</w>
-      <h>30</h>
+      <x>1589</x>
+      <y>1561</y>
+      <w>854</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 5. Invalid Input, Recast</panel_attributes>
@@ -975,10 +975,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1362</x>
-      <y>1248</y>
-      <w>732</w>
-      <h>30</h>
+      <x>1589</x>
+      <y>1715</y>
+      <w>854</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 5. Spell's cooked</panel_attributes>
@@ -987,10 +987,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>1290</x>
-      <y>1152</y>
-      <w>852</w>
-      <h>96</h>
+      <x>1505</x>
+      <y>1603</y>
+      <w>994</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Or</panel_attributes>
     <additional_attributes/>
@@ -998,10 +998,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1362</x>
-      <y>1158</y>
-      <w>732</w>
-      <h>30</h>
+      <x>1589</x>
+      <y>1610</y>
+      <w>854</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 5. Invalid Input, Destroy Spell</panel_attributes>
@@ -1010,10 +1010,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1362</x>
-      <y>1182</y>
-      <w>270</w>
-      <h>30</h>
+      <x>1589</x>
+      <y>1638</y>
+      <w>315</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 6. Destroy</panel_attributes>
@@ -1022,10 +1022,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>1362</x>
-      <y>1224</y>
-      <w>12</w>
-      <h>12</h>
+      <x>1589</x>
+      <y>1687</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -1033,10 +1033,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>1614</x>
-      <y>1224</y>
-      <w>12</w>
-      <h>12</h>
+      <x>1883</x>
+      <y>1687</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -1044,10 +1044,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>1872</x>
-      <y>1224</y>
-      <w>12</w>
-      <h>12</h>
+      <x>2184</x>
+      <y>1687</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -1055,10 +1055,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>2076</x>
-      <y>1224</y>
-      <w>12</w>
-      <h>12</h>
+      <x>2422</x>
+      <y>1687</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -1066,10 +1066,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1362</x>
-      <y>1272</y>
-      <w>270</w>
-      <h>30</h>
+      <x>1589</x>
+      <y>1743</y>
+      <w>315</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 6. Send InputInspector</panel_attributes>
@@ -1078,10 +1078,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1578</x>
-      <y>1302</y>
-      <w>186</w>
-      <h>54</h>
+      <x>1841</x>
+      <y>1778</y>
+      <w>217</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 7. Read InputInspector's input</panel_attributes>
@@ -1090,10 +1090,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1614</x>
-      <y>1242</y>
-      <w>18</w>
-      <h>294</h>
+      <x>1883</x>
+      <y>1708</y>
+      <w>21</w>
+      <h>343</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;470.0</additional_attributes>
@@ -1101,10 +1101,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1362</x>
-      <y>1242</y>
-      <w>18</w>
-      <h>288</h>
+      <x>1589</x>
+      <y>1708</y>
+      <w>21</w>
+      <h>336</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;460.0</additional_attributes>
@@ -1112,10 +1112,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1872</x>
-      <y>1242</y>
-      <w>18</w>
-      <h>288</h>
+      <x>2184</x>
+      <y>1708</y>
+      <w>21</w>
+      <h>336</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;460.0</additional_attributes>
@@ -1123,10 +1123,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2076</x>
-      <y>1242</y>
-      <w>18</w>
-      <h>294</h>
+      <x>2422</x>
+      <y>1708</y>
+      <w>21</w>
+      <h>343</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;470.0</additional_attributes>
@@ -1134,10 +1134,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1578</x>
-      <y>1458</y>
-      <w>84</w>
-      <h>54</h>
+      <x>1841</x>
+      <y>1960</y>
+      <w>98</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 9. Cast Spell</panel_attributes>
@@ -1146,10 +1146,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1362</x>
-      <y>1428</y>
-      <w>270</w>
-      <h>30</h>
+      <x>1589</x>
+      <y>1925</y>
+      <w>315</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;
 8. Notify Spell is cast</panel_attributes>
@@ -1158,10 +1158,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>1362</x>
-      <y>1518</y>
-      <w>12</w>
-      <h>12</h>
+      <x>1589</x>
+      <y>2030</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -1169,10 +1169,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>1614</x>
-      <y>1524</y>
-      <w>12</w>
-      <h>12</h>
+      <x>1883</x>
+      <y>2037</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -1180,10 +1180,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>1872</x>
-      <y>1518</y>
-      <w>12</w>
-      <h>12</h>
+      <x>2184</x>
+      <y>2030</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -1191,10 +1191,10 @@ EndEffect()</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>2076</x>
-      <y>1524</y>
-      <w>12</w>
-      <h>12</h>
+      <x>2422</x>
+      <y>2037</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -1202,13 +1202,155 @@ EndEffect()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1614</x>
-      <y>1356</y>
-      <w>18</w>
-      <h>96</h>
+      <x>1883</x>
+      <y>1841</y>
+      <w>21</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 </panel_attributes>
     <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2247</x>
+      <y>196</y>
+      <w>91</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Host</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2562</x>
+      <y>196</y>
+      <w>91</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Player</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2282</x>
+      <y>224</y>
+      <w>21</w>
+      <h>455</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;630.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2597</x>
+      <y>224</y>
+      <w>21</w>
+      <h>455</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;630.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2282</x>
+      <y>231</y>
+      <w>336</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+Connect</panel_attributes>
+    <additional_attributes>10.0;30.0;460.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2282</x>
+      <y>259</y>
+      <w>336</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+Acknowledge
+Request player info</panel_attributes>
+    <additional_attributes>460.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2282</x>
+      <y>301</y>
+      <w>336</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+Send Info</panel_attributes>
+    <additional_attributes>10.0;30.0;460.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2282</x>
+      <y>343</y>
+      <w>336</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+Acknowledge (?)</panel_attributes>
+    <additional_attributes>460.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1967</x>
+      <y>385</y>
+      <w>336</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+User starts game</panel_attributes>
+    <additional_attributes>460.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2282</x>
+      <y>427</y>
+      <w>336</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+Send map ID, starting positions
+</panel_attributes>
+    <additional_attributes>460.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2282</x>
+      <y>476</y>
+      <w>336</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;
+Acknowledge</panel_attributes>
+    <additional_attributes>460.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2282</x>
+      <y>532</y>
+      <w>336</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+Launch the game</panel_attributes>
+    <additional_attributes>460.0;30.0;10.0;30.0</additional_attributes>
   </element>
 </diagram>

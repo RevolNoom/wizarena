@@ -9,24 +9,32 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Dummy",
+"language": "GDScript",
+"path": "res://Player/Dummy.gd"
+}, {
 "base": "Node",
 "class": "Spell",
 "language": "GDScript",
 "path": "res://Spell/Spell.gd"
 } ]
 _global_script_class_icons={
+"Dummy": "",
 "Spell": ""
 }
 
 [application]
 
 config/name="Wizarena"
-run/main_scene="res://Functionality/Main/Main.tscn"
+run/main_scene="res://Screens/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-GlobalState="*res://Functionality/Global/GlobalState.tscn"
+WeaveCoordinator="*res://Functionality/Global/WeaveCoordinator.tscn"
+Network="*res://Functionality/Network/Network.tscn"
+GlobalSettings="*res://Functionality/Global/GlobalSettings.tscn"
 
 [debug]
 

@@ -11,18 +11,21 @@ func _ready():
 # Injector for Player class.
 # Call this on Player initialization
 func SetPlayer(player):
-	_player = player
 	if _player != null:
-		GetGUI().ConnectTo(_player)
+		_player.disconnect("exhausted", self, "StopWeavingProcedure")
+	if player != null:
+		GetGUI().ConnectTo(player)
+		player.connect("exhausted", self, "StopWeavingProcedure")
+	_player = player
 	
 func GetPlayer():
 	return _player
 
 func StartWeavingProcedure(spell):
-	if _player.PaySpellPrice(spell) == false:
+	if spell.SuckResourceFrom(_player) == false:
 		print("Not enough resource for spell")
 		return
-		
+	
 	_weavingSpell = spell
 		
 	GetSpellWheel().DisableUntilAstralTableDone()
@@ -30,14 +33,13 @@ func StartWeavingProcedure(spell):
 	
 	
 func StopWeavingProcedure():
-	_player.StopPayingSpell()
+	_weavingSpell.StopSuckingResourceFrom(_player)
 	
 	GetAstralTable().CleanUp()
 	
 	_weavingSpell = null
 	
 	GetSpellWheel().Reenable()
-	
 	
 	
 func SpellWeavedSuccessfully(spell):
@@ -53,5 +55,8 @@ func GetSpellWheel():
 
 func GetGUI():
 	return $CanvasLayer/GUI
+	
+func GetProjectileDump():
+	return $ProjectileDump
 	
 var _weavingSpell

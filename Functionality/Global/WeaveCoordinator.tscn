@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Functionality/Global/WeaveCoordinator.gd" type="Script" id=1]
+[ext_resource path="res://Functionality/Global/SpellWheel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Functionality/Global/ProjectileDump.gd" type="Script" id=3]
+[ext_resource path="res://Functionality/Global/AstralTable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Screens/GUI/GUI.tscn" type="PackedScene" id=5]
+
+[node name="WeaveCoordinator" type="Node"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AstralTable" parent="CanvasLayer" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 523.842, 312.718 )
+
+[node name="SpellWheel" parent="CanvasLayer" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( -11.1119, 12.6992 )
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 5 )]
+visible = false
+
+[node name="ProjectileDump" type="Node" parent="."]
+script = ExtResource( 3 )

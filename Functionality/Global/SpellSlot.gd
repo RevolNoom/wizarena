@@ -35,4 +35,4 @@ func _on_Button_mouse_exited():
 func _on_mouse_unclick():
 	if _isHoveredOn and not IsEmpty():
 		_isHoveredOn = false
-		GlobalState.StartWeavingProcedure(_spell)
+		WeaveCoordinator.StartWeavingProcedure(_spell)

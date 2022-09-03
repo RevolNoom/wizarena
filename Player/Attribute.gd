@@ -6,14 +6,14 @@ signal empty()
 signal healed(amount)
 signal damaged(amount)
 
-export var _regen= 0.0
+export var regen= 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
 func _process(delta):	
-	value += _regen * delta
+	value += regen * delta
 	
 	# Only signal once when value touches max or min,
 	# not signalling every frame
@@ -31,7 +31,7 @@ func TakeDamage(amount):
 		
 		
 func TakeDamageOverTime(amount):
-	_regen -= amount
+	regen -= amount
 	
 func Heal(amount):
 	amount = clamp(amount, 0, max_value - value)
@@ -43,7 +43,7 @@ func Heal(amount):
 		
 		
 func HealOverTime(amount):
-	_regen += amount
+	regen += amount
 		
 		
 func TestSignal():

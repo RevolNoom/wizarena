@@ -8,8 +8,6 @@
 [node name="SpellFireball" instance=ExtResource( 2 )]
 _icon_texture = ExtResource( 1 )
 _activable_path = NodePath("ActivableFireball")
-_mana_cost = 25
-_focus_per_sec = 25
 
 [node name="Star" parent="Star" index="0" instance=ExtResource( 3 )]
 
@@ -18,3 +16,9 @@ _focus_per_sec = 25
 [node name="Star3" parent="Star" index="2" instance=ExtResource( 3 )]
 
 [node name="ActivableFireball" parent="." index="2" instance=ExtResource( 4 )]
+
+[node name="Mana" parent="." index="4"]
+value = 25.0
+
+[node name="Focus" parent="." index="5"]
+regen = 30.0
