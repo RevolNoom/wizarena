@@ -17,5 +17,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.679999, 0.679999 )
 texture = ExtResource( 2 )
+
+[connection signal="draw" from="." to="." method="_on_AstralTable_draw"]
 [connection signal="input_event" from="." to="." method="_on_AstralTable_input_event"]
 [connection signal="mouse_exited" from="." to="." method="_on_AstralTable_mouse_exited"]

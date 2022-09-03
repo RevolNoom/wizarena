@@ -10,11 +10,13 @@ extends Control
 func _ready():
 	var ignore = Network.connect("error", self, "_on_Network_error")
 	ignore = get_tree().connect("connected_to_server", self, "_on_connected_to_server")
+	if GlobalSettings.ClientCredential._name == "":
+		$Content/VBoxContainer/Error.text = "Change your name in Settings!"
 
 
 
 func _on_GO_pressed():
-	if GlobalSettings.PlayerName == "":
+	if GlobalSettings.ClientCredential._name == "":
 		$Content/VBoxContainer/Error.text = "Change your name in Settings!"
 		return
 		
@@ -23,7 +25,7 @@ func _on_GO_pressed():
 		$Content/VBoxContainer/Error.text = "Missing IP"
 		return
 		
-	Network.local_info._name = name
+	GlobalSettings.ClientCredential._name = name
 		
 	Network.SetAsClient(ip)
 	

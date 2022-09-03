@@ -18,7 +18,7 @@ func _on_Host_pressed():
 	get_tree().change_scene("res://Screens/Lobby.tscn")
 	
 func _on_Train_pressed():
-	pass
+	get_tree().change_scene("res://Screens/Main.tscn")
 
 func _on_Settings_pressed():
 	get_tree().change_scene("res://Screens/SettingScreen.tscn")

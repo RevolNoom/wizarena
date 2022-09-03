@@ -9,14 +9,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackButton" type="Button" parent="."]
-margin_right = 42.0
-margin_bottom = 20.0
-text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
@@ -44,3 +36,12 @@ margin_bottom = 300.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="."]
+margin_top = 1.0
+margin_right = 42.0
+margin_bottom = 21.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}

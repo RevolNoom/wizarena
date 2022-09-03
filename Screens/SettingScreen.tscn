@@ -28,4 +28,5 @@ size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="text_changed" from="Content/VBoxContainer/HBoxContainer/Name" to="." method="_on_Name_text_changed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

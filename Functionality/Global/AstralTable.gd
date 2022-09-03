@@ -9,6 +9,9 @@ func PrepareSpell(spell):
 	_spellInWeaving = spell
 	PutStarsOnTable(spell.GetRandomizedStarList())
 	set_process_input(true)
+	visible = true
+	spell.ActivateStarsDependencies()
+	
 	
 func PutStarsOnTable(arrayOfStars):
 	_starsOnTable = arrayOfStars
@@ -18,6 +21,7 @@ func PutStarsOnTable(arrayOfStars):
 		var pos =  Vector2(rand_range(-100, 100), rand_range(-100, 100))
 		star.position = pos
 		add_child(star)
+		
 
 # Handle for WeaveCoordinator
 # when spell is done or failed
@@ -32,6 +36,8 @@ func CleanUp():
 	for star in _starsOnTable:
 		remove_child(star)
 	set_process_input(false)
+	
+	visible = false
 	
 	spell.DeactivateStarsInputProcessing()
 	
@@ -69,9 +75,16 @@ func _on_AstralTable_input_event(_viewport, event, _shape_idx):
 			_spellInWeaving.ActivateStarsInputProcessing()
 	
 
+
+func _on_AstralTable_draw():
+	# Put itself in the middle of the screen
+	global_position = get_viewport().get_visible_rect().size / 2
+	
+	
 # When the player has start pressed and hold the mouse
 # It's considered weaving 
 var _isWeaving = false
 var _spellInWeaving
 var _starsOnTable
+
 

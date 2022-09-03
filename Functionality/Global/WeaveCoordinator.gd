@@ -8,12 +8,17 @@ var _player
 func _ready():
 	seed(OS.get_system_time_msecs())
 	
+	
+func SetGUI(gui):
+	_GUI = gui
+	SetPlayer(_player)
+	
 # Injector for Player class.
 # Call this on Player initialization
 func SetPlayer(player):
 	if _player != null:
 		_player.disconnect("exhausted", self, "StopWeavingProcedure")
-	if player != null:
+	if player != null and GetGUI() != null:
 		GetGUI().ConnectTo(player)
 		player.connect("exhausted", self, "StopWeavingProcedure")
 	_player = player
@@ -53,10 +58,12 @@ func GetAstralTable():
 func GetSpellWheel():
 	return $CanvasLayer/SpellWheel
 
-func GetGUI():
-	return $CanvasLayer/GUI
 	
 func GetProjectileDump():
 	return $ProjectileDump
 	
 var _weavingSpell
+
+func GetGUI():
+	return _GUI
+var _GUI

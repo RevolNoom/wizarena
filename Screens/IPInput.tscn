@@ -38,5 +38,5 @@ margin_left = 167.0
 margin_right = 200.0
 margin_bottom = 24.0
 text = "GO"
-[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="Content/VBoxContainer/IP/GO" to="." method="_on_GO_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

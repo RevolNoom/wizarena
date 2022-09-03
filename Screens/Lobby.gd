@@ -2,10 +2,14 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Network.connect("new_register", self, "AddNewGuest")
 	if get_tree().get_network_unique_id() == 1:
 		SetupAsHost()
 	else:
 		SetupAsGuest()
+		
+	for player in Network._player.keys():
+		AddNewGuest(Network._player[player])
 
 
 func SetupAsHost():
@@ -25,7 +29,10 @@ func SetupAsGuest():
 	
 	
 # Return true if the new user was added successfully
-func AddNewGuest(name):
+func AddNewGuest(credential):
+	
+	var name = credential._name
+	
 	if $Content/VBoxContainer/Player/Name.get_node_or_null(name) != null:
 		return false
 		

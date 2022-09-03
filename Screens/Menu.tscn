@@ -6,9 +6,6 @@
 [node name="Menu" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="BackButton" parent="." index="0"]
-visible = false
-
 [node name="VBoxContainer" parent="Content" index="0"]
 margin_top = 254.0
 margin_bottom = 346.0
@@ -35,8 +32,11 @@ margin_top = 72.0
 margin_right = 200.0
 margin_bottom = 92.0
 text = "Settings"
-[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+
+[node name="BackButton" parent="." index="2"]
+visible = false
 [connection signal="pressed" from="Content/VBoxContainer/Host" to="." method="_on_Host_pressed"]
 [connection signal="pressed" from="Content/VBoxContainer/Join" to="." method="_on_Join_pressed"]
 [connection signal="pressed" from="Content/VBoxContainer/Train" to="." method="_on_Train_pressed"]
 [connection signal="pressed" from="Content/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

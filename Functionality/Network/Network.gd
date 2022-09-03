@@ -1,20 +1,11 @@
 extends Node
 
-var _player
+var _player = {}
 signal error(msg)
+signal new_register(credential)
 
 export var MAX_PLAYERS = 2
 export var PORT = 7979
-
-class Credential:
-	var _id
-	var _name
-	func _init(id, name):
-		_id = id
-		_name = name
-
-# Filled in IPInput scene or HostRoom
-var _localCred = Credential.new(-1, "")
 
 
 func SetAsClient(ip):
@@ -30,6 +21,10 @@ func SetAsClient(ip):
 		emit_signal("error", "Can't connect to " + str(ip) + ":" + str(PORT))
 		return
 	get_tree().network_peer = client
+	
+	GlobalSettings.ClientCredential._id = get_tree().get_network_unique_id()
+	RegisterPlayer(GlobalSettings.ClientCredential)
+	print("SetAsClient")
 
 
 func SetAsServer():
@@ -39,12 +34,17 @@ func SetAsServer():
 	
 	var ignore = get_tree().connect("network_peer_connected", self, "network_peer_connected")
 	ignore = get_tree().connect("network_peer_disconnected", self, "network_peer_disconnected")
+	
+	GlobalSettings.ClientCredential._id = get_tree().get_network_unique_id()
+	
+	RegisterPlayer(GlobalSettings.ClientCredential)
+	print("SetAsServer")
 
 
 # Called when a client (and the server itself) connects to the server
 func network_peer_connected(id):
-	_localCred._id = get_tree().get_network_unique_id()
-	rpc_id(id, "RegisterPlayer", _localCred)
+	print("New peer: " + str(id))
+	rpc_id(id, "RegisterPlayer", GlobalSettings.ClientCredential)
 
 
 func network_peer_disconnected(id):
@@ -62,7 +62,8 @@ func connection_failed():
 	
 
 remote func RegisterPlayer(credential):
-	_player[get_tree().get_rpc_sender_id()] = credential
+	_player[credential._id] = credential
+	emit_signal("new_register")
 	
 
 func server_disconnected():

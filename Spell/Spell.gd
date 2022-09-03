@@ -19,29 +19,42 @@ func _ready():
 		
 	for cost in [$Health, $Mana, $Focus]:
 		cost.set_process(false)
-	
+
+
 func GetRandomizedStarList():
 	for star in _starList:
 		star.Reset()
 	_starList.shuffle()
 	return _starList
-	
 
-func ActivateStarsInputProcessing():
+
+func ActivateStarsDependencies():
 	for star in _starList:
 		star.Activate()
-		
+	for s in _starList:
+		s.LockStars()
+	
+	
+func ActivateStarsInputProcessing():
+	for star in _starList:
+		star.input_pickable = true
+
+
 func DeactivateStarsInputProcessing():
 	for star in _starList:
 		star.Deactivate()
+
 
 func _on_StarTouched(_star):
 	if IsCompleted():
 		WeaveCoordinator.SpellWeavedSuccessfully(self)
 
+
 func FailedByStarLock(_lockedStar):
 	print("Spell failed: Mouse drawn over locked star.")
-	
+	WeaveCoordinator.StopWeavingProcedure()
+
+
 func IsCompleted():
 	for star in _starList:
 		if not star.IsTouched():

@@ -1,5 +1,6 @@
 extends Area2D
 
+class_name Star
 # Emits when this star is touched in valid state
 # Should unlock stars that this one locked
 signal unlock(selfStar)
@@ -18,13 +19,22 @@ func SetMasterSpell(spell):
 func Reset():
 	$Sprite.texture = touchable_texture
 
+
+# OVERRIDE ME
+func LockStars():
+	pass
+	
+
 func Activate():
 	_locks = []
-	input_pickable = true
 	monitorable = true
 	monitoring = true
-	
+
+
 func Deactivate():
+	if _locks != null:
+		for l in _locks:
+			_on_Star_unlock(l)
 	_locks = null
 	input_pickable = false
 	monitorable = false
@@ -45,15 +55,16 @@ func IsTouched():
 	return _locks == null
 
 
-func LockedBy(anotherStar):
+func BeLockedBy(anotherStar):
 	if not IsTouched():
 		_locks.append(anotherStar)
-		var err = connect("unlock", anotherStar, "_on_Star_unlock")
+		var err = anotherStar.connect("unlock", self, "_on_Star_unlock")
 		$Sprite.texture = locked_texture
+		
 
 func _on_Star_unlock(locker):
 	_locks.erase(locker)
-	disconnect("unlock", locker, "_on_Star_unlock")
+	locker.disconnect("unlock", self, "_on_Star_unlock")
 	if IsTouchable():
 		$Sprite.texture = touchable_texture
 
@@ -70,7 +81,7 @@ func _on_Star_input_event(_viewport, event, _shape_idx):
 		$Sprite.texture = touched_texture
 		Deactivate()
 		_masterSpell._on_StarTouched(self)
-		emit_signal("unlock")
+		emit_signal("unlock", self)
 
 var _masterSpell
 var _locks

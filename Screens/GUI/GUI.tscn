@@ -13,7 +13,6 @@
 [ext_resource path="res://rss/ProgressBars/FocusBarOver.png" type="Texture" id=11]
 [ext_resource path="res://rss/ProgressBars/FocusBarProgress.png" type="Texture" id=12]
 
-
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,9 +27,8 @@ __meta__ = {
 [node name="Top" type="HBoxContainer" parent="."]
 margin_right = 1024.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Attributes" type="VBoxContainer" parent="Top"]
 margin_right = 500.0
@@ -79,15 +77,14 @@ __meta__ = {
 }
 
 [node name="Bottom" type="HBoxContainer" parent="."]
+visible = false
 margin_top = 500.0
 margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SpellSlot" type="HBoxContainer" parent="Bottom"]
 margin_left = 924.0
