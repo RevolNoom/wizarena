@@ -1,7 +1,6 @@
 extends PathFollow2D
 
 
-
 func RefersTo(newSpell: Spell):
 	_spell = newSpell
 	
@@ -32,7 +31,12 @@ func _on_Button_mouse_entered():
 func _on_Button_mouse_exited():
 	_isHoveredOn = false
 	
-func _on_mouse_unclick():
+# Return the spell if it's hovered on and the slot is not empty
+# After calling this function, the slot clears its state, any
+# subsequent calls will return null, unless the slot is chosen again
+# Return null otherwise
+func IsChosen():
 	if _isHoveredOn and not IsEmpty():
 		_isHoveredOn = false
-		WeaveCoordinator.StartWeavingProcedure(_spell)
+		return _spell
+	return null

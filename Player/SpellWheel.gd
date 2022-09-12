@@ -1,7 +1,8 @@
 extends Path2D
 
-#TODO: There's add new spell, there should be remove spell
+signal spell_chosen(spell)
 
+#TODO: There's add new spell, there should be remove spell
 func _ready():
 	AddNewSpell($SpellFireball)
 
@@ -37,24 +38,24 @@ func _unhandled_input(event):
 		OpenWheel()
 	
 	elif visible and not _isHolding:
-		NotifySlotsOnMouseUnclick()
 		CloseWheel()
+		for slot in GetSlots():
+			var slotIsChosen = slot.IsChosen()
+			if slotIsChosen != null:
+				emit_signal("spell_chosen", slotIsChosen)
 
 func OpenWheel():
 	visible = true
 	
+	
 func CloseWheel():
 	visible = false
 
-# See SpellSlot for reason why I have to do this
-func NotifySlotsOnMouseUnclick():
-	for slot in GetSlots():
-		slot._on_mouse_unclick()
-	
+
 func DisableUntilAstralTableDone():
 	CloseWheel()
 	set_process_unhandled_input(false)
 	
-# Handle to call from AstralTable
+	
 func Reenable():
 	set_process_unhandled_input(true)

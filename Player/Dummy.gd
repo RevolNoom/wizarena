@@ -21,13 +21,9 @@ func Move():
 	pass
 
 
-func CastSpell():
-	pass
+func CastSpell(spell):
+	print("Casting spell")
+	spell._activable.Activate(self)
 	
-	
-# This one will be used when
-# I add multiplayer mode to game
-func DoAction(_action):
-	pass
 	
 var _currentWeavingSpell

@@ -1,57 +1,88 @@
+# Control spell drawing rule
+# Borrow (then return) Stars from Spell 
+# Draw Stars on table
+
 extends Node2D
 
+signal end_weave(spell)
+signal spell_changed(spell)
 
 func _ready():
 	set_process_input(false)
 
-# TODO:
-func PrepareSpell(spell):
+func StartWeaving(spell):
 	_spellInWeaving = spell
-	PutStarsOnTable(spell.GetRandomizedStarList())
+	_starList = spell.StarList
+	_starCount = 0
+	PutStarsOnTable()
+	ActivateStarsDependencies()
 	set_process_input(true)
 	visible = true
-	spell.ActivateStarsDependencies()
 	
 	
-func PutStarsOnTable(arrayOfStars):
-	_starsOnTable = arrayOfStars
-	# TODO: RAND with overlap checking
-	# RAND with table size
-	for star in _starsOnTable:
-		var pos =  Vector2(rand_range(-100, 100), rand_range(-100, 100))
-		star.position = pos
-		add_child(star)
-		
-
-# Handle for WeaveCoordinator
-# when spell is done or failed
-func CleanUp():
-	
-	# Try to finish cleaning up the table before jumping to spell
-	var spell = _spellInWeaving
-	_spellInWeaving = null
-	
+func StopWeaving():
 	_isWeaving = false 
+	DeactivateStarsInput()
 	
-	for star in _starsOnTable:
+	for star in _starList:
 		remove_child(star)
+	_starList = null
 	set_process_input(false)
 	
 	visible = false
 	
-	spell.DeactivateStarsInputProcessing()
+	var spell = _spellInWeaving
+	_spellInWeaving = null
+	emit_signal("end_weave", spell)
+	
+	
+func PutStarsOnTable():
+	# TODO: RAND with overlap checking
+	# RAND with table size
+	for star in _starList:
+		star.Reset()
+		var pos =  Vector2(rand_range(-100, 100), rand_range(-100, 100))
+		star.position = pos
+		add_child(star)
+		star.connect("touched", self, "_on_Star_touched")
+
+
+func ActivateStarsDependencies():
+	for s in _starList:
+		s.Activate()
+	for s in _starList:
+		s.LockStars()
+	
+	
+func ActivateStarsInput():
+	for star in _starList:
+		star.input_pickable = true
+
+
+func DeactivateStarsInput():
+	for star in _starList:
+		star.Deactivate()
+
 	
 	
 func _on_AstralTable_mouse_unpress():
 	print("Spell failed: Mouse unpress before all stars are drawn.")
-	WeaveCoordinator.StopWeavingProcedure()
+	StopWeaving()
+	
 	
 func _on_AstralTable_mouse_exited():
 	if _isWeaving and _spellInWeaving != null:
 		print("Spell failed: Mouse goes off table before all stars are drawn")
-		WeaveCoordinator.StopWeavingProcedure()
+		StopWeaving()
 	
-
+#func FailedByStarLock(_lockedStar):
+	
+	
+func SpellWoven():
+	emit_signal("spell_changed", _spellInWeaving)
+	StopWeaving()
+	
+	
 # Process mouse movement here
 func _on_AstralTable_input_event(_viewport, event, _shape_idx):
 	
@@ -72,19 +103,24 @@ func _on_AstralTable_input_event(_viewport, event, _shape_idx):
 		((event is InputEventMouseButton and event.pressed) or \
 		(event is InputEventMouseMotion and event.pressure != 0)):
 			_isWeaving = true
-			_spellInWeaving.ActivateStarsInputProcessing()
-	
+			ActivateStarsInput()
 
 
 func _on_AstralTable_draw():
 	# Put itself in the middle of the screen
 	global_position = get_viewport().get_visible_rect().size / 2
 	
+
+func _on_Star_touched(star):
+	_starCount += 1
+	star.disconnect("touched", self, "_on_Star_touched")
+	if _starCount == _starList.size():
+		SpellWoven()
+		
 	
 # When the player has start pressed and hold the mouse
 # It's considered weaving 
 var _isWeaving = false
 var _spellInWeaving
-var _starsOnTable
-
-
+var _starList
+var _starCount

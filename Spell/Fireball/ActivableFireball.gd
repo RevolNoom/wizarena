@@ -5,7 +5,7 @@ extends Node
 func Activate(caster):
 	var fireball = preload("res://Spell/Fireball/Fireball.tscn")
 	var fb = fireball.instance()
-	WeaveCoordinator.GetProjectileDump().Add(fb)
+	GlobalSettings.get_node("ProjectileDump").Add(fb)
 	fb.set_global_position(caster.get_global_position())
 	fb.set_global_rotation(caster.get_global_rotation())
 	fb.add_collision_exception_with(caster)

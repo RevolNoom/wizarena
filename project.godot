@@ -38,8 +38,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-WeaveCoordinator="*res://Functionality/Global/WeaveCoordinator.tscn"
-Network="res://Functionality/Network/Network.tscn"
+Network="*res://Functionality/Network/Network.tscn"
 GlobalSettings="*res://Functionality/Global/GlobalSettings.tscn"
 
 [debug]

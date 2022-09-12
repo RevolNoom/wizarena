@@ -12,6 +12,6 @@ class Credential:
 var ClientCredential = Credential.new(-1, "")
 
 func _ready():
-	rand_seed(OS.get_unix_time())
+	seed(OS.get_unix_time())
 	for i in range(0, 6):
 		ClientCredential._name += char(ord('a') + randi()%(ord('z') - ord('a')))

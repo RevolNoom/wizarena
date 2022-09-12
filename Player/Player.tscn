@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Dummy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Screens/GUI/GUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/SpellWheel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player/AstralTable.tscn" type="PackedScene" id=5]
 
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -14,3 +17,11 @@ regen = 15.0
 
 [node name="Camera2D" type="Camera2D" parent="." index="6"]
 current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
+
+[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 3 )]
+
+[node name="AstralTable" parent="CanvasLayer" index="1" instance=ExtResource( 5 )]
+
+[node name="SpellWheel" parent="CanvasLayer" index="2" instance=ExtResource( 4 )]
