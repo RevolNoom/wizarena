@@ -4,9 +4,7 @@ class_name Dummy
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var dontcare = $Focus.connect("empty", self, "ExhaustedFromSpellWeaving")
-	dontcare = $Mana.connect("empty", self, "ExhaustedFromSpellWeaving")
-	dontcare = $Health.connect("empty", self, "Die")
+	var dontcare = $Health.connect("empty", self, "Die")
 
 
 func Die():

@@ -13,6 +13,7 @@ func _ready():
 func StartWeaving(spell):
 	_spellInWeaving = spell
 	_starList = spell.StarList
+	print("Star list size: " + str(_starList.size()))
 	_starCount = 0
 	PutStarsOnTable()
 	ActivateStarsDependencies()
@@ -25,6 +26,8 @@ func StopWeaving():
 	DeactivateStarsInput()
 	
 	for star in _starList:
+		star.disconnect("touched", self, "_on_Star_touched")
+		star.disconnect("invalid", self, "_on_Star_invalid")
 		remove_child(star)
 	_starList = null
 	set_process_input(false)
@@ -45,13 +48,14 @@ func PutStarsOnTable():
 		star.position = pos
 		add_child(star)
 		star.connect("touched", self, "_on_Star_touched")
+		star.connect("invalid", self, "_on_Star_invalid")
 
 
 func ActivateStarsDependencies():
 	for s in _starList:
 		s.Activate()
 	for s in _starList:
-		s.LockStars()
+		s.LockStars(_starList)
 	
 	
 func ActivateStarsInput():
@@ -74,8 +78,6 @@ func _on_AstralTable_mouse_exited():
 	if _isWeaving and _spellInWeaving != null:
 		print("Spell failed: Mouse goes off table before all stars are drawn")
 		StopWeaving()
-	
-#func FailedByStarLock(_lockedStar):
 	
 	
 func SpellWoven():
@@ -109,11 +111,15 @@ func _on_AstralTable_input_event(_viewport, event, _shape_idx):
 func _on_AstralTable_draw():
 	# Put itself in the middle of the screen
 	global_position = get_viewport().get_visible_rect().size / 2
-	
 
-func _on_Star_touched(star):
+
+func _on_Star_invalid(_star):
+	print("Spell failed: Mouse touched invalid star")
+	StopWeaving()
+
+func _on_Star_touched(_star):
+	print("Astral Touch a Star")
 	_starCount += 1
-	star.disconnect("touched", self, "_on_Star_touched")
 	if _starCount == _starList.size():
 		SpellWoven()
 		

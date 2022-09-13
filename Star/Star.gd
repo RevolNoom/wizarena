@@ -10,6 +10,13 @@ signal touched(selfStar)
 # Emits when this star is touched in invalid state
 signal invalid(selfStar)
 
+# The number of stars that are locking us
+var _locks = []
+var _state = STATE.UNTOUCHED
+enum STATE{
+	UNTOUCHED
+	TOUCHED
+}
 # Astral Table Method call chain:
 # Reset(): Put star back to touchable state. 
 # LockStars()
@@ -25,25 +32,29 @@ func _ready():
 	Reset()
 
 # OVERRIDE ME
-func LockStars():
+func LockStars(_starList):
 	pass
 	
 # OVERRIDE ME
 func _on_Star_touched(_star):
 	pass
-	
+
+
 
 # TODO: Reset will be called by Spell
 # after each completed weaving
 # to set them back mint state
 func Reset():
-	_locks = 0
+	_state = STATE.UNTOUCHED
+	for l in _locks:
+		l.disconnect("unlock", self, "_on_Star_unlock")
+	_locks = []
 	$Sprite.texture = touchable_texture
 
 
 
 func Activate():
-	_locks = 0
+	_locks = []
 	monitorable = true
 	monitoring = true
 
@@ -56,27 +67,28 @@ func Deactivate():
 # A Locked star will fail the spell when player draws on it
 # Many stars can lock one star
 func IsLocked():
-	return _locks > 0
+	return _locks.size() > 0
 	
 # A Touchable star turns Touched when player draws on it
 func IsTouchable():
-	return _locks == 0
+	return _locks.size() == 0 and _state == STATE.UNTOUCHED
 	
 # A Touched Star cannot be locked by any other star logic
 # Example could be Black Hole, Sun, Vector
 func IsTouched():
-	return _locks == -1
+	return _state == STATE.TOUCHED
 
 
 func BeLockedBy(anotherStar):
 	if not IsTouched():
-		_locks += 1
+		_locks.append(anotherStar)
 		var err = anotherStar.connect("unlock", self, "_on_Star_unlock")
 		$Sprite.texture = locked_texture
 		
 
 func _on_Star_unlock(locker):
 	locker.disconnect("unlock", self, "_on_Star_unlock")
+	_locks.erase(locker)
 	if IsTouchable():
 		$Sprite.texture = touchable_texture
 
@@ -84,20 +96,17 @@ func _on_Star_unlock(locker):
 func _on_Star_input_event(_viewport, event, _shape_idx):
 	if not event is InputEventMouse:
 		return
-
+	
 	if IsLocked():
 		emit_signal("invalid", self)
-		return 
 		
-	if IsTouchable():
+		
+	elif IsTouchable():
+		_state = STATE.TOUCHED
 		$Sprite.texture = touched_texture
 		Deactivate()
-		_locks = -1
 		emit_signal("touched", self)
-		emit_signal("unlock", self)
 
-# The number of stars that are locking us
-var _locks = 0
 
 export(StreamTexture) var touchable_texture
 export(StreamTexture) var touched_texture

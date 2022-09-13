@@ -46,10 +46,6 @@ GlobalSettings="*res://Functionality/Global/GlobalSettings.tscn"
 gdscript/warnings/unused_variable=false
 gdscript/warnings/return_value_discarded=false
 
-[display]
-
-window/size/fullscreen=true
-
 [input]
 
 ui_left={
