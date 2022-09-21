@@ -1,24 +1,24 @@
-# ObjectPool
-# +) Manage Stars states
-# +) Test spell complete conditions
-
 extends Node
 
 class_name Spell
 
 func _ready():
-	_activable = get_node(_activable_path)
-	
 	# Keep the references to children
 	# But they won't show up in the scene
 	StarList = $Star.get_children()
 	for star in StarList:
 		$Star.remove_child(star)
-		star.Deactivate()
 		
 	for cost in [$Health, $Mana, $Focus]:
 		cost.set_process(false)
 
+# OVERRIDE ME
+func Activate(_caster):
+	pass
+	
+	
+func get_activable():
+	return $Activable
 
 # Try costing the player's resource: Hp, mana, focus, speed?
 # Return true if the spell costed the player successfully
@@ -45,8 +45,7 @@ func StopSuckingResourceFrom(player):
 		#player.get_node(attribute).Heal(get_node(attribute).value)
 		player.get_node(attribute).HealOverTime(get_node(attribute).regen)
 
+
 var StarList
 export(StreamTexture) var _icon_texture
 
-export(NodePath) var _activable_path
-var _activable

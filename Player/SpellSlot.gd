@@ -1,12 +1,13 @@
 extends PathFollow2D
 
+# Each SpellSlot fits a 32px radius circle. 
+# Any spell icon should follow this size
+
 
 func RefersTo(newSpell: Spell):
 	_spell = newSpell
 	
 	$Button/Sprite.texture = newSpell._icon_texture
-	# TODO: Uniformly resize texture size
-	# $Sprite.texture.get_size()
 	
 var _spell
 

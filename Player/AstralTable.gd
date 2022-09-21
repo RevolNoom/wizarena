@@ -13,7 +13,6 @@ func _ready():
 func StartWeaving(spell):
 	_spellInWeaving = spell
 	_starList = spell.StarList
-	print("Star list size: " + str(_starList.size()))
 	_starCount = 0
 	PutStarsOnTable()
 	ActivateStarsDependencies()
@@ -53,8 +52,6 @@ func PutStarsOnTable():
 
 func ActivateStarsDependencies():
 	for s in _starList:
-		s.Activate()
-	for s in _starList:
 		s.LockStars(_starList)
 	
 	
@@ -65,7 +62,7 @@ func ActivateStarsInput():
 
 func DeactivateStarsInput():
 	for star in _starList:
-		star.Deactivate()
+		star.input_pickable = false
 
 	
 	
@@ -118,7 +115,6 @@ func _on_Star_invalid(_star):
 	StopWeaving()
 
 func _on_Star_touched(_star):
-	print("Astral Touch a Star")
 	_starCount += 1
 	if _starCount == _starList.size():
 		SpellWoven()

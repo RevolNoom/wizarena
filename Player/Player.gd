@@ -42,8 +42,7 @@ func _on_SpellWheel_spell_chosen(spell):
 	$CanvasLayer/SpellWheel.DisableUntilAstralTableDone()
 	$CanvasLayer/AstralTable.StartWeaving(spell)
 
-	
-	
+
 # Called from GUI
 func ConnectToGUI(hpBar, manaBar, focusBar):
 	$Health.share(hpBar)

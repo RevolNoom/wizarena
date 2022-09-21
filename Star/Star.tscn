@@ -8,9 +8,9 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.98617
 
-[node name="Star" type="Area2D"]
+[node name="Star" type="RigidBody2D"]
 rotation = -0.0421118
-collision_layer = 2
+collision_layer = 256
 collision_mask = 0
 script = ExtResource( 1 )
 touchable_texture = ExtResource( 3 )

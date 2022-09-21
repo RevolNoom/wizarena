@@ -1,4 +1,4 @@
-extends Node
+extends Spell
 
 # Return an InputInspector if this spell needs extra input
 # Else, cast the spell and return null

@@ -21,7 +21,5 @@ func Move():
 
 func CastSpell(spell):
 	print("Casting spell")
-	spell._activable.Activate(self)
+	spell.Activate(self)
 	
-	
-var _currentWeavingSpell

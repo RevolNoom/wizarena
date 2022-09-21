@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="118.2324mm"
+   height="118.2324mm"
+   viewBox="0 0 118.2324 118.2324"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="Rock.svg"
+   inkscape:export-filename="/home/rev/Memory/Projects/Wizarena/rss/Rock.png"
+   inkscape:export-xdpi="13.75"
+   inkscape:export-ydpi="13.75"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.98670771"
+     inkscape:cx="336.97923"
+     inkscape:cy="237.65903"
+     inkscape:window-width="1830"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient207">
+      <stop
+         style="stop-color:#c87137;stop-opacity:1"
+         offset="0"
+         id="stop203" />
+      <stop
+         style="stop-color:#784421;stop-opacity:1"
+         offset="1"
+         id="stop205" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient207"
+       id="radialGradient275"
+       cx="110.08839"
+       cy="135.79416"
+       fx="110.08839"
+       fy="135.79416"
+       r="59.116199"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.5022879,0.00661657,-0.00682165,1.5490272,-54.369723,-75.283094)" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-51.100842,-75.599266)">
+    <rect
+       style="fill:url(#radialGradient275);fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583"
+       id="rect171"
+       width="118.232"
+       height="118.2324"
+       x="51.100842"
+       y="75.599266"
+       ry="44.106968" />
+  </g>
+</svg>

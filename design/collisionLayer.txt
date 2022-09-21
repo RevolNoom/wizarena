@@ -1,0 +1,13 @@
+1-8: Physical World
+	1: Player
+	2: Objects
+	3: Projectile
+
+9-16: Star World
+	9: Star
+
+17-24: Functionalities
+	17: AstralTable
+	18: SpellSlot
+
+25-32: ?

@@ -5,6 +5,7 @@ signal spell_chosen(spell)
 #TODO: There's add new spell, there should be remove spell
 func _ready():
 	AddNewSpell($SpellFireball)
+	AddNewSpell($Seisme)
 
 func AddNewSpell(newSpell: Spell):
 	var emptyslot = FindEmptySlot()

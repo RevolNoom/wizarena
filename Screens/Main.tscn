@@ -69,9 +69,9 @@ position = Vector2( 488.294, 311.039 )
 scale = Vector2( 6.52, 4.16 )
 
 [node name="Dummy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 599, 258 )
+position = Vector2( 946, 257 )
 
 [node name="Players" type="Node2D" parent="."]
 
 [node name="Player" parent="Players" instance=ExtResource( 2 )]
-position = Vector2( 460, 310 )
+position = Vector2( 463, 369 )
