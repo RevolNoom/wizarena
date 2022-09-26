@@ -78,4 +78,6 @@ __meta__ = {
 }
 
 [node name="Name" type="VBoxContainer" parent="Content/VBoxContainer/Player" index="0"]
+
+[connection signal="pressed" from="Content/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

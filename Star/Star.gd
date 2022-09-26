@@ -39,7 +39,7 @@ func _ready():
 	Reset()
 
 # OVERRIDE ME
-func LockStars(starList):
+func LockStars(_starList):
 	pass
 	
 	

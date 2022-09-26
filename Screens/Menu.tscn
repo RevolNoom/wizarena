@@ -35,6 +35,7 @@ text = "Settings"
 
 [node name="BackButton" parent="." index="2"]
 visible = false
+
 [connection signal="pressed" from="Content/VBoxContainer/Host" to="." method="_on_Host_pressed"]
 [connection signal="pressed" from="Content/VBoxContainer/Join" to="." method="_on_Join_pressed"]
 [connection signal="pressed" from="Content/VBoxContainer/Train" to="." method="_on_Train_pressed"]

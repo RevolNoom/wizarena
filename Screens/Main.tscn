@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Screens/Main.gd" type="Script" id=1]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://rss/Sprout Lands - Sprites - Basic pack/Tilesets/Tilled Dirt.png" type="Texture" id=3]
 [ext_resource path="res://rss/Sprout Lands - Sprites - Basic pack/Tilesets/Grass.png" type="Texture" id=4]
 [ext_resource path="res://Player/Dummy.tscn" type="PackedScene" id=5]
@@ -71,7 +70,17 @@ scale = Vector2( 6.52, 4.16 )
 [node name="Dummy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 946, 257 )
 
-[node name="Players" type="Node2D" parent="."]
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2( 105, 81 )
 
-[node name="Player" parent="Players" instance=ExtResource( 2 )]
-position = Vector2( 463, 369 )
+[node name="1" type="Position2D" parent="SpawnPoint"]
+position = Vector2( 36, 77 )
+
+[node name="2" type="Position2D" parent="SpawnPoint"]
+position = Vector2( 120, 79 )
+
+[node name="3" type="Position2D" parent="SpawnPoint"]
+position = Vector2( 218, 81 )
+
+[node name="4" type="Position2D" parent="SpawnPoint"]
+position = Vector2( 315, 77 )

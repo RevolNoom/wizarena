@@ -7,24 +7,25 @@ signal new_register(credential)
 export var MAX_PLAYERS = 2
 export var PORT = 7979
 
-
-func SetAsClient(ip):
+func _ready():
 	var ignore = get_tree().connect("network_peer_connected", self, "network_peer_connected")
 	ignore = get_tree().connect("network_peer_disconnected", self, "network_peer_disconnected")
 	ignore = get_tree().connect("connection_failed", self, "connection_failed")
 	ignore = get_tree().connect("connected_to_server", self, "connected_to_server")
 	ignore = get_tree().connect("server_disconnected", self, "server_disconnected")
 	
+
+func SetAsClient(ip):
 	var client = NetworkedMultiplayerENet.new()
 	var err = client.create_client(ip, PORT)
-	if err != null:
+	if err != OK:
 		emit_signal("error", "Can't connect to " + str(ip) + ":" + str(PORT))
 		return
 	get_tree().network_peer = client
 	
 	GlobalSettings.ClientCredential._id = get_tree().get_network_unique_id()
-	RegisterPlayer(GlobalSettings.ClientCredential)
-	print("SetAsClient")
+	RegisterPlayer(GlobalSettings.ClientCredential._id, GlobalSettings.ClientCredential._name)
+	#print("SetAsClient")
 
 
 func SetAsServer():
@@ -32,19 +33,16 @@ func SetAsServer():
 	server.create_server(PORT, MAX_PLAYERS)
 	get_tree().network_peer = server
 	
-	var ignore = get_tree().connect("network_peer_connected", self, "network_peer_connected")
-	ignore = get_tree().connect("network_peer_disconnected", self, "network_peer_disconnected")
-	
 	GlobalSettings.ClientCredential._id = get_tree().get_network_unique_id()
 	
-	RegisterPlayer(GlobalSettings.ClientCredential)
-	print("SetAsServer")
+	RegisterPlayer(GlobalSettings.ClientCredential._id, GlobalSettings.ClientCredential._name)
+	#print("SetAsServer")
 
 
 # Called when a client (and the server itself) connects to the server
 func network_peer_connected(id):
-	print("New peer: " + str(id))
-	rpc_id(id, "RegisterPlayer", GlobalSettings.ClientCredential)
+	#print("New peer: " + str(id))
+	rpc_id(id, "RegisterPlayer", GlobalSettings.ClientCredential._id, GlobalSettings.ClientCredential._name)
 
 
 func network_peer_disconnected(id):
@@ -61,9 +59,9 @@ func connection_failed():
 	print("Connection failed")
 	
 
-remote func RegisterPlayer(credential):
-	_player[credential._id] = credential
-	emit_signal("new_register")
+remote func RegisterPlayer(id, name):
+	_player[id] = name
+	emit_signal("new_register", name)
 	
 
 func server_disconnected():

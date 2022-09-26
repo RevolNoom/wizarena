@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Wizarena"
-run/main_scene="res://Screens/Main.tscn"
+run/main_scene="res://Screens/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -1,11 +1,6 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var ignore = Network.connect("error", self, "_on_Network_error")
@@ -25,19 +20,20 @@ func _on_GO_pressed():
 		$Content/VBoxContainer/Error.text = "Missing IP"
 		return
 		
-	GlobalSettings.ClientCredential._name = name
-		
-	Network.SetAsClient(ip)
+	Network.SetAsClient(str(ip))
 	
 	
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://Screens/Menu.tscn")
 
-func _on_text_entered(_new_text):
-	_on_GO_pressed()
-	
+
 func _on_connected_to_server():
-	get_tree().change_scene("res://Screens/HostRoom.tscn")
+	get_tree().change_scene("res://Screens/Lobby.tscn")
+	
 	
 func _on_Network_error(msg):
 	$Content/VBoxContainer/Error.text = msg
+
+
+func _on_IP_text_entered(_new_text):
+	_on_GO_pressed()
