@@ -29,7 +29,6 @@ func _on_Star_touched(_star):
 
 
 func LockStars(starList):
-	print("BlackHole LockStars called in: " + name)
 	$LockRadius.connect("body_entered", self, "_on_LockRadius_body_entered")
 	_fullStarList = starList.duplicate(true)
 	_lockedStars = starList.duplicate(true)

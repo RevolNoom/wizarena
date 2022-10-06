@@ -1,5 +1,6 @@
 extends Control
 
+signal connected_to_server
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -7,6 +8,9 @@ func _ready():
 	ignore = get_tree().connect("connected_to_server", self, "_on_connected_to_server")
 	if GlobalSettings.ClientCredential._name == "":
 		$Content/VBoxContainer/Error.text = "Change your name in Settings!"
+		
+	# NOTE: Debugging, connecting to self host
+	Network.SetAsClient("127.0.0.1")
 
 
 
@@ -22,13 +26,9 @@ func _on_GO_pressed():
 		
 	Network.SetAsClient(str(ip))
 	
-	
-func _on_BackButton_pressed():
-	get_tree().change_scene("res://Screens/Menu.tscn")
-
 
 func _on_connected_to_server():
-	get_tree().change_scene("res://Screens/Lobby.tscn")
+	emit_signal("connected_to_server")
 	
 	
 func _on_Network_error(msg):

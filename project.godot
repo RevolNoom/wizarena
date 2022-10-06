@@ -19,7 +19,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Player/Dummy.gd"
 }, {
-"base": "Node",
+"base": "Node2D",
+"class": "Map",
+"language": "GDScript",
+"path": "res://Maps/Map.gd"
+}, {
+"base": "Area2D",
 "class": "Spell",
 "language": "GDScript",
 "path": "res://Spell/Spell.gd"
@@ -32,6 +37,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Blackhole": "",
 "Dummy": "",
+"Map": "",
 "Spell": "",
 "Star": ""
 }
@@ -39,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Wizarena"
-run/main_scene="res://Screens/Menu.tscn"
+run/main_scene="res://Screens/Menu/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

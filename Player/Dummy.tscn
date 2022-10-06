@@ -34,3 +34,5 @@ percent_visible = false
 [node name="Speed" parent="." instance=ExtResource( 3 )]
 value = 100.0
 percent_visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]

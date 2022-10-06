@@ -60,7 +60,7 @@ func CheckRoomMaster(_name):
 
 func _on_BackButton_pressed():
 	get_tree().network_peer = null
-	get_tree().change_scene("res://Screens/Menu.tscn")
+	get_tree().change_scene("res://Screens/Menu/Menu.tscn")
 
 
 func _on_Start_pressed():
@@ -68,4 +68,4 @@ func _on_Start_pressed():
 	rpc("InitializeGame")
 
 remotesync func InitializeGame():
-	get_tree().change_scene("res://Screens/Main.tscn")
+	get_tree().change_scene("res://Screens/Gameplay/Gameplay.tscn")

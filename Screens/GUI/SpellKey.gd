@@ -19,12 +19,9 @@ func _on_SpellKey_pressed():
 	var spell = _spell
 	_spell = null
 	emit_signal("cast_spell", spell)
-		
-	
+
+
 func _unhandled_key_input(event):
 	if event.pressed and event.scancode == ord(_keyBinding):
 		_on_SpellKey_pressed()
 		get_tree().set_input_as_handled()
-
-	
-	

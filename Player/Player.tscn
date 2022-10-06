@@ -17,7 +17,7 @@ regen = 5.0
 [node name="Focus" parent="." index="4"]
 regen = 15.0
 
-[node name="Camera2D" type="Camera2D" parent="." index="6"]
+[node name="Camera2D" parent="." index="6"]
 current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]

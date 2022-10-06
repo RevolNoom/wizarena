@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="315.12347"
+   height="359.52896"
+   viewBox="0 0 83.376415 95.125376"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="MilkyWay.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="0.80788915"
+     inkscape:cx="307.5917"
+     inkscape:cy="297.68936"
+     inkscape:window-width="1830"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-6.5030055,0.826175)">
+    <path
+       sodipodi:type="spiral"
+       style="fill:none;fill-rule:evenodd;stroke:#000000"
+       id="path32"
+       sodipodi:cx="263.8924"
+       sodipodi:cy="251.96584"
+       sodipodi:expansion="0.73000002"
+       sodipodi:revolution="1.8"
+       sodipodi:radius="277.39508"
+       sodipodi:argument="-18.003731"
+       sodipodi:t0="0.11"
+       d="m 236.42084,300.04626 c -49.07826,0.56665 -70.82157,-57.35674 -59.79256,-97.94024 18.02539,-66.32817 95.47345,-93.20661 156.18203,-70.7596 82.28265,30.42403 114.59418,128.86492 81.90692,206.7957 -40.82972,97.34347 -159.3766,134.85866 -253.05785,92.75086 C 49.990402,380.70008 7.4904953,243.00526 58.41511,134.56296 117.29678,9.1763662 273.30832,-38.119706 395.77035,21.154423 448.30882,46.584117 491.52483,89.337308 518.20731,141.18697"
+       transform="matrix(0.10964859,-0.15973823,0.15973823,0.10964859,-15.051389,66.986601)" />
+  </g>
+</svg>

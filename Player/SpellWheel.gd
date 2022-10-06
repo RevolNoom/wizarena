@@ -1,11 +1,13 @@
-extends Path2D
+extends Node2D
 
 signal spell_chosen(spell)
 
 #TODO: There's add new spell, there should be remove spell
 func _ready():
-	AddNewSpell($SpellFireball)
-	AddNewSpell($Seisme)
+	for spell in [$SpellFireball, $Seisme]:
+		remove_child(spell)
+		AddNewSpell(spell)
+
 
 func AddNewSpell(newSpell: Spell):
 	var emptyslot = FindEmptySlot()
@@ -17,8 +19,8 @@ func AddNewSpell(newSpell: Spell):
 	
 func GetSlots():
 	var slots = []
-	for i in range(0, 8):
-		slots.push_back(get_node("SpellSlot"+str(i)))
+	for i in range(1, 7):
+		slots.push_back(get_node("Slot"+str(i)))
 	return slots
 	
 	
@@ -53,7 +55,7 @@ func CloseWheel():
 	visible = false
 
 
-func DisableUntilAstralTableDone():
+func Disable():
 	CloseWheel()
 	set_process_unhandled_input(false)
 	

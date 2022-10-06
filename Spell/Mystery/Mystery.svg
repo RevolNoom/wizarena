@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 16.933333 16.933334"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="Mystery.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="64px"
+     inkscape:zoom="8.3271326"
+     inkscape:cx="33.324796"
+     inkscape:cy="35.726584"
+     inkscape:window-width="1830"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient83">
+      <stop
+         style="stop-color:#000000;stop-opacity:1"
+         offset="0"
+         id="stop79" />
+      <stop
+         style="stop-color:#333333;stop-opacity:1"
+         offset="1"
+         id="stop81" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient83"
+       id="radialGradient85"
+       cx="8.7958527"
+       cy="8.8308878"
+       fx="8.7958527"
+       fy="8.8308878"
+       r="8.4475689"
+       gradientTransform="matrix(1.0139836,-0.01715034,0.01774569,1.050071,-0.27972322,-0.29099709)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="fill:url(#radialGradient85);stroke-width:0.264583;fill-opacity:1;stroke:none"
+       id="path47"
+       cx="8.4402456"
+       cy="8.4488716"
+       rx="8.4475689"
+       ry="8.4547052" />
+    <g
+       aria-label="?"
+       id="text931"
+       style="font-size:18.0299px;line-height:1.25;fill:#ffffff;stroke:#ff6600;stroke-width:0.450748"
+       transform="matrix(0.61110612,0,0,0.61110612,3.2926348,3.2926348)">
+      <path
+         d="m 7.106501,12.92132 h 1.7871434 v 2.23613 H 7.106501 Z M 8.8408224,11.627181 H 7.159323 v -1.355764 q 0,-0.8891695 0.2465025,-1.4614075 0.2465026,-0.572238 1.0388321,-1.329353 L 9.2369872,6.6971306 Q 9.7387959,6.2305365 9.9588875,5.8167644 10.187783,5.4029923 10.187783,4.9716129 q 0,-0.7835259 -0.581042,-1.2677273 -0.572238,-0.4842014 -1.5230335,-0.4842014 -0.6954893,0 -1.4878189,0.3081281 Q 5.8123627,3.8359405 4.9584075,4.4257859 V 2.7706974 Q 5.7859517,2.2688887 6.6311033,2.0223861 7.4850585,1.7758836 8.3918357,1.7758836 q 1.6198733,0 2.5970803,0.8539552 0.98601,0.8539552 0.98601,2.2537375 0,0.6690783 -0.316932,1.2765309 -0.316932,0.5986491 -1.109261,1.355764 L 9.7740106,8.2729861 Q 9.3602385,8.6867582 9.1841652,8.9244571 9.0168957,9.1533523 8.9464664,9.3734438 8.8936444,9.5583207 8.8672334,9.8224306 8.8408224,10.08654 8.8408224,10.544331 Z"
+         id="path12099" />
+    </g>
+  </g>
+</svg>

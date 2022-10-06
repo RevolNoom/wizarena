@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Screens/SettingScreen.gd" type="Script" id=1]
-[ext_resource path="res://Screens/GenericScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Screens/Menu/SettingScreen.gd" type="Script" id=1]
+[ext_resource path="res://Screens/Menu/GenericScreen.tscn" type="PackedScene" id=2]
 
 [node name="SettingScreen" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -28,5 +28,6 @@ size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="text_changed" from="Content/VBoxContainer/HBoxContainer/Name" to="." method="_on_Name_text_changed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

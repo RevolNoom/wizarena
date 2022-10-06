@@ -2,19 +2,22 @@
 
 [ext_resource path="res://Spell/Spell.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Spell/Seisme/Seisme.gd" type="Script" id=2]
-[ext_resource path="res://Spell/Seisme/IconSeisme.svg" type="Texture" id=3]
+[ext_resource path="res://Spell/Seisme/Seisme.svg" type="Texture" id=3]
 [ext_resource path="res://Star/Star.tscn" type="PackedScene" id=4]
 
 [node name="Seisme" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-_icon_texture = ExtResource( 3 )
+description = "Rupture the ground, spawning rocks and dealing damage to objects hit."
+
+[node name="Icon" parent="." index="1"]
+texture = ExtResource( 3 )
 
 [node name="Star" parent="Star" index="0" instance=ExtResource( 4 )]
 
 [node name="Star2" parent="Star" index="1" instance=ExtResource( 4 )]
 
-[node name="Mana" parent="." index="3"]
+[node name="Mana" parent="." index="5"]
 value = 50.0
 
-[node name="Focus" parent="." index="4"]
+[node name="Focus" parent="." index="6"]
 regen = 20.0

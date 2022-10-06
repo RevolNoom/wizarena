@@ -1,4 +1,4 @@
-extends Node
+extends Area2D
 
 class_name Spell
 
@@ -13,7 +13,14 @@ func _ready():
 		cost.set_process(false)
 
 # OVERRIDE ME
+# Called when Player wants to get more input to prepare spell
 func Activate(_caster):
+	pass
+	
+	
+# OVERRIDE ME
+# Called from Dummy when syncing spell casts
+func Instantiate(_customSpellArguments: Array):
 	pass
 	
 	
@@ -46,6 +53,16 @@ func StopSuckingResourceFrom(player):
 		player.get_node(attribute).HealOverTime(get_node(attribute).regen)
 
 
-var StarList
-export(StreamTexture) var _icon_texture
+func get_texture():
+	return $Icon.texture
 
+
+var StarList
+export(String, MULTILINE) var description
+
+
+func _on_Icon_mouse_entered():
+	emit_signal("mouse_entered")
+
+func _on_Icon_mouse_exited():
+	emit_signal("mouse_exited")

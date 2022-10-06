@@ -1,15 +1,19 @@
-extends PathFollow2D
+extends Position2D
 
 # Each SpellSlot fits a 32px radius circle. 
 # Any spell icon should follow this size
 
 
-func RefersTo(newSpell: Spell):
-	_spell = newSpell
+func RefersTo(newSpell: Spell):	
+	for spell in get_children():
+		spell.disconnect("mouse_entered", self, "_on_mouse_entered")
+		spell.disconnect("mouse_exited", self, "_on_mouse_exited")
+		remove_child(spell)
+		
+	newSpell.connect("mouse_entered", self, "_on_mouse_entered")
+	newSpell.connect("mouse_exited", self, "_on_mouse_exited")
+	add_child(newSpell)
 	
-	$Button/Sprite.texture = newSpell._icon_texture
-	
-var _spell
 
 # Two Signals to work-around a problem
 # SpellWheel can intercept InputEventMouseButton
@@ -23,13 +27,13 @@ var _spell
 #			print("SetSpell")
 	
 func IsEmpty():
-	return _spell == null
+	return get_child_count() == 0
 	
 var _isHoveredOn
-func _on_Button_mouse_entered():
+func _on_mouse_entered():
 	_isHoveredOn = true
 	
-func _on_Button_mouse_exited():
+func _on_mouse_exited():
 	_isHoveredOn = false
 	
 # Return the spell if it's hovered on and the slot is not empty
@@ -39,5 +43,5 @@ func _on_Button_mouse_exited():
 func IsChosen():
 	if _isHoveredOn and not IsEmpty():
 		_isHoveredOn = false
-		return _spell
+		return get_children()[0]
 	return null

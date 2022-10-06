@@ -9,5 +9,6 @@
 17-24: Functionalities
 	17: AstralTable
 	18: SpellSlot
+	19: Spell Icon Texture
 
 25-32: ?
