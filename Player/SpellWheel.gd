@@ -1,36 +1,20 @@
 extends Node2D
 
+#TODO: free() _spellBookCopy properly?
+
 signal spell_chosen(spell)
 
-#TODO: There's add new spell, there should be remove spell
 func _ready():
-	for spell in [$SpellFireball, $Seisme]:
-		remove_child(spell)
-		AddNewSpell(spell)
+	_spellBookCopy = GlobalSettings._EquippedSpells.duplicate(true)
+	
+	for i in _spellBookCopy:
+		i.visible = true
+	
+	for i in range(0, get_child_count()):
+		var spell = _spellBookCopy.pop_front()
+		get_node("Slot" + str(i)).RefersTo(spell)
 
 
-func AddNewSpell(newSpell: Spell):
-	var emptyslot = FindEmptySlot()
-	if emptyslot == null:
-		print("Can't find empty slot")
-		return
-		
-	emptyslot.RefersTo(newSpell)
-	
-func GetSlots():
-	var slots = []
-	for i in range(1, 7):
-		slots.push_back(get_node("Slot"+str(i)))
-	return slots
-	
-	
-func FindEmptySlot():
-	for slot in GetSlots():
-		if slot.IsEmpty():
-			return slot
-	return null
-	
-	
 var _isHolding = false
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -42,10 +26,17 @@ func _unhandled_input(event):
 	
 	elif visible and not _isHolding:
 		CloseWheel()
-		for slot in GetSlots():
-			var slotIsChosen = slot.IsChosen()
-			if slotIsChosen != null:
-				emit_signal("spell_chosen", slotIsChosen)
+		for slot in get_children():
+			if slot.IsChosen():
+				emit_signal("spell_chosen", slot.GetSpell())
+
+
+func PopSpellOffWheel(spell):
+	var slot = spell.get_parent()
+	slot.remove_child(spell)
+	slot.add_child(_spellBookCopy.pop_front())
+	_spellBookCopy.push_back(spell)
+
 
 func OpenWheel():
 	visible = true
@@ -62,3 +53,6 @@ func Disable():
 	
 func Reenable():
 	set_process_unhandled_input(true)
+	
+
+var _spellBookCopy

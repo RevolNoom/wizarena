@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Screens/Menu/SpellBook.gd" type="Script" id=1]
-[ext_resource path="res://Screens/Menu/MilkyWay.svg" type="Texture" id=2]
+[ext_resource path="res://Screens/Menu/SpellBook/SpellBook.gd" type="Script" id=1]
+[ext_resource path="res://Screens/Menu/SpellBook/MilkyWay.svg" type="Texture" id=2]
 
 [node name="SpellBook" type="Control"]
 anchor_right = 1.0
@@ -26,34 +26,34 @@ size_flags_stretch_ratio = 3.0
 position = Vector2( 342, 285 )
 texture = ExtResource( 2 )
 
-[node name="Slot1" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
+[node name="Slot0" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
 position = Vector2( 38, 60 )
 
-[node name="Slot2" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
+[node name="Slot1" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
 position = Vector2( -48, 49 )
 
-[node name="Slot3" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
+[node name="Slot2" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
 position = Vector2( -53, -38 )
 
-[node name="Slot4" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
+[node name="Slot3" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
 position = Vector2( 35, -89 )
 
-[node name="Slot5" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
+[node name="Slot4" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
 position = Vector2( 146, -20 )
 
-[node name="Slot6" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
+[node name="Slot5" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
 position = Vector2( 151, 80 )
 
-[node name="Slot7" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
+[node name="Slot6" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
 position = Vector2( -22, 176 )
 
-[node name="Slot8" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
+[node name="Slot7" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
 position = Vector2( -156, 35 )
 
-[node name="Slot9" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
+[node name="Slot8" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
 position = Vector2( -91, -135 )
 
-[node name="Slot10" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
+[node name="Slot9" type="Position2D" parent="HBoxContainer/Panel/MilkyWay"]
 position = Vector2( 62, -178 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]

@@ -28,3 +28,4 @@ current = true
 visible = false
 
 [node name="SpellWheel" parent="CanvasLayer" index="2" instance=ExtResource( 4 )]
+visible = false

@@ -1,20 +1,32 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in _spellBook.keys():
 		$HBoxContainer/VBoxContainer/ItemList.add_icon_item(_spellBook[i].get_texture())
 
-	for slot in $HBoxContainer/Panel/MilkyWay.get_children():
-		slot.add_child(preload("res://Spell/Mystery/Mystery.tscn").instance())
+func _enter_tree():
+	# Only call this function after _ready()
+	if get_node_or_null("MousePosition") == null:
+		return
+		
+	var eqs = GlobalSettings._EquippedSpells
+	for i in range (0, eqs.size()):
+		$HBoxContainer/Panel/MilkyWay.get_node("Slot"+ str(i)).add_child(eqs[i])
+		eqs[i].visible = true
 
 
+# Transfer Spells in slots to GlobalSettings' Spell Book
+func _exit_tree():
+	# This is an array reference. _EquippedSpells is being modified
+	var eqs = GlobalSettings._EquippedSpells
+	
+	for i in range (0, eqs.size()):
+		var slot = $HBoxContainer/Panel/MilkyWay.get_node("Slot"+ str(i))
+		eqs[i] = slot.get_children()[0]
+		slot.remove_child(eqs[i])
+		eqs[i].visible = false
+	
 
 func _on_ItemList_item_selected(index):
 	$HBoxContainer/VBoxContainer/DescriptionText.text = _spellBook[index].description

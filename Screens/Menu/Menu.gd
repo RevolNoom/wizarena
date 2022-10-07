@@ -5,7 +5,7 @@ var LOBBY = preload("res://Screens/Menu/Lobby.tscn")
 var IPINPUT = preload("res://Screens/Menu/IPInput.tscn")
 var GAMEPLAY = preload("res://Screens/Gameplay/Gameplay.tscn")
 var SETTINGSCREEN = preload("res://Screens/Menu/SettingScreen.tscn")
-var SPELLBOOK = preload("res://Screens/Menu/SpellBook.tscn")
+var SPELLBOOK = preload("res://Screens/Menu/SpellBook/SpellBook.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

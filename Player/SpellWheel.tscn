@@ -1,41 +1,31 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Spell/Fireball/Fireball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Slot.gd" type="Script" id=2]
 [ext_resource path="res://Player/SpellWheel.gd" type="Script" id=3]
-[ext_resource path="res://Spell/Seisme/Seisme.tscn" type="PackedScene" id=4]
 
 [node name="SpellWheel" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Slot1" type="Position2D" parent="."]
+[node name="Slot0" type="Position2D" parent="."]
 position = Vector2( 0, -128 )
 script = ExtResource( 2 )
 
-[node name="Slot2" type="Position2D" parent="."]
+[node name="Slot1" type="Position2D" parent="."]
 position = Vector2( 110.851, -64 )
 script = ExtResource( 2 )
 
-[node name="Slot3" type="Position2D" parent="."]
+[node name="Slot2" type="Position2D" parent="."]
 position = Vector2( 110.851, 64 )
 script = ExtResource( 2 )
 
-[node name="Slot4" type="Position2D" parent="."]
+[node name="Slot3" type="Position2D" parent="."]
 position = Vector2( 0, 128 )
 script = ExtResource( 2 )
 
-[node name="Slot5" type="Position2D" parent="."]
+[node name="Slot4" type="Position2D" parent="."]
 position = Vector2( -110.851, 64 )
 script = ExtResource( 2 )
 
-[node name="Slot6" type="Position2D" parent="."]
+[node name="Slot5" type="Position2D" parent="."]
 position = Vector2( -110.851, -64 )
 script = ExtResource( 2 )
-
-[node name="Seisme" parent="." instance=ExtResource( 4 )]
-collision_layer = 1
-collision_mask = 1
-
-[node name="SpellFireball" parent="." instance=ExtResource( 1 )]
-collision_layer = 1
-collision_mask = 1

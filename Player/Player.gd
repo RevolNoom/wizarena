@@ -32,7 +32,7 @@ func ExhaustedFromSpellWeaving():
 	emit_signal("exhausted")
 
 
-func _on_self_die(selff):
+func _on_self_die(_selff):
 	$CanvasLayer/AstralTable.StopWeaving()
 	$CanvasLayer/SpellWheel.Disable()
 	
@@ -55,6 +55,7 @@ func _on_SpellWheel_spell_chosen(spell):
 		print("Not enough resource for spell")
 		return
 	$CanvasLayer/SpellWheel.Disable()
+	$CanvasLayer/SpellWheel.PopSpellOffWheel(spell)
 	$CanvasLayer/AstralTable.StartWeaving(spell)
 
 

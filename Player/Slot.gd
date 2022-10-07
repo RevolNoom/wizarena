@@ -5,10 +5,6 @@ extends Position2D
 
 
 func RefersTo(newSpell: Spell):	
-	for spell in get_children():
-		spell.disconnect("mouse_entered", self, "_on_mouse_entered")
-		spell.disconnect("mouse_exited", self, "_on_mouse_exited")
-		remove_child(spell)
 		
 	newSpell.connect("mouse_entered", self, "_on_mouse_entered")
 	newSpell.connect("mouse_exited", self, "_on_mouse_exited")
@@ -29,19 +25,27 @@ func RefersTo(newSpell: Spell):
 func IsEmpty():
 	return get_child_count() == 0
 	
+	
+func FlushSpell():
+	for spell in get_children():
+		spell.disconnect("mouse_entered", self, "_on_mouse_entered")
+		spell.disconnect("mouse_exited", self, "_on_mouse_exited")
+		remove_child(spell)
+		
+
+func GetSpell():
+	return get_children()[0]
+
+
+func IsChosen():
+	if _isHoveredOn and not IsEmpty():
+		return true
+	return false
+	
+
 var _isHoveredOn
 func _on_mouse_entered():
 	_isHoveredOn = true
 	
 func _on_mouse_exited():
 	_isHoveredOn = false
-	
-# Return the spell if it's hovered on and the slot is not empty
-# After calling this function, the slot clears its state, any
-# subsequent calls will return null, unless the slot is chosen again
-# Return null otherwise
-func IsChosen():
-	if _isHoveredOn and not IsEmpty():
-		_isHoveredOn = false
-		return get_children()[0]
-	return null
