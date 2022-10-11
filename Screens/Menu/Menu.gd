@@ -17,6 +17,7 @@ func _on_Join_pressed():
 
 
 func _on_Join_connected_to_server():
+	get_node("HBoxContainer/SideWindow/IPInput").disconnect("connected_to_server", self, "_on_Join_connected_to_server")
 	ChangeSideWindow(LOBBY)
 	
 

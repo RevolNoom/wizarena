@@ -14,8 +14,6 @@ texture = ExtResource( 3 )
 
 [node name="Star" parent="Star" index="0" instance=ExtResource( 4 )]
 
-[node name="Star2" parent="Star" index="1" instance=ExtResource( 4 )]
-
 [node name="Mana" parent="." index="5"]
 value = 50.0
 

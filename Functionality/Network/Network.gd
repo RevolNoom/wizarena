@@ -2,10 +2,12 @@ extends Node
 
 var _player = {}
 signal error(msg)
-signal new_register(credential)
+signal connected(credential)
+signal disconnected(credential)
 
 export var MAX_PLAYERS = 2
 export var PORT = 7979
+
 
 func _ready():
 	var ignore = get_tree().connect("network_peer_connected", self, "network_peer_connected")
@@ -23,9 +25,8 @@ func SetAsClient(ip):
 		return
 	get_tree().network_peer = client
 	
-	GlobalSettings.ClientCredential._id = get_tree().get_network_unique_id()
-	RegisterPlayer(GlobalSettings.ClientCredential._id, GlobalSettings.ClientCredential._name)
-	#print("SetAsClient")
+	GlobalSettings.Credential[GlobalSettings.ID] = get_tree().get_network_unique_id()
+	RegisterPlayer(GlobalSettings.Credential)
 
 
 func SetAsServer():
@@ -33,20 +34,21 @@ func SetAsServer():
 	server.create_server(PORT, MAX_PLAYERS)
 	get_tree().network_peer = server
 	
-	GlobalSettings.ClientCredential._id = get_tree().get_network_unique_id()
-	
-	RegisterPlayer(GlobalSettings.ClientCredential._id, GlobalSettings.ClientCredential._name)
-	#print("SetAsServer")
+	GlobalSettings.Credential[GlobalSettings.ID] = get_tree().get_network_unique_id()
+	RegisterPlayer(GlobalSettings.Credential)
 
 
 # Called when a client (and the server itself) connects to the server
 func network_peer_connected(id):
-	#print("New peer: " + str(id))
-	rpc_id(id, "RegisterPlayer", GlobalSettings.ClientCredential._id, GlobalSettings.ClientCredential._name)
+	# rpc_id or rpc?
+	rpc_id(id, "RegisterPlayer", GlobalSettings.Credential)
 
 
 func network_peer_disconnected(id):
+	print ("Disconnected: " + str(id))
+	var cred = _player[id]
 	_player.erase(id)
+	emit_signal("disconnected", cred)
 	
 
 func connected_to_server():
@@ -59,9 +61,11 @@ func connection_failed():
 	print("Connection failed")
 	
 
-remote func RegisterPlayer(id, name):
-	_player[id] = name
-	emit_signal("new_register", name)
+remote func RegisterPlayer(credential):
+	print("Registering credential: " + str(credential))
+	_player[credential[GlobalSettings.ID]] = credential
+	print("Host: " + str(get_tree().get_network_unique_id()) + ": " + str(credential[GlobalSettings.ID]) + " + " + credential[GlobalSettings.NAME])
+	emit_signal("connected", credential)
 	
 
 func server_disconnected():

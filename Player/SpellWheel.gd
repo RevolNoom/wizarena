@@ -33,8 +33,7 @@ func _unhandled_input(event):
 
 func PopSpellOffWheel(spell):
 	var slot = spell.get_parent()
-	slot.remove_child(spell)
-	slot.add_child(_spellBookCopy.pop_front())
+	slot.RefersTo(_spellBookCopy.pop_front())
 	_spellBookCopy.push_back(spell)
 
 

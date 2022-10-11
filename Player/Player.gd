@@ -3,7 +3,7 @@ extends Dummy
 signal exhausted
 
 func _ready():
-	$CanvasLayer/GUI.ConnectTo(self)
+	$CanvasLayer/GUI.Share($Health, $Mana, $Focus)
 	var ignore_err = $Focus.connect("empty", $CanvasLayer/AstralTable, "StopWeaving")
 	ignore_err = $Mana.connect("empty", $CanvasLayer/AstralTable, "StopWeaving")
 	ignore_err = $CanvasLayer/SpellWheel.connect("spell_chosen", self, "_on_SpellWheel_spell_chosen")
@@ -58,9 +58,3 @@ func _on_SpellWheel_spell_chosen(spell):
 	$CanvasLayer/SpellWheel.PopSpellOffWheel(spell)
 	$CanvasLayer/AstralTable.StartWeaving(spell)
 
-
-# Called from GUI
-func ConnectToGUI(hpBar, manaBar, focusBar):
-	$Health.share(hpBar)
-	$Mana.share(manaBar)
-	$Focus.share(focusBar)	

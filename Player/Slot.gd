@@ -1,11 +1,14 @@
 extends Position2D
 
+#TODO: Merge the logic into SpellWheel
+
 # Each SpellSlot fits a 32px radius circle. 
 # Any spell icon should follow this size
 
 
-func RefersTo(newSpell: Spell):	
-		
+func RefersTo(newSpell: Spell):
+	if not IsEmpty():
+		FlushSpell()
 	newSpell.connect("mouse_entered", self, "_on_mouse_entered")
 	newSpell.connect("mouse_exited", self, "_on_mouse_exited")
 	add_child(newSpell)

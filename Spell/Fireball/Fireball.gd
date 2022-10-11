@@ -23,5 +23,4 @@ func Instantiate(customSpellArguments: Array):
 	
 	fb.damage = 50
 
-	var impulse = Vector2(300, 0).rotated(grot)
-	fb.apply_central_impulse(impulse)
+	fb.linear_velocity = Vector2(fb.velocity, 0).rotated(grot)

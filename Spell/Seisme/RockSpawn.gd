@@ -1,25 +1,26 @@
 extends Node2D
 
 
-export var Fan_Angle = 0.25*PI # How spread-out the rock formation is
+export var fan_angle = 0.25*PI # How spread-out the rock formation is
 
-export var Waves = 4
-export var Wave_Distance = 100 # How far each wave is separated
-export var Wave_Time_Interval = 0.25
+export var waves = 4
+export var wave_distance = 100 # How far each wave is separated
+export var wave_time_interval = 0.25
 
-export var Damage_Duration = 0.2 # How long after spawn can a Rock deals damage
+export var damage = 30
+export var damage_duration = 0.2 # How long after spawn can a Rock deals damage
 
 func _process(delta):
 	_spawnTimer += delta
-	var supposedWave = _spawnTimer / Wave_Time_Interval + 1
+	var supposedWave = _spawnTimer / wave_time_interval + 1
 	
-	while _waves.size() <= clamp(supposedWave, 0, Waves):
+	while _waves.size() <= clamp(supposedWave, 0, waves):
 		_spawnWave(_waves.size())
 		
-	while _spawnTimer > _pacifiedWave * Wave_Time_Interval + Damage_Duration:
+	while _spawnTimer > _pacifiedWave * wave_time_interval + damage_duration:
 		_pacifyRocksInWave(_pacifiedWave)
 		
-		if _pacifiedWave >= Waves:
+		if _pacifiedWave >= waves:
 			set_process(false)
 			
 		_pacifiedWave += 1
@@ -41,13 +42,13 @@ func _spawnWave(waveNo):
 	_waves.push_back([])
 	for rockNo in range(0, waveNo):
 		var rock = rocktscn.instance()
-		rock.position = Vector2(Wave_Distance*(waveNo-1), 0)
+		rock.position = Vector2(wave_distance*(waveNo-1), 0)
 		
 		if waveNo == 1:
 			rock.position = rock.position.rotated(0)
 		else:
 			# without casting to float, rockNo is an int and the result is rounded to 0 or 1
-			rock.position = rock.position.rotated(Fan_Angle * (0.5 - float(rockNo) / (waveNo - 1)))
+			rock.position = rock.position.rotated(fan_angle * (0.5 - float(rockNo) / (waveNo - 1)))
 			
 		_waves.back().push_back(rock)
 		add_child(rock)
@@ -55,8 +56,8 @@ func _spawnWave(waveNo):
 
 
 func _on_rock_body_entered(body):
-	#TODO: Deal Damage
-	pass
+	if body is Dummy:
+		body.get_node("Health").TakeDamage(damage)
 	
 
 # Rocks in this waves won't send signal to RockSpawn to deal damage anymore	

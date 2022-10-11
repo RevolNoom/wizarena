@@ -77,7 +77,6 @@ __meta__ = {
 }
 
 [node name="Bottom" type="HBoxContainer" parent="."]
-visible = false
 margin_top = 500.0
 margin_right = 1024.0
 margin_bottom = 600.0
@@ -86,14 +85,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
 
-[node name="SpellSlot" type="HBoxContainer" parent="Bottom"]
+[node name="SpellSlot" type="TextureButton" parent="Bottom"]
 margin_left = 924.0
 margin_right = 1024.0
-margin_bottom = 100.0
-mouse_filter = 2
-
-[node name="1" type="TextureButton" parent="Bottom/SpellSlot"]
-margin_right = 100.0
 margin_bottom = 100.0
 mouse_filter = 1
 texture_normal = ExtResource( 1 )

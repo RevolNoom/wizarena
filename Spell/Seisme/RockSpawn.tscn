@@ -4,6 +4,3 @@
 
 [node name="RockSpawn" type="Node2D"]
 script = ExtResource( 2 )
-Waves = 7
-Wave_Time_Interval = 0.1
-Damage_Duration = 0.1
