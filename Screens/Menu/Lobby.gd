@@ -6,6 +6,8 @@ extends Control
 func _ready():
 	Network.connect("connected", self, "AddNewGuest")
 	Network.connect("disconnected", self, "RemoveGuest")
+	
+func _enter_tree():
 	if get_tree().get_network_unique_id() == 1:
 		SetupAsHost()
 	else:
@@ -31,7 +33,6 @@ func SetupAsGuest():
 	$VBoxContainer/Start.visible = false
 	$VBoxContainer/HostIP.visible = false
 	$VBoxContainer/RoomMaster.visible = true
-	$VBoxContainer/RoomMaster/Name.text = Network._player[1][GlobalSettings.NAME]
 	
 	
 # Return true if the new user was added successfully
@@ -39,6 +40,9 @@ func AddNewGuest(cred):
 	var guestName = cred[GlobalSettings.NAME] 
 	if $VBoxContainer/Player/Name.text.find(guestName) != -1:
 		return false
+	
+	if cred[GlobalSettings.ID] == 1:
+		$VBoxContainer/RoomMaster/Name.text = cred[GlobalSettings.NAME]
 		
 	$VBoxContainer/Player/Name.text += guestName + "\n"
 	return true

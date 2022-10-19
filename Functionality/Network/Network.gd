@@ -6,7 +6,7 @@ signal connected(credential)
 signal disconnected(credential)
 
 export var MAX_PLAYERS = 2
-export var PORT = 7979
+export var DEFAULT_PORT = 7979
 
 
 func _ready():
@@ -17,11 +17,11 @@ func _ready():
 	ignore = get_tree().connect("server_disconnected", self, "server_disconnected")
 	
 
-func SetAsClient(ip):
+func SetAsClient(ip, port):
 	var client = NetworkedMultiplayerENet.new()
-	var err = client.create_client(ip, PORT)
+	var err = client.create_client(ip, port)
 	if err != OK:
-		emit_signal("error", "Can't connect to " + str(ip) + ":" + str(PORT))
+		emit_signal("error", "Can't connect to " + str(ip) + ":" + str(port))
 		return
 	get_tree().network_peer = client
 	
@@ -29,9 +29,9 @@ func SetAsClient(ip):
 	RegisterPlayer(GlobalSettings.Credential)
 
 
-func SetAsServer():
+func SetAsServer(port):
 	var server = NetworkedMultiplayerENet.new()
-	server.create_server(PORT, MAX_PLAYERS)
+	server.create_server(port, MAX_PLAYERS)
 	get_tree().network_peer = server
 	
 	GlobalSettings.Credential[GlobalSettings.ID] = get_tree().get_network_unique_id()
@@ -45,7 +45,7 @@ func network_peer_connected(id):
 
 
 func network_peer_disconnected(id):
-	print ("Disconnected: " + str(id))
+	#print ("Disconnected: " + str(id))
 	var cred = _player[id]
 	_player.erase(id)
 	emit_signal("disconnected", cred)
@@ -62,9 +62,8 @@ func connection_failed():
 	
 
 remote func RegisterPlayer(credential):
-	print("Registering credential: " + str(credential))
+	#print("Registering credential: " + str(credential))
 	_player[credential[GlobalSettings.ID]] = credential
-	print("Host: " + str(get_tree().get_network_unique_id()) + ": " + str(credential[GlobalSettings.ID]) + " + " + credential[GlobalSettings.NAME])
 	emit_signal("connected", credential)
 	
 

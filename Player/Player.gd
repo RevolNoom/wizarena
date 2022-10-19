@@ -4,13 +4,14 @@ signal exhausted
 
 func _ready():
 	$CanvasLayer/GUI.Share($Health, $Mana, $Focus)
-	var ignore_err = $Focus.connect("empty", $CanvasLayer/AstralTable, "StopWeaving")
-	ignore_err = $Mana.connect("empty", $CanvasLayer/AstralTable, "StopWeaving")
+	var ignore_err = $Focus.connect("empty", self, "ExhaustedFromSpellWeaving")
+	ignore_err = $Mana.connect("empty", self, "ExhaustedFromSpellWeaving")
 	ignore_err = $CanvasLayer/SpellWheel.connect("spell_chosen", self, "_on_SpellWheel_spell_chosen")
 	ignore_err = $CanvasLayer/AstralTable.connect("end_weave", self, "_on_AstralTable_end_weave")
 	ignore_err = $CanvasLayer/AstralTable.connect("spell_changed", $CanvasLayer/GUI, "_on_AstralTable_spell_changed")
 	ignore_err = $CanvasLayer/GUI.connect("cast_spell", self, "_on_cast_spell")
 	ignore_err = self.connect("die", self, "_on_self_die")
+
 
 func _process(_delta):
 	var velocity = Vector2()
@@ -29,13 +30,13 @@ func _process(_delta):
 
 
 func ExhaustedFromSpellWeaving():
+	$CanvasLayer/AstralTable.StopWeaving()
 	emit_signal("exhausted")
 
 
-func _on_self_die(_selff):
+func _on_self_die(_self):
 	$CanvasLayer/AstralTable.StopWeaving()
 	$CanvasLayer/SpellWheel.Disable()
-	
 
 
 func _on_cast_spell(spell):
@@ -51,9 +52,11 @@ func _on_AstralTable_end_weave(spell):
 	
 	
 func _on_SpellWheel_spell_chosen(spell):
-	if spell.SuckResourceFrom(self) == false:
+	if spell.CheckRequirement(self) == false:
 		print("Not enough resource for spell")
 		return
+		
+	spell.SuckResourceFrom(self)
 	$CanvasLayer/SpellWheel.Disable()
 	$CanvasLayer/SpellWheel.PopSpellOffWheel(spell)
 	$CanvasLayer/AstralTable.StartWeaving(spell)

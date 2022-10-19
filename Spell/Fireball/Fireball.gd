@@ -17,9 +17,11 @@ func Instantiate(customSpellArguments: Array):
 	var fireball = preload("res://Spell/Fireball/FieryProjectile.tscn")
 	var fb = fireball.instance()
 	GlobalSettings.get_node("ProjectileDump").Add(fb)
+	print("rotating")
 	fb.set_global_position(gpos)
 	fb.set_global_rotation(grot)
 	fb.add_collision_exception_with(caster)
+	print("rot: " + str(fb.global_rotation))
 	
 	fb.damage = 50
 

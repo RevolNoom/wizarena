@@ -10,14 +10,17 @@ enum{
 	NAME = 1
 }
 
-func _ready():
+
+#func _ready():
+func _enter_tree():
 	seed(OS.get_unix_time())
 	for i in range(0, 6):
 		Credential[NAME] += char(ord('a') + randi()%(ord('z') - ord('a')))
-		
-	var mysterySpell = preload("res://Spell/Seisme/Seisme.tscn")
+	
+	#var startingSpell = preload("res://Spell/Seisme/Seisme.tscn")
+	var startingSpell = preload("res://Spell/Fireball/Fireball.tscn")
 	for i in range(0, 10):
-		_EquippedSpells.push_back(mysterySpell.instance())
+		_EquippedSpells.push_back(startingSpell.instance())
 
 enum PhysicLayer{
 	# Physical World bit 1 - 8

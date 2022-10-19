@@ -1,5 +1,6 @@
 [Spell] Glacial bolt
 [Spell] Lightning zap
-Make Stars fly around
+[Star] Make Stars fly around
 [Star] Firefly
-[Networking] Lobby: Remove name when a player leaves
+
+[Optimization] queue_free Rock and RockSpawn

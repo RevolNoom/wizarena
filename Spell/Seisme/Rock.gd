@@ -1,11 +1,21 @@
 extends RigidBody2D
 
-# In Preying mode, the rock only detects players that it'll 
+export var damage = 10
+
+# In this mode, the rock only detects players that it'll 
 # deal damage when it Erupt()
-func SetPreyingMode():
-	set_deferred("collision_layer", 0)
-	collision_layer = 1
-	pass
+func SetDetectionMode():
+	visible = false
+	set_deferred("collision_layer", GlobalSettings.PhysicLayer.PLAYER)
 	
 func Erupt():
-	pass
+	for player in get_colliding_bodies():
+		if player is Dummy:
+			DealDamage(player)
+			
+	visible = true
+	set_deferred("collision_layer", GlobalSettings.PhysicLayer.PLAYER + GlobalSettings.PhysicLayer.OBJECT)
+	
+	
+func DealDamage(player):
+	player.get_node("Health").TakeDamage(damage)
