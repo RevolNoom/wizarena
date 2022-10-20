@@ -1,7 +1,5 @@
 extends Node2D
 
-#TODO: free() _spellBookCopy properly?
-
 signal spell_chosen(spell)
 
 func _ready():
@@ -10,9 +8,10 @@ func _ready():
 	for i in _spellBookCopy:
 		i.visible = true
 	
-	for i in range(0, get_child_count()):
+	for slot in get_children():
 		var spell = _spellBookCopy.pop_front()
-		get_node("Slot" + str(i)).RefersTo(spell)
+		slot.RefersTo(spell)
+		#print(slot.name + " " + spell.name)
 
 
 var _isHolding = false
@@ -35,7 +34,7 @@ func PopSpellOffWheel(spell):
 	var slot = spell.get_parent()
 	slot.RefersTo(_spellBookCopy.pop_front())
 	_spellBookCopy.push_back(spell)
-
+	
 
 func OpenWheel():
 	visible = true

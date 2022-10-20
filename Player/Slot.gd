@@ -7,8 +7,7 @@ extends Position2D
 
 
 func RefersTo(newSpell: Spell):
-	if not IsEmpty():
-		FlushSpell()
+	FlushSpell()
 	newSpell.connect("mouse_entered", self, "_on_mouse_entered")
 	newSpell.connect("mouse_exited", self, "_on_mouse_exited")
 	add_child(newSpell)
@@ -25,12 +24,11 @@ func RefersTo(newSpell: Spell):
 #		if event.pressed == false:
 #			print("SetSpell")
 	
-func IsEmpty():
-	return get_child_count() == 0
-	
 	
 func FlushSpell():
+	_isHoveredOn = false
 	for spell in get_children():
+		#print("Flushed: " + spell.name)
 		spell.disconnect("mouse_entered", self, "_on_mouse_entered")
 		spell.disconnect("mouse_exited", self, "_on_mouse_exited")
 		remove_child(spell)
@@ -41,7 +39,7 @@ func GetSpell():
 
 
 func IsChosen():
-	if _isHoveredOn and not IsEmpty():
+	if _isHoveredOn:
 		return true
 	return false
 	

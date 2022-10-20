@@ -20,7 +20,12 @@ regen = 15.0
 [node name="Camera2D" parent="." index="6"]
 current = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
+[node name="SpellProcessor" type="Node2D" parent="." index="7"]
+__meta__ = {
+"_editor_description_": "This node holds Spell's artifacts when it needs interaction with the world before castable "
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="8"]
 
 [node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 3 )]
 

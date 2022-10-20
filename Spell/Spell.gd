@@ -8,16 +8,17 @@ func _ready():
 	StarList = $Star.get_children()
 	for star in StarList:
 		$Star.remove_child(star)
-		
+
 	for cost in [$Health, $Mana, $Focus]:
 		cost.set_process(false)
+
 
 # OVERRIDE ME
 # Called when Player wants to get more input to prepare spell
 func Activate(_caster):
 	pass
-	
-	
+
+
 # OVERRIDE ME
 # Called from Dummy when syncing spell casts
 func Instantiate(_customSpellArguments: Array):
@@ -40,6 +41,8 @@ func CheckRequirement(player):
 # Return true if the spell costed the player successfully
 # False otherwise
 func SuckResourceFrom(player):
+	#print(name + " sucking")
+	#print_stack()
 	for attribute in ["Health", "Mana", "Focus"]:
 		player.get_node(attribute).TakeDamage(get_node(attribute).value)
 		player.get_node(attribute).TakeDamageOverTime(get_node(attribute).regen)
@@ -47,6 +50,7 @@ func SuckResourceFrom(player):
 
 # Return the spell cost to the player
 func StopSuckingResourceFrom(player):
+	#print(name + " stops sucking")
 	for attribute in ["Health", "Mana", "Focus"]:
 		#player.get_node(attribute).Heal(get_node(attribute).value)
 		player.get_node(attribute).HealOverTime(get_node(attribute).regen)

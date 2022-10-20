@@ -1,7 +1,5 @@
 extends Spell
 
-# Return an InputInspector if this spell needs extra input
-# Else, cast the spell and return null
 func Activate(caster):
 	caster.rpc("CastSpell", "res://Spell/Fireball/Fireball.tscn", [caster.get_path(), caster.global_position, caster.global_rotation])
 
@@ -17,11 +15,9 @@ func Instantiate(customSpellArguments: Array):
 	var fireball = preload("res://Spell/Fireball/FieryProjectile.tscn")
 	var fb = fireball.instance()
 	GlobalSettings.get_node("ProjectileDump").Add(fb)
-	print("rotating")
 	fb.set_global_position(gpos)
 	fb.set_global_rotation(grot)
 	fb.add_collision_exception_with(caster)
-	print("rot: " + str(fb.global_rotation))
 	
 	fb.damage = 50
 

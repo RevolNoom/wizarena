@@ -17,11 +17,15 @@ func _enter_tree():
 	for i in range(0, 6):
 		Credential[NAME] += char(ord('a') + randi()%(ord('z') - ord('a')))
 	
-	#var startingSpell = preload("res://Spell/Seisme/Seisme.tscn")
-	var startingSpell = preload("res://Spell/Fireball/Fireball.tscn")
+	var startingSpells = [
+		preload("res://Spell/Fireball/Fireball.tscn"), 
+		preload("res://Spell/Seisme/Seisme.tscn"),
+		preload("res://Spell/Telekinesis/Telekinesis.tscn")]
+		
 	for i in range(0, 10):
-		_EquippedSpells.push_back(startingSpell.instance())
-
+		_EquippedSpells.push_back(startingSpells[i%startingSpells.size()].instance())
+		
+		
 enum PhysicLayer{
 	# Physical World bit 1 - 8
 	PLAYER = 1,

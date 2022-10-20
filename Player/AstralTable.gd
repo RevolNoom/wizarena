@@ -10,16 +10,18 @@ signal spell_changed(spell)
 func _ready():
 	set_process_input(false)
 
+
 func StartWeaving(spell):
 	_spellInWeaving = spell
-	_starList = spell.StarList
+	_starList = spell.StarList.duplicate(true)
+	#print("Table " + spell.name + " stars: " + str(_starList))
 	_starCount = 0
 	PutStarsOnTable()
 	ActivateStarsDependencies()
 	set_process_input(true)
 	visible = true
-	
-	
+
+
 func StopWeaving():
 	_isWeaving = false 
 	DeactivateStarsInput()
@@ -36,8 +38,8 @@ func StopWeaving():
 	var spell = _spellInWeaving
 	_spellInWeaving = null
 	emit_signal("end_weave", spell)
-	
-	
+
+
 func PutStarsOnTable():
 	# TODO: RAND with overlap checking
 	# RAND with table size
@@ -64,39 +66,38 @@ func DeactivateStarsInput():
 	for star in _starList:
 		star.input_pickable = false
 
-	
-	
+
 func _on_AstralTable_mouse_unpress():
 	print("Spell failed: Mouse unpress before all stars are drawn.")
 	StopWeaving()
-	
-	
+
+
 func _on_AstralTable_mouse_exited():
 	if _isWeaving and _spellInWeaving != null:
 		print("Spell failed: Mouse goes off table before all stars are drawn")
 		StopWeaving()
-	
-	
+
+
 func SpellWoven():
 	emit_signal("spell_changed", _spellInWeaving)
 	StopWeaving()
-	
-	
+
+
 # Process mouse movement here
 func _on_AstralTable_input_event(_viewport, event, _shape_idx):
 	
 	#TODO: I can optimize a few instructions here
 	# But for the sake of readability, I won't
-	
+
 	if _spellInWeaving == null:
 		return
-		
+
 	# Logic when user unpress mouse
 	if _isWeaving and \
 		((event is InputEventMouseButton and not event.pressed) or \
 		(event is InputEventMouseMotion and event.pressure == 0)):
 			_on_AstralTable_mouse_unpress()
-	
+
 	# Logic when user starts pressing mouse
 	if not _isWeaving and \
 		((event is InputEventMouseButton and event.pressed) or \
@@ -114,12 +115,13 @@ func _on_Star_invalid(_star):
 	print("Spell failed: Mouse touched invalid star")
 	StopWeaving()
 
+
 func _on_Star_touched(_star):
 	_starCount += 1
 	if _starCount == _starList.size():
 		SpellWoven()
-		
-	
+
+
 # When the player has start pressed and hold the mouse
 # It's considered weaving 
 var _isWeaving = false

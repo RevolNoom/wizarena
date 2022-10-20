@@ -36,6 +36,7 @@ var _spellBook = {
 	#-1 : preload("res://Spell/Mystery/Mystery.tscn").instance(),
 	0 : preload("res://Spell/Fireball/Fireball.tscn").instance(),
 	1 : preload("res://Spell/Seisme/Seisme.tscn").instance(),
+	2 :	preload("res://Spell/Telekinesis/Telekinesis.tscn").instance(),
 	}
 
 
@@ -43,6 +44,7 @@ var _spellBook = {
 func _on_ItemList_item_activated(index):
 	_on_ItemList_item_selected(index)
 	var spell = _spellBook[index].duplicate()
+	spell.visible = true
 	_mousePosition.add_child(spell)
 	
 	

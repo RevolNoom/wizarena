@@ -1,7 +1,5 @@
 extends Dummy
 
-signal exhausted
-
 func _ready():
 	$CanvasLayer/GUI.Share($Health, $Mana, $Focus)
 	var ignore_err = $Focus.connect("empty", self, "ExhaustedFromSpellWeaving")
@@ -31,7 +29,6 @@ func _process(_delta):
 
 func ExhaustedFromSpellWeaving():
 	$CanvasLayer/AstralTable.StopWeaving()
-	emit_signal("exhausted")
 
 
 func _on_self_die(_self):
@@ -43,19 +40,32 @@ func _on_cast_spell(spell):
 	spell.Activate(self)
 
 
+func AddProcessor(proc):
+	$SpellProcessor.add_child(proc)
+
+
 func _on_AstralTable_end_weave(spell):
+	print("end weave")
 	spell.StopSuckingResourceFrom(self)
 	
 	# Only enable when you are still alive
 	if $Health.value > 0: 
 		$CanvasLayer/SpellWheel.Reenable()
-	
-	
+
+
+func RemoveProcessors():
+	for proc in $SpellProcessor.get_children():
+		$SpellProcessor.remove_child(proc)
+		proc.queue_free()
+
+
 func _on_SpellWheel_spell_chosen(spell):
 	if spell.CheckRequirement(self) == false:
 		print("Not enough resource for spell")
 		return
 		
+	RemoveProcessors() # from previous Spell
+	
 	spell.SuckResourceFrom(self)
 	$CanvasLayer/SpellWheel.Disable()
 	$CanvasLayer/SpellWheel.PopSpellOffWheel(spell)

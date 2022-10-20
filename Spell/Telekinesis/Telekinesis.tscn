@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Spell/Spell.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Spell/Telekinesis/Telekinesis.gd" type="Script" id=2]
+[ext_resource path="res://Star/Star.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Spell/Mystery/Mystery.svg" type="Texture" id=4]
 
 [node name="Telekinesis" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+description = "Choose an object in range and throw it in a direction, dealing damage"
+
+[node name="Icon" parent="." index="1"]
+texture = ExtResource( 4 )
+
+[node name="Star" parent="Star" index="0" instance=ExtResource( 3 )]
