@@ -7,15 +7,3 @@ script = ExtResource( 1 )
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2( 126, 74 )
-
-[node name="1" type="Position2D" parent="SpawnPoint"]
-position = Vector2( 36, 77 )
-
-[node name="2" type="Position2D" parent="SpawnPoint"]
-position = Vector2( 607, 74 )
-
-[node name="3" type="Position2D" parent="SpawnPoint"]
-position = Vector2( 606, 439 )
-
-[node name="4" type="Position2D" parent="SpawnPoint"]
-position = Vector2( 45, 449 )

@@ -49,7 +49,7 @@ func Disable():
 	set_process_unhandled_input(false)
 	
 	
-func Reenable():
+func Enable():
 	set_process_unhandled_input(true)
 	
 

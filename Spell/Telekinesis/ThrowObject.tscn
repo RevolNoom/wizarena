@@ -4,7 +4,7 @@
 [ext_resource path="res://Player/AstralTable.svg" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 517.016
+radius = 321.753
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5, 5 )
@@ -20,7 +20,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 2.76, 2.76 )
+scale = Vector2( 1.70815, 1.70815 )
 texture = ExtResource( 2 )
 
 [node name="Mouse" type="Area2D" parent="."]
@@ -30,3 +30,5 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse"]
 shape = SubResource( 2 )
+
+[connection signal="body_exited" from="." to="." method="_on_ThrowObject_body_exited"]

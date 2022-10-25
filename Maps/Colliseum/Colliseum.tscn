@@ -8,7 +8,18 @@
 
 [node name="Arena" parent="." index="0" instance=ExtResource( 1 )]
 position = Vector2( 449, 329 )
-scale = Vector2( 2.76, 1.84 )
+scale = Vector2( 4.12548, 2.75032 )
+
+[node name="1" type="Position2D" parent="SpawnPoint" index="0"]
+
+[node name="2" type="Position2D" parent="SpawnPoint" index="1"]
+position = Vector2( 507, -37 )
+
+[node name="3" type="Position2D" parent="SpawnPoint" index="2"]
+position = Vector2( -125, 326 )
+
+[node name="4" type="Position2D" parent="SpawnPoint" index="3"]
+position = Vector2( 398, 577 )
 
 [node name="RockSpawn" parent="." index="2" instance=ExtResource( 3 )]
 position = Vector2( 267, 342 )

@@ -10,16 +10,19 @@ func _enter_tree():
 # deal damage when it Erupt()
 func SetDetectionMode():
 	visible = false
-	set_deferred("collision_layer", 0) #GlobalSettings.PhysicLayer.OBJECT)
-	set_deferred("collision_mask", GlobalSettings.PhysicLayer.PLAYER) # | GlobalSettings.PhysicLayer.OBJECT | GlobalSettings.PhysicLayer.PROJECTILE)
+	set_deferred("collision_layer", 0)
+	set_deferred("collision_mask", ProjectSettings.get_setting("physics/2d/layer")["player"])
+	
 	
 func Erupt():
 	for player in get_colliding_bodies():
 		if player is Dummy:
 			DealDamage(player)
 			
-	set_deferred("collision_layer", GlobalSettings.PhysicLayer.OBJECT)
-	set_deferred("collision_mask", GlobalSettings.PhysicLayer.PLAYER | GlobalSettings.PhysicLayer.OBJECT | GlobalSettings.PhysicLayer.PROJECTILE)
+	set_deferred("collision_layer", ProjectSettings.get_setting("physics/2d/layer")["object"])
+	set_deferred("collision_mask", ProjectSettings.get_setting("physics/2d/layer")["player"] | 
+									ProjectSettings.get_setting("physics/2d/layer")["object"]|
+									ProjectSettings.get_setting("physics/2d/layer")["projectile"])
 	visible = true
 	
 func DealDamage(player):

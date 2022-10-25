@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Star",
 "class": "Blackhole",
 "language": "GDScript",
-"path": "res://Star/Blackhole.gd"
+"path": "res://Star/Blackhole/Blackhole.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Dummy",
@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "Star",
 "language": "GDScript",
-"path": "res://Star/Star.gd"
+"path": "res://Star/Star/Star.gd"
 } ]
 _global_script_class_icons={
 "Blackhole": "",
@@ -91,7 +91,16 @@ ui_down={
 
 [physics]
 
+2d/thread_model=2
 2d/default_gravity=0
+2d/layer={
+"astral_table": 65536,
+"object": 2,
+"player": 1,
+"projectile": 4,
+"spell": 131072,
+"star": 256
+}
 
 [rendering]
 

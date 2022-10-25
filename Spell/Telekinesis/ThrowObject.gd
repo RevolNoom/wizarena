@@ -1,5 +1,7 @@
 extends Area2D
 
+# TODO: Ring color switches between clicked and not
+
 var _pickedObject = null
 onready var Mouse = $Mouse
 
@@ -13,15 +15,12 @@ func _on_ThrowObject_body_exited(body):
 
 
 func _unhandled_input(event):
-	get_tree().set_input_as_handled()
 	if event is InputEventMouseMotion:
 		Mouse.global_position = Mouse.get_global_mouse_position()
 		
 	elif event is InputEventMouseButton and event.is_pressed():# \
 		#or (event is InputEventKey and event.scancode = ord(' '):
-		
-		#print("clicked")
-		
+				
 		if _pickedObject == null:
 			if Mouse.get_overlapping_bodies().size() == 0:
 				return
@@ -38,6 +37,4 @@ func _unhandled_input(event):
 
 
 func CleanUp():
-	pass
-	#get_parent().remove_child(self)
-	#queue_free()
+	GetPlayer().RemoveProcessors()

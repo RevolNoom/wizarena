@@ -24,23 +24,6 @@ func _enter_tree():
 		
 	for i in range(0, 10):
 		_EquippedSpells.push_back(startingSpells[i%startingSpells.size()].instance())
-		
-		
-enum PhysicLayer{
-	# Physical World bit 1 - 8
-	PLAYER = 1,
-	OBJECT = 2,
-	PROJECTILE = 4,
-	
-	# Star World bit 9 - 16
-	STAR = 9,
-	
-	# Functionalities bit 17 - 24
-	ASTRAL_TABLE = 17,
-	SPELL_SLOT = 18
-	
-	# ??? 25- 32
-}
 
 
 # Spells equipped from SpellBook

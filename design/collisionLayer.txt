@@ -1,6 +1,6 @@
 1-8: Physical World
 	1: Player
-	2: Objects
+	2: Object
 	3: Projectile
 
 9-16: Star World
@@ -8,7 +8,6 @@
 
 17-24: Functionalities
 	17: AstralTable
-	18: SpellSlot
-	19: Spell Icon Texture
+	18: Spell
 
 25-32: ?

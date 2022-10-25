@@ -10,6 +10,7 @@ var GAMEPLAY = preload("res://Screens/Gameplay/Gameplay.tscn")
 
 func _ready():
 	Network.connect("connected", self, "_on_server_connected")
+	_on_Train_pressed()
 
 
 func _enter_tree():

@@ -5,10 +5,9 @@ func _ready():
 	var ignore_err = $Focus.connect("empty", self, "ExhaustedFromSpellWeaving")
 	ignore_err = $Mana.connect("empty", self, "ExhaustedFromSpellWeaving")
 	ignore_err = $CanvasLayer/SpellWheel.connect("spell_chosen", self, "_on_SpellWheel_spell_chosen")
-	ignore_err = $CanvasLayer/AstralTable.connect("end_weave", self, "_on_AstralTable_end_weave")
-	ignore_err = $CanvasLayer/AstralTable.connect("spell_changed", $CanvasLayer/GUI, "_on_AstralTable_spell_changed")
-	ignore_err = $CanvasLayer/GUI.connect("cast_spell", self, "_on_cast_spell")
-	ignore_err = self.connect("die", self, "_on_self_die")
+	ignore_err = $CanvasLayer/AstralTable.connect("done", self, "_on_AstralTable_done")
+	ignore_err = $CanvasLayer/GUI.connect("cast_spell", self, "_on_GUI_cast_spell")
+	ignore_err = connect("die", self, "_on_Player_die")
 
 
 func _process(_delta):
@@ -22,35 +21,40 @@ func _process(_delta):
 	if Input.is_action_pressed("ui_down"):
 		velocity.y = $Speed.value
 		
-	var dontcare = move_and_slide(velocity)
+	var dontcare = move_and_slide(velocity, Vector2(0, 0), false, 1, 0.1, false)
 	
 	rpc("UpdatePosture", global_position, (get_global_mouse_position() - global_position).angle())
 
 
 func ExhaustedFromSpellWeaving():
 	$CanvasLayer/AstralTable.StopWeaving()
+	$CanvasLayer/SpellWheel.Enable()
+	_spellInWeave.StopSuckingResourceFrom(self)
+	_spellInWeave = null
 
 
-func _on_self_die(_self):
+func _on_Player_die(_self):
 	$CanvasLayer/AstralTable.StopWeaving()
 	$CanvasLayer/SpellWheel.Disable()
 
 
-func _on_cast_spell(spell):
-	spell.Activate(self)
+func _on_GUI_cast_spell():
+	if _spellInUse != null:
+		_spellInUse.Activate(self)
+		_spellInUse = null
 
 
 func AddProcessor(proc):
 	$SpellProcessor.add_child(proc)
 
 
-func _on_AstralTable_end_weave(spell):
-	print("end weave")
-	spell.StopSuckingResourceFrom(self)
-	
-	# Only enable when you are still alive
-	if $Health.value > 0: 
-		$CanvasLayer/SpellWheel.Reenable()
+func _on_AstralTable_done():
+	#print("end weave")
+	_spellInWeave.StopSuckingResourceFrom(self)
+	_spellInUse = _spellInWeave
+	_spellInWeave = null
+	$CanvasLayer/AstralTable.StopWeaving()
+	$CanvasLayer/SpellWheel.Enable()
 
 
 func RemoveProcessors():
@@ -65,9 +69,12 @@ func _on_SpellWheel_spell_chosen(spell):
 		return
 		
 	RemoveProcessors() # from previous Spell
-	
-	spell.SuckResourceFrom(self)
+	_spellInWeave = spell
+	_spellInWeave.SuckResourceFrom(self)
 	$CanvasLayer/SpellWheel.Disable()
-	$CanvasLayer/SpellWheel.PopSpellOffWheel(spell)
-	$CanvasLayer/AstralTable.StartWeaving(spell)
+	$CanvasLayer/SpellWheel.PopSpellOffWheel(_spellInWeave)
+	$CanvasLayer/AstralTable.StartWeaving(_spellInWeave)
 
+
+var _spellInWeave
+var _spellInUse

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Star/Blackhole/Blackhole.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Star/Bigbang/Bigbang.gd" type="Script" id=2]
+
+[node name="Bigbang" instance=ExtResource( 1 )]
+continuous_cd = 0
+script = ExtResource( 2 )
+
+[node name="EffectRadius" parent="." index="2"]
+gravity = -98.0
+
+[editable path="Touchable"]
+[editable path="Touched"]

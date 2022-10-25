@@ -29,6 +29,7 @@ position = Vector2( 18, -61 )
 
 [node name="Rock" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 11, 4 )
+mass = 3.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock" index="0"]
 polygon = PoolVector2Array( -8.68056, -9.02778, 7.29167, -12.5, 9.02778, 1.04167, -8.68056, 12.5 )
@@ -38,6 +39,7 @@ texture = ExtResource( 6 )
 
 [node name="Rock2" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 33, 62 )
+mass = 7.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock2" index="0"]
 polygon = PoolVector2Array( -15.2778, -3.125, 4.51389, -18.0556, 15.625, -18.0556, 7.63889, 15.9722, 0.694447, 18.0556, -15.625, 6.59722 )
@@ -58,6 +60,7 @@ texture = ExtResource( 3 )
 
 [node name="Rock4" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 50, 127 )
+mass = 5.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock4" index="0"]
 polygon = PoolVector2Array( -19.7917, 2.77777, 20.1389, -7.98611, 18.4028, 8.33333 )
@@ -67,6 +70,7 @@ texture = ExtResource( 14 )
 
 [node name="Rock5" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 117, -29 )
+mass = 19.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock5" index="0"]
 polygon = PoolVector2Array( -26.0417, -1.73612, -24.6528, 11.4583, 17.0139, 12.1528, 26.0417, -5.90278, 6.25, -12.5 )
@@ -85,6 +89,7 @@ texture = ExtResource( 4 )
 
 [node name="Rock7" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 135, 59 )
+mass = 20.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock7" index="0"]
 polygon = PoolVector2Array( -17.0139, -15.9722, 9.02778, -15.9722, 25, 4.86111, -24.3056, 16.3194 )
@@ -94,6 +99,7 @@ texture = ExtResource( 11 )
 
 [node name="Rock8" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 166, 127 )
+mass = 14.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock8" index="0"]
 polygon = PoolVector2Array( -17.0139, -7.98611, 15.625, -15.625, 18.75, 15.9722, -18.75, 9.02777 )
@@ -103,6 +109,7 @@ texture = ExtResource( 8 )
 
 [node name="Rock9" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 245, -9 )
+mass = 28.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock9" index="0"]
 polygon = PoolVector2Array( -9.02778, -26.3889, -25.6944, 7.63889, -9.375, 27.7778, 25.6944, 13.1944, 12.5, -3.47223, 12.5, -28.125 )
@@ -112,6 +119,7 @@ texture = ExtResource( 10 )
 
 [node name="Rock10" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 330, 96 )
+mass = 40.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock10" index="0"]
 polygon = PoolVector2Array( -1.38889, -21.875, -37.5, -6.25, -5.55556, 21.875, 37.5, 9.375, 34.7222, -9.02778 )
@@ -121,6 +129,7 @@ texture = ExtResource( 12 )
 
 [node name="Rock11" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 257, 141 )
+mass = 9.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock11" index="0"]
 polygon = PoolVector2Array( -14.2361, -20.4861, -10.4167, 11.4583, 17.7083, 18.0556, 18.75, 8.33333 )
@@ -131,6 +140,7 @@ texture = ExtResource( 15 )
 
 [node name="Rock12" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 375, -32 )
+mass = 51.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock12" index="0"]
 polygon = PoolVector2Array( -10.0694, -32.2917, -29.8611, -20.8333, -29.8611, 2.77777, -15.9722, 20.4861, 18.75, 32.9861, 29.8611, 15.2778, 15.625, -20.8333 )
@@ -140,6 +150,7 @@ texture = ExtResource( 7 )
 
 [node name="Rock13" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 415, -117 )
+mass = 3.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock13" index="0"]
 polygon = PoolVector2Array( -20.8333, -3.81944, 2.43056, 7.29167, 21.1806, -7.29166 )
@@ -149,6 +160,7 @@ texture = ExtResource( 13 )
 
 [node name="Rock14" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 427, 186 )
+mass = 40.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock14" index="0"]
 polygon = PoolVector2Array( -37.5, -6.94445, 6.59723, -20.4861, 39.2361, -4.51389, 39.2361, 9.375, 23.6111, 20.8333, -38.8889, 3.125 )
@@ -158,6 +170,7 @@ texture = ExtResource( 18 )
 
 [node name="Rock15" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 548, -53 )
+mass = 70.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock15" index="0"]
 polygon = PoolVector2Array( -21.1806, -29.1667, 23.9583, -37.1528, 41.3194, 2.77777, 36.4583, 37.5, 9.02777, 22.2222, -27.4306, 19.4444, -41.3195, -13.1945 )
@@ -167,6 +180,7 @@ texture = ExtResource( 20 )
 
 [node name="Rock16" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 551, 90 )
+mass = 64.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock16" index="0"]
 polygon = PoolVector2Array( -27.7778, -26.7361, -39.5833, -6.94445, -36.4583, 10.4167, -3.81944, 27.0833, 15.625, 20.8333, 32.6389, 22.9167, 39.9306, 9.375, 35.7639, -7.98611, 5.90279, -24.3056 )
@@ -176,6 +190,7 @@ texture = ExtResource( 21 )
 
 [node name="Rock17" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 629, 218 )
+mass = 15.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock17" index="0"]
 polygon = PoolVector2Array( -11.8056, -20.8333, 6.24998, -19.0972, 8.33333, -2.77778, 3.47221, 20.4861, -7.29167, 18.75, -19.4444, 3.125, -28.8194, -1.73611, -28.8194, -15.2778 )
@@ -186,6 +201,7 @@ texture = ExtResource( 17 )
 
 [node name="Rock18" parent="SpawnPoint" instance=ExtResource( 1 )]
 position = Vector2( 552, 243 )
+mass = 5.0
 
 [node name="CollisionShape2D" parent="SpawnPoint/Rock18" index="0"]
 polygon = PoolVector2Array( -3.125, -9.02778, -17.3611, 1.38889, 17.3611, 9.375, 6.59721, -4.51389 )
