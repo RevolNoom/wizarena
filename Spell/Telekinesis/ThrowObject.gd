@@ -1,7 +1,10 @@
 extends Area2D
 
 var _pickedObject = null
-export var impulse = 100
+onready var Mouse = $Mouse
+
+func GetPlayer():
+	return get_node_or_null("../..")
 
 
 func _on_ThrowObject_body_exited(body):
@@ -10,22 +13,27 @@ func _on_ThrowObject_body_exited(body):
 
 
 func _unhandled_input(event):
+	get_tree().set_input_as_handled()
 	if event is InputEventMouseMotion:
-		$Mouse.position = event.position
-	elif event is InputEventMouseButton:# \
+		Mouse.global_position = Mouse.get_global_mouse_position()
+		
+	elif event is InputEventMouseButton and event.is_pressed():# \
 		#or (event is InputEventKey and event.scancode = ord(' '):
 		
+		#print("clicked")
+		
 		if _pickedObject == null:
-			$Mouse.force_raycast_update()
-			_pickedObject = $Mouse.get_collider()
+			if Mouse.get_overlapping_bodies().size() == 0:
+				return
+				
+			_pickedObject = Mouse.get_overlapping_bodies()[0]
 			if not _pickedObject in get_overlapping_bodies():
 				_pickedObject = null
 
 		else:
-			var direction = event.global_position - _pickedObject.global_position
-			
-			# Need RPC here
-			_pickedObject.apply_central_impulse(direction.normalized() * impulse)
+			GetPlayer().rpc("CastSpell", "res://Spell/Telekinesis/Telekinesis.tscn",\
+								[_pickedObject.get_path(),
+								(Mouse.global_position - _pickedObject.global_position).normalized()])
 			CleanUp()
 
 

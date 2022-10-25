@@ -3,6 +3,7 @@ extends Node2D
 class_name Map
 
 func LoadPlayers():
+	$RockSpawn.Spawn()
 	_players.clear()
 	var spawnpoint = 1
 	var players = Network._player.keys()
@@ -20,6 +21,8 @@ func LoadPlayers():
 		_players.append(player)
 		$SpawnPoint.get_node(str(spawnpoint)).add_child(player)
 		spawnpoint += 1
+		
+		
 
 
 func get_players():

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://assets/file templates/editor_setting_system_template/project_settings_template.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+project_name = "MyWorld"
+project_version = ""
+date_of_creation = {
+"day": 22,
+"dst": false,
+"month": 10,
+"weekday": 6,
+"year": 2022
+}
+project_location = "/home/rev/Memory/Projects/Wizarena/design/WorldBuilding"
+shortcuts = {
+}
+visual_settings = {
+}

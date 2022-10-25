@@ -19,7 +19,6 @@ func _process(delta):
 
 func Spawn():
 	_spawnTimer = 0
-	_pacifiedWave = 0
 	_notYetEruptedRock = $SpawnPoint.get_children()
 	_notYetEruptedRock.invert()
 	for rock in _notYetEruptedRock:
@@ -28,6 +27,5 @@ func Spawn():
 
 
 # A variable to keep references to all spawned rocks
-var _notYetEruptedRock : Array
-var _spawnTimer
-var _pacifiedWave
+var _notYetEruptedRock := Array([])
+var _spawnTimer = 0

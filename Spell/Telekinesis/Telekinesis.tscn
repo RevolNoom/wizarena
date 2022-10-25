@@ -8,6 +8,7 @@
 [node name="Telekinesis" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 description = "Choose an object in range and throw it in a direction, dealing damage"
+impulse = 1000
 
 [node name="Icon" parent="." index="1"]
 texture = ExtResource( 4 )
