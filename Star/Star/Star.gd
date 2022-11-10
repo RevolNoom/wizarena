@@ -12,25 +12,19 @@ func _ready():
 	Reset()
 
 
-const TOUCH_IMPULSE = 500
 # OVERRIDE ME
 # Called when the mouse touches this star
 func DoTouchedBehaviors():
-	apply_central_impulse(-get_local_mouse_position().normalized()*TOUCH_IMPULSE)
+	pass
 
 
 # OVERRIDE ME
 func DoSwitchToTouchedState():
 	_touched = true
-	$Touched.visible = _touched
-	$Touchable.visible = not _touched
 
 
 func Reset():
 	_touched = false
-	$Touched.visible = _touched
-	$Touchable.visible = not _touched
-
 
 # A Touched Star cannot be locked by any other star logic
 # Example could be Black Hole, Sun, Vector

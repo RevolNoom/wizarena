@@ -14,6 +14,8 @@ func _ready():
 		#print(slot.name + " " + spell.name)
 
 
+
+
 var _isHolding = false
 func _unhandled_input(event):
 	if event is InputEventMouseButton:

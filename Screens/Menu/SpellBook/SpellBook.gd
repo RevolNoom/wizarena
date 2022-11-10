@@ -3,16 +3,16 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in _spellBook.keys():
-		$HBoxContainer/VBoxContainer/ItemList.add_icon_item(_spellBook[i].get_texture())
+		$VBoxContainer/ItemList.add_icon_item(_spellBook[i].get_texture())
 
 func _enter_tree():
 	# Only call this function after _ready()
 	if get_node_or_null("MousePosition") == null:
 		return
 		
-	var eqs = GlobalSettings._EquippedSpells
+	var eqs = GlobalSettings._EquippedSpells.duplicate(true)
 	for i in range (0, eqs.size()):
-		$HBoxContainer/Panel/MilkyWay.get_node("Slot"+ str(i)).add_child(eqs[i])
+		$Panel/MilkyWay.get_node("Slot"+ str(i)).add_child(eqs[i])
 		eqs[i].visible = true
 
 
@@ -22,14 +22,14 @@ func _exit_tree():
 	var eqs = GlobalSettings._EquippedSpells
 	
 	for i in range (0, eqs.size()):
-		var slot = $HBoxContainer/Panel/MilkyWay.get_node("Slot"+ str(i))
+		var slot = $Panel/MilkyWay.get_node("Slot"+ str(i))
 		eqs[i] = slot.get_children()[0]
 		slot.remove_child(eqs[i])
 		eqs[i].visible = false
 	
 
 func _on_ItemList_item_selected(index):
-	$HBoxContainer/VBoxContainer/DescriptionText.text = _spellBook[index].description
+	$VBoxContainer/DescriptionText.text = _spellBook[index].description
 
 
 var _spellBook = {
@@ -69,9 +69,9 @@ func _on_SpellBook_gui_input(event):
 				else:
 					spell.queue_free()
 
+
 onready var _mousePosition = $MousePosition
 
 
-
 func _on_Panel_item_rect_changed():
-	$HBoxContainer/Panel/MilkyWay.position = $HBoxContainer/Panel/MilkyWay.get_parent().rect_size / 2
+	$Panel/MilkyWay.position = $Panel/MilkyWay.get_parent().rect_size / 2

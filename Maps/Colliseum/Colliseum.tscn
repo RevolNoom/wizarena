@@ -8,7 +8,7 @@
 
 [node name="Arena" parent="." index="0" instance=ExtResource( 1 )]
 position = Vector2( 449, 329 )
-scale = Vector2( 4.12548, 2.75032 )
+scale = Vector2( 7.30125, 4.8675 )
 
 [node name="1" type="Position2D" parent="SpawnPoint" index="0"]
 

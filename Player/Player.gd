@@ -36,6 +36,7 @@ func ExhaustedFromSpellWeaving():
 func _on_Player_die(_self):
 	$CanvasLayer/AstralTable.StopWeaving()
 	$CanvasLayer/SpellWheel.Disable()
+	RemoveProcessors()
 
 
 func _on_GUI_cast_spell():

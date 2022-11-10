@@ -21,8 +21,6 @@ func LoadPlayers():
 		_players.append(player)
 		$SpawnPoint.get_node(str(spawnpoint)).add_child(player)
 		spawnpoint += 1
-		
-		
 
 
 func get_players():

@@ -1,187 +1,21 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://Screens/Menu/Menu.gd" type="Script" id=2]
+[ext_resource path="res://Screens/Menu/SpellBook/SpellBook.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Screens/Menu/Lobby/Lobby.tscn" type="PackedScene" id=2]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
 
-[node name="Background" type="TextureRect" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-margin_right = 1024.0
-margin_bottom = 600.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 1 )
-expand = true
-stretch_mode = 1
+[node name="Lobby" parent="." instance=ExtResource( 2 )]
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -10.0
-mouse_filter = 1
-
-[node name="HBox" type="HBoxContainer" parent="MarginContainer"]
-margin_right = 1004.0
-margin_bottom = 580.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="VBox" type="VBoxContainer" parent="MarginContainer/HBox"]
-margin_right = 285.0
-margin_bottom = 580.0
-rect_min_size = Vector2( 200, 0 )
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.4
-alignment = 1
-
-[node name="HBox" type="HBoxContainer" parent="MarginContainer/HBox/VBox"]
-margin_top = 238.0
-margin_right = 285.0
-margin_bottom = 262.0
-
-[node name="Label" type="Label" parent="MarginContainer/HBox/VBox/HBox"]
-margin_top = 5.0
-margin_right = 78.0
-margin_bottom = 19.0
-text = "Your Name: "
-align = 1
-
-[node name="Name" type="LineEdit" parent="MarginContainer/HBox/VBox/HBox"]
-margin_left = 82.0
-margin_right = 285.0
-margin_bottom = 24.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-max_length = 10
-placeholder_text = "Don't use funny characters!"
-caret_blink = true
-caret_blink_speed = 0.5
-
-[node name="Host_Join" type="HBoxContainer" parent="MarginContainer/HBox/VBox"]
-margin_top = 266.0
-margin_right = 285.0
-margin_bottom = 318.0
-size_flags_horizontal = 3
-
-[node name="Buttons" type="VBoxContainer" parent="MarginContainer/HBox/VBox/Host_Join"]
-margin_right = 56.0
-margin_bottom = 52.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.25
-
-[node name="Host" type="Button" parent="MarginContainer/HBox/VBox/Host_Join/Buttons"]
-margin_right = 56.0
-margin_bottom = 24.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Host"
-
-[node name="Join" type="Button" parent="MarginContainer/HBox/VBox/Host_Join/Buttons"]
-margin_top = 28.0
-margin_right = 56.0
-margin_bottom = 52.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Join"
-
-[node name="Info" type="VBoxContainer" parent="MarginContainer/HBox/VBox/Host_Join"]
-margin_left = 60.0
-margin_right = 285.0
-margin_bottom = 52.0
-size_flags_horizontal = 3
-
-[node name="ServerPort" type="LineEdit" parent="MarginContainer/HBox/VBox/Host_Join/Info"]
-margin_right = 225.0
-margin_bottom = 24.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-align = 1
-placeholder_text = "Port (e.g.: 7979)"
-caret_blink = true
-caret_blink_speed = 0.5
-
-[node name="Address" type="HBoxContainer" parent="MarginContainer/HBox/VBox/Host_Join/Info"]
-margin_top = 28.0
-margin_right = 225.0
-margin_bottom = 52.0
-
-[node name="IP" type="LineEdit" parent="MarginContainer/HBox/VBox/Host_Join/Info/Address"]
-margin_right = 155.0
-margin_bottom = 24.0
-size_flags_horizontal = 3
-text = "127.0.0.1"
-align = 1
-placeholder_text = "IP Address. e.g.: 127.0.0.1"
-caret_blink = true
-caret_blink_speed = 0.5
-
-[node name="Colon" type="Label" parent="MarginContainer/HBox/VBox/Host_Join/Info/Address"]
-margin_left = 159.0
-margin_top = 5.0
-margin_right = 163.0
-margin_bottom = 19.0
-text = ":"
-
-[node name="ClientPort" type="LineEdit" parent="MarginContainer/HBox/VBox/Host_Join/Info/Address"]
-margin_left = 167.0
-margin_right = 225.0
-margin_bottom = 24.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.3
-align = 1
-placeholder_text = "Port"
-caret_blink = true
-caret_blink_speed = 0.5
-
-[node name="OtherOptions" type="HBoxContainer" parent="MarginContainer/HBox/VBox"]
-margin_top = 322.0
-margin_right = 285.0
-margin_bottom = 342.0
-
-[node name="Sandbox" type="Button" parent="MarginContainer/HBox/VBox/OtherOptions"]
-margin_right = 140.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Sandbox"
-
-[node name="Settings" type="Button" parent="MarginContainer/HBox/VBox/OtherOptions"]
+[node name="SpellBook" parent="." instance=ExtResource( 1 )]
 visible = false
-margin_top = 70.0
-margin_right = 340.0
-margin_bottom = 90.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Settings"
-
-[node name="SpellBook" type="Button" parent="MarginContainer/HBox/VBox/OtherOptions"]
-margin_left = 144.0
-margin_right = 285.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Spell Book"
-
-[node name="SideWindow" type="Control" parent="MarginContainer/HBox"]
-margin_left = 289.0
-margin_right = 1004.0
-margin_bottom = 580.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[connection signal="text_changed" from="MarginContainer/HBox/VBox/HBox/Name" to="." method="_on_Name_text_changed"]
-[connection signal="pressed" from="MarginContainer/HBox/VBox/Host_Join/Buttons/Host" to="." method="_on_Host_pressed"]
-[connection signal="pressed" from="MarginContainer/HBox/VBox/Host_Join/Buttons/Join" to="." method="_on_Join_pressed"]
-[connection signal="pressed" from="MarginContainer/HBox/VBox/OtherOptions/Sandbox" to="." method="_on_Train_pressed"]
-[connection signal="pressed" from="MarginContainer/HBox/VBox/OtherOptions/Settings" to="." method="_on_Settings_pressed"]
-[connection signal="pressed" from="MarginContainer/HBox/VBox/OtherOptions/SpellBook" to="." method="_on_SpellBook_pressed"]
+margin_left = 4.0
+margin_top = 32.0
+margin_right = 4.0
+margin_bottom = 32.0

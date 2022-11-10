@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Screens/Menu/Lobby/HostQueue.gd" type="Script" id=1]
+
+[node name="HostQueue" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="Room" type="VBoxContainer" parent="."]
+margin_right = 510.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Controller" type="HBoxContainer" parent="Room"]
+margin_right = 510.0
+margin_bottom = 119.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Map" type="Button" parent="Room/Controller"]
+margin_right = 253.0
+margin_bottom = 119.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Map"
+
+[node name="State" type="VBoxContainer" parent="Room/Controller"]
+margin_left = 257.0
+margin_right = 510.0
+margin_bottom = 119.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBox" type="HBoxContainer" parent="Room/Controller/State"]
+margin_right = 253.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Privacy" type="Button" parent="Room/Controller/State/HBox"]
+visible = false
+margin_right = 253.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+text = "Opening"
+
+[node name="HostIP" type="MenuButton" parent="Room/Controller/State/HBox"]
+margin_right = 253.0
+margin_bottom = 57.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "HostIP"
+flat = false
+
+[node name="Launch" type="Button" parent="Room/Controller/State"]
+margin_top = 61.0
+margin_right = 253.0
+margin_bottom = 119.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Start"
+
+[node name="PlayQueue" type="VBoxContainer" parent="Room"]
+margin_top = 123.0
+margin_right = 510.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="Queue" type="VBoxContainer" parent="."]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WaitQueue" type="VBoxContainer" parent="Queue"]
+margin_right = 510.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="Room/Controller/State/Launch" to="." method="_on_Launch_pressed"]

@@ -1,17 +1,24 @@
 extends Star
 
-# TODO: How to make the firefly fly away from mouse
-# But doesn't get stuck on the edge of the table?
+
+const TOUCH_IMPULSE = 500
+
+func _ready():
+	$Touchable.Play()
+	$Touched.Play()
 
 func Reset():
 	.Reset()
-	set_physics_process(true)
+	$Touchable.visible = true
+	$Touched.visible = false
 	
 
 func DoSwitchToTouchedState():
 	.DoSwitchToTouchedState()
-	set_physics_process(false)
-
-
-func _physics_process(delta):
-	pass
+	$Touchable.visible = false
+	$Touched.visible = true
+	
+	
+func DoTouchedBehaviors():
+	.DoTouchedBehaviors()
+	apply_central_impulse(-get_local_mouse_position().normalized()*TOUCH_IMPULSE)

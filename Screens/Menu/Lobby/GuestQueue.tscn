@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Screens/Menu/Lobby/HostQueue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Screens/Menu/Lobby/GuestQueue.gd" type="Script" id=2]
+
+[node name="GuestQueue" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Map" parent="Room/Controller" index="0"]
+disabled = true
+
+[node name="Privacy" parent="Room/Controller/State/HBox" index="0"]
+disabled = true
+
+[node name="Launch" parent="Room/Controller/State" index="1"]
+disabled = true
+toggle_mode = true
+text = "Ready"
+
+[connection signal="toggled" from="Room/Controller/State/Launch" to="." method="_on_Launch_toggled"]
