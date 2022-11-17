@@ -14,7 +14,7 @@ func Instantiate(customSpellArguments: Array):
 	
 	var rockspawntscn = preload("res://Spell/Seisme/RockSpawn.tscn")
 	var rs = rockspawntscn.instance()
-	GlobalSettings.get_node("ProjectileDump").Add(rs)
+	Gameplay.get_node("Dump").Add(rs)
 	
 	rs.set_global_rotation(grot)
 	rs.set_global_position(gpos + Vector2(50, 0).rotated(grot))

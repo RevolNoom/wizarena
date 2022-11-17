@@ -20,9 +20,14 @@ _global_script_classes=[ {
 "path": "res://Player/Dummy.gd"
 }, {
 "base": "HBoxContainer",
-"class": "HostQueue",
+"class": "GuestEntry",
 "language": "GDScript",
-"path": "res://Screens/Menu/Lobby/HostQueue.gd"
+"path": "res://Screens/Menu/Lobby/Guest/GuestEntry.gd"
+}, {
+"base": "HBoxContainer",
+"class": "LobbyRoom",
+"language": "GDScript",
+"path": "res://Screens/Menu/Lobby/LobbyRoom.gd"
 }, {
 "base": "Node2D",
 "class": "Map",
@@ -42,7 +47,8 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Blackhole": "",
 "Dummy": "",
-"HostQueue": "",
+"GuestEntry": "",
+"LobbyRoom": "",
 "Map": "",
 "Spell": "",
 "Star": ""
@@ -51,13 +57,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Wizarena"
-run/main_scene="res://Screens/Menu/Menu.tscn"
+run/main_scene="res://Screens/Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Network="*res://Functionality/Network/Network.tscn"
-GlobalSettings="*res://Functionality/Global/GlobalSettings.tscn"
+Gameplay="*res://Screens/Gameplay/Gameplay.tscn"
+Menu="*res://Screens/Menu/Menu.tscn"
 
 [debug]
 

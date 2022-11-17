@@ -1,15 +1,18 @@
 extends CenterContainer
 
-signal host(name, port)
-signal join(name, ip, port)
+signal host(player_name, port)
+signal join(player_name, ip, port)
+
+export var DEFAULT_PORT = 7979
 
 func _ready():
+	seed(OS.get_unix_time())
 	var pname = ""
 	for i in range(0, 5):
 		pname += char(ord("a") + randi() %(ord("z")-ord("a")))
 	$HBox/VBox/HBox/Name.text = pname
-	$HBox/VBox/Host_Join/Info/Address/ClientPort.text = str(Network.DEFAULT_PORT)
-	$HBox/VBox/Host_Join/Info/ServerPort.text = str(Network.DEFAULT_PORT)
+	$HBox/VBox/Host_Join/Info/Address/ClientPort.text = str(DEFAULT_PORT)
+	$HBox/VBox/Host_Join/Info/ServerPort.text = str(DEFAULT_PORT)
 
 
 func PopupErrMsg(msg):

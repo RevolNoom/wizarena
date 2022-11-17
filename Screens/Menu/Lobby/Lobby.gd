@@ -3,55 +3,32 @@ extends HBoxContainer
 # TODO: Shows pop up when server kicks player out
 
 
-func _ready():
-	Network.connect("disconnected", self, "_on_Network_disconnected")
-	IgnoreDecisionIfAlreadyInARoom()
+func GetRoom():
+	return get_node("Room")
 	
 	
-func IgnoreDecisionIfAlreadyInARoom():
-	if get_tree().network_peer != null:
-		$LobbyDecision.visible = false
-		if Network.get_status()[Network.ID] == 1:
-			$LobbyDecision.visible = false
-			$HostQueue.visible = true
-		else:
-			$LobbyDecision.visible = false
-			$GuestQueue.visible = true
-
-# TODO: I don't like Lobby way of do Network setup
-# It should be done by each Queue
-func _on_LobbyDecision_host(_name, _port):
-	$LobbyDecision.visible = false
-	$HostQueue.visible = true
+func _on_LobbyDecision_host(player_name, port):
+	var room = preload("res://Screens/Menu/Lobby/Host/HostRoom.tscn").instance()
+	switch_to_room(room)
+	room.SetupServer(player_name, port)
 
 
-func _on_LobbyDecision_join(_name, _ip, _port):
-	$LobbyDecision.visible = false
-	$GuestQueue.visible = true
-
-
-func AddQueue(queueScene):
-	add_child(queueScene)
-	queueScene.name = "Queue"
-	queueScene.connect("exit", self, "_on_Queue_exit", [], CONNECT_ONESHOT)
+func _on_LobbyDecision_join(player_name, ip, port):
+	var room = preload("res://Screens/Menu/Lobby/Guest/GuestRoom.tscn").instance()
+	switch_to_room(room)
+	room.SetupClient(player_name, ip, port)
 	
-
-func _on_Queue_exit():
-	$LobbyDecision.visible = true
-	$HostQueue.visible = false
-	$GuestQueue.visible = false
 	
+func switch_to_room(room):
+	add_child(room)
+	$LobbyDecision.hide()
+	room.name = "Room"
+	room.connect("exit", self, "_on_Room_exit")
 
-remotesync func InitializeGame():
-	get_tree().change_scene("res://Screens/Gameplay/Gameplay.tscn")
 
-
-func _on_HostQueue_launch_game():
-	rpc("InitializeGame")
+func _on_Room_exit():
+	$LobbyDecision.show()
+	get_node("Room").queue_free()
 	
-var _scenes = {
-	"HostQueue": preload("res://Screens/Menu/Lobby/HostQueue.tscn"),
-	"GuestQueue": preload("res://Screens/Menu/Lobby/GuestQueue.tscn")
-}
 
 

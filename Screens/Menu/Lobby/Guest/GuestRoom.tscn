@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Screens/Menu/Lobby/HostQueue.gd" type="Script" id=1]
+[ext_resource path="res://Screens/Menu/Lobby/Guest/GuestRoom.gd" type="Script" id=1]
 
-[node name="HostQueue" type="HBoxContainer"]
+[node name="GuestRoom" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -26,6 +26,7 @@ margin_right = 253.0
 margin_bottom = 119.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+disabled = true
 text = "Map"
 
 [node name="State" type="VBoxContainer" parent="Room/Controller"]
@@ -47,6 +48,7 @@ margin_right = 253.0
 margin_bottom = 57.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+disabled = true
 toggle_mode = true
 text = "Opening"
 
@@ -65,7 +67,9 @@ margin_right = 253.0
 margin_bottom = 119.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Start"
+disabled = true
+toggle_mode = true
+text = "Ready"
 
 [node name="PlayQueue" type="VBoxContainer" parent="Room"]
 margin_top = 123.0
@@ -88,4 +92,4 @@ margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="pressed" from="Room/Controller/State/Launch" to="." method="_on_Launch_pressed"]
+[connection signal="toggled" from="Room/Controller/State/Launch" to="." method="_on_Launch_toggled"]

@@ -10,6 +10,8 @@ func _ready():
 	ignore_err = connect("die", self, "_on_Player_die")
 
 
+
+
 func _process(_delta):
 	var velocity = Vector2()
 	if Input.is_action_pressed("ui_left"):

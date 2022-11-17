@@ -2,30 +2,28 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	var startingSpells = [
+		preload("res://Spell/Fireball/Fireball.tscn"), 
+		preload("res://Spell/Seisme/Seisme.tscn"),
+		preload("res://Spell/Telekinesis/Telekinesis.tscn")]
+		
 	for i in _spellBook.keys():
 		$VBoxContainer/ItemList.add_icon_item(_spellBook[i].get_texture())
-
-func _enter_tree():
-	# Only call this function after _ready()
-	if get_node_or_null("MousePosition") == null:
-		return
 		
-	var eqs = GlobalSettings._EquippedSpells.duplicate(true)
-	for i in range (0, eqs.size()):
-		$Panel/MilkyWay.get_node("Slot"+ str(i)).add_child(eqs[i])
-		eqs[i].visible = true
+	for i in range(0, 10):
+		var eqs = startingSpells[i%startingSpells.size()].instance()
+		$Panel/MilkyWay.get_child(i).add_child(eqs)
+		eqs.visible = true
 
 
 # Transfer Spells in slots to GlobalSettings' Spell Book
-func _exit_tree():
-	# This is an array reference. _EquippedSpells is being modified
-	var eqs = GlobalSettings._EquippedSpells
-	
-	for i in range (0, eqs.size()):
-		var slot = $Panel/MilkyWay.get_node("Slot"+ str(i))
-		eqs[i] = slot.get_children()[0]
-		slot.remove_child(eqs[i])
-		eqs[i].visible = false
+func GetSpells():
+	var spells = []
+	spells.resize(10)
+	for i in range(0, 10):
+		spells[i] = $Panel/MilkyWay.get_child(i).get_child(0)
+	return spells
 	
 
 func _on_ItemList_item_selected(index):

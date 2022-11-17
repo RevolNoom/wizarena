@@ -3,20 +3,19 @@ extends Node2D
 class_name Map
 
 func LoadPlayers():
-	$RockSpawn.Spawn()
+	#$RockSpawn.Spawn()
 	_players.clear()
 	var spawnpoint = 1
-	var players = Network._player.keys()
-	players.sort()
-	for playerID in players:
+	var players = Menu.GetLobby().GetRoom().GetPlayerEntries()
+	for entry in players:
 		var player
-		if playerID == get_tree().get_network_unique_id():
+		if entry.get_network_master() == get_tree().get_network_unique_id():
 			player = preload("res://Player/Player.tscn").instance()
 		else:
 			player = preload("res://Player/Dummy.tscn").instance()
 			
-		player.name = str(playerID)
-		player.set_network_master(playerID)
+		player.name = entry.name
+		player.set_network_master(entry.get_network_master())
 		
 		_players.append(player)
 		$SpawnPoint.get_node(str(spawnpoint)).add_child(player)

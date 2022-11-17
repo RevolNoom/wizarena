@@ -1,4 +1,5 @@
-[Spell] Glacial bolt
+[Spell] Glacial bol
+
 [Spell] Lightning zap
 
 [Star] Firefly
@@ -8,3 +9,9 @@
 [Optimization] queue_free Rock and RockSpawn
 
 [GUI] Complete GUI flow from start application until end
+[GUI] Reopen the room when everyone comes back
+[Network] Some players might wait in the room without playing. Don't send gameplay rpc to them
+
+[GUI] Lobby doesn't correctly change players statuses
+
+[GUI] Player's GUI is still alive after game, blocking GUI view

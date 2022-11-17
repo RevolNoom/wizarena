@@ -16,3 +16,21 @@ func _enter_tree():
 
 # Spells equipped from SpellBook
 var _EquippedSpells: Array = []
+
+
+enum{
+	GAMEPLAY,
+	MENU,
+	SPELLBOOK
+}
+
+var scene = {
+	GAMEPLAY: "/root/Gameplay",
+	MENU: "/root/Menu",
+	SPELLBOOK: "/root/Menu/SpellBook",
+}
+
+func GetNode(enumNode):
+	return get_node(scene[enumNode])
+
+

@@ -6,7 +6,11 @@ signal die(dummy)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var dontcare = $Health.connect("empty", self, "Die")
+	var dontcare = $Health.connect("empty", self, "Die", [], CONNECT_ONESHOT)
+
+
+func IsAlive():
+	return $Health.value == 0
 
 
 func Die():
@@ -25,5 +29,5 @@ remotesync func UpdatePosture(newGPosition, newGRotation):
 remotesync func CastSpell(spellname, customSpellArguments: Array):
 	print("Casting spell")
 	var spell = load(spellname).instance()
-	GlobalSettings.get_node("ProjectileDump").add_child(spell)
+	Gameplay.get_node("Dump").Add(spell)
 	spell.Instantiate(customSpellArguments)

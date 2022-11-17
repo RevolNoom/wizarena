@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Screens/Menu/Lobby/Lobby.gd" type="Script" id=1]
 [ext_resource path="res://Screens/Menu/Lobby/LobbyDecision.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Screens/Menu/Lobby/HostQueue.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Screens/Menu/Lobby/GuestQueue.tscn" type="PackedScene" id=4]
 
 [node name="Lobby" type="HBoxContainer"]
 anchor_right = 1.0
@@ -18,26 +16,5 @@ anchor_bottom = 0.0
 margin_right = 1024.0
 margin_bottom = 600.0
 
-[node name="HostQueue" parent="." instance=ExtResource( 3 )]
-visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 342.0
-margin_right = 681.0
-margin_bottom = 600.0
-
-[node name="GuestQueue" parent="." instance=ExtResource( 4 )]
-visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 514.0
-margin_right = 1024.0
-margin_bottom = 600.0
-
 [connection signal="host" from="LobbyDecision" to="." method="_on_LobbyDecision_host"]
-[connection signal="host" from="LobbyDecision" to="HostQueue" method="_on_LobbyDecision_host"]
 [connection signal="join" from="LobbyDecision" to="." method="_on_LobbyDecision_join"]
-[connection signal="join" from="LobbyDecision" to="GuestQueue" method="_on_LobbyDecision_join"]
-[connection signal="exit" from="HostQueue" to="." method="_on_Queue_exit"]
-[connection signal="launch_game" from="HostQueue" to="." method="_on_HostQueue_launch_game"]
-[connection signal="exit" from="GuestQueue" to="." method="_on_Queue_exit"]

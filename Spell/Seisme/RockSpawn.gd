@@ -6,6 +6,9 @@ export var rock_spawn_time_interval = 0.06
 
 export var damage = 30
 
+func _ready():
+	set_process(false)
+	
 func _process(delta):
 	_spawnTimer += delta
 	while _spawnTimer > rock_spawn_time_interval:

@@ -3,17 +3,25 @@ extends Node2D
 signal spell_chosen(spell)
 
 func _ready():
-	_spellBookCopy = GlobalSettings._EquippedSpells.duplicate(true)
+	_spellBookCopy = Menu.GetSpellBook().GetSpells()
 	
-	for i in _spellBookCopy:
-		i.visible = true
+	for i in range(_spellBookCopy.size()):
+		_spellBookCopy[i] = _spellBookCopy[i].duplicate()
+		_spellBookCopy[i].visible = true
 	
 	for slot in get_children():
 		var spell = _spellBookCopy.pop_front()
 		slot.RefersTo(spell)
-		#print(slot.name + " " + spell.name)
 
 
+# Burn the spell book
+func _exit_tree():
+	for slot in get_children():
+		var spell = slot.get_child(0)
+		slot.remove_child(spell)
+		spell.free()
+	for spell in _spellBookCopy:
+		spell.free()
 
 
 var _isHolding = false

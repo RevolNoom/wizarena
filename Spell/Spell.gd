@@ -13,6 +13,11 @@ func _ready():
 		cost.set_process(false)
 
 
+func queue_free():
+	print(name + " will be deleted")
+	print_stack()
+	.queue_free()
+
 # OVERRIDE ME
 # Called when Player wants to get more input to prepare spell
 func Activate(_caster):
