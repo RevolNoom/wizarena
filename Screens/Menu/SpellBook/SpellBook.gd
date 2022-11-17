@@ -5,9 +5,9 @@ func _ready():
 	
 	var startingSpells = [
 		preload("res://Spell/Fireball/Fireball.tscn"), 
-		preload("res://Spell/Seisme/Seisme.tscn"),
-		preload("res://Spell/Telekinesis/Telekinesis.tscn")]
-		
+		#preload("res://Spell/Seisme/Seisme.tscn"),
+		#preload("res://Spell/Telekinesis/Telekinesis.tscn")]
+		]
 	for i in _spellBook.keys():
 		$VBoxContainer/ItemList.add_icon_item(_spellBook[i].get_texture())
 		
@@ -33,8 +33,8 @@ func _on_ItemList_item_selected(index):
 var _spellBook = {
 	#-1 : preload("res://Spell/Mystery/Mystery.tscn").instance(),
 	0 : preload("res://Spell/Fireball/Fireball.tscn").instance(),
-	1 : preload("res://Spell/Seisme/Seisme.tscn").instance(),
-	2 :	preload("res://Spell/Telekinesis/Telekinesis.tscn").instance(),
+	#1 : preload("res://Spell/Seisme/Seisme.tscn").instance(),
+	#2 : preload("res://Spell/Telekinesis/Telekinesis.tscn").instance(),
 	}
 
 

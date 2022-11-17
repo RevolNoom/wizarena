@@ -3,7 +3,11 @@
 
 extends Node
 
-
 func Add(projectile):
 	projectile.z_index = 1
-	add_child(projectile)
+	add_child(projectile)\
+	
+	
+func Clear():
+	for anything in get_children():
+		anything.queue_free()

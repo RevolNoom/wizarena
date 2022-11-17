@@ -9,13 +9,13 @@ func LoadPlayers():
 	var players = Menu.GetLobby().GetRoom().GetPlayerEntries()
 	for entry in players:
 		var player
-		if entry.get_network_master() == get_tree().get_network_unique_id():
+		if int(entry.name) == get_tree().get_network_unique_id():
 			player = preload("res://Player/Player.tscn").instance()
 		else:
 			player = preload("res://Player/Dummy.tscn").instance()
 			
 		player.name = entry.name
-		player.set_network_master(entry.get_network_master())
+		player.set_network_master(int(entry.name))
 		
 		_players.append(player)
 		$SpawnPoint.get_node(str(spawnpoint)).add_child(player)

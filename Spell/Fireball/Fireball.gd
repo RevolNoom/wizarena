@@ -19,6 +19,6 @@ func Instantiate(customSpellArguments: Array):
 	fb.set_global_rotation(grot)
 	fb.add_collision_exception_with(caster)
 	
-	fb.damage = 100
+	fb.damage = 50
 
 	fb.linear_velocity = Vector2(fb.velocity, 0).rotated(grot)

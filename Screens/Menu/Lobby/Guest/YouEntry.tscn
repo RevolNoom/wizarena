@@ -12,11 +12,6 @@ text = "You"
 
 [node name="Name" parent="." index="1"]
 margin_left = 27.0
-margin_right = 920.0
-
-[node name="Status" parent="." index="2"]
-margin_left = 924.0
-text = "Waiting"
 
 [node name="Exit" parent="." index="4"]
 disabled = false

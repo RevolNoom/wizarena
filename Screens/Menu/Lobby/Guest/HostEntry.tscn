@@ -10,6 +10,13 @@ text = "Host"
 
 [node name="Name" parent="." index="1"]
 margin_left = 34.0
+margin_right = 927.0
+
+[node name="Status" parent="." index="2"]
+margin_left = 931.0
+margin_right = 972.0
+text = "READY"
 
 [node name="Move" parent="." index="3"]
+margin_left = 976.0
 text = "->"

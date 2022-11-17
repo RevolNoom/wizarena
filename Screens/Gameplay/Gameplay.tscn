@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Screens/Gameplay/Gameplay.gd" type="Script" id=1]
-[ext_resource path="res://Maps/Colliseum/Colliseum.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Screens/Gameplay/Dump.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Screens/Gameplay/ToLobbyNotice.gd" type="Script" id=4]
-[ext_resource path="res://Screens/Gameplay/Dump.gd" type="Script" id=5]
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource( 1 )
@@ -81,12 +80,7 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="Map" type="Node2D" parent="."]
-
-[node name="Colliseum" parent="Map" instance=ExtResource( 2 )]
-
-[node name="Dump" type="Node" parent="."]
-script = ExtResource( 5 )
+[node name="Dump" parent="." instance=ExtResource( 2 )]
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBox/MainMenuButton" to="." method="BackToLobby"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBox/MainMenuButton" to="CanvasLayer/CenterContainer/VBox/ToLobbyNotice" method="_on_MainMenuButton_pressed"]

@@ -53,4 +53,23 @@ func isLaunchable():
 
 func _on_Launch_pressed():
 	rpc("InitializeGame")
+	#DisablePlayerEntriesStatusChangeEffect()
+	
 
+
+func _DoResetRoomOnAllPlayersLeaveGameplay(entry):
+	if not all_players_have_left_gameplay():
+		return
+		
+	._DoResetRoomOnAllPlayersLeaveGameplay(entry)
+	
+	#EnablePlayerEntriesStatusChangeEffect()
+	_youEntry.rpc("set_status", "READY")
+
+
+#func DisablePlayerEntriesStatusChangeEffect():
+#	for entry in $Room/PlayQueue.get_children():
+#		entry.disconnect("status_changed", self, "_on_Entry_status_changed")
+#func EnablePlayerEntriesStatusChangeEffect():
+#	for entry in $Room/PlayQueue.get_children():
+#		entry.connect("status_changed", self, "_on_Entry_status_changed")

@@ -37,12 +37,11 @@ func _on_Network_peer_disconnected(id):
 			entry.free()
 
 
-func SetStatusOf(network_id, new_status):
+func GetEntry(network_id):
 	for entry in [$Queue/WaitQueue.get_node_or_null(str(network_id))\
 				, $Room/PlayQueue.get_node_or_null(str(network_id))]:
 		if entry != null:
-			entry.set_status(new_status)
-			return
+			return entry
 			
 
 func GetPlayerEntries():
@@ -65,9 +64,9 @@ remote func CreateEntry(entry_info):
 	var status = entry_info[3]
 	
 	var entry = _entryScene[role].instance()
-	entry.set_network_master(id)
+	#entry.set_network_master(id)
 	entry.name = str(id)
-	entry.set_role(role)
+	#entry.set_role(role) # No need, info already saved in scene
 	entry.set_name(pname)
 	entry.set_status(status)
 	
@@ -116,31 +115,33 @@ remotesync func InitializeGame():
 # At end game, lock launching until all players are not in Gameplay anymore
 # TODO
 func _on_Gameplay_end_game():
-	$Room/Controller/State/Launch.disabled = true
+	#$Room/Controller/State/Launch.disabled = true
+	for entry in $Room/PlayQueue.get_children():
+		entry.connect("status_changed", self, "_DoResetRoomOnAllPlayersLeaveGameplay")
 	
 	
-func _DoResetRoomForNewMatch(_status):
+func _DoResetRoomOnAllPlayersLeaveGameplay(entry):
 	
-	# Only host can set statuses
-	#if Network.get_status()[Network.ID] != 1:
-	#	return
-		
-	#for player in $Room/PlayQueue.get_children():
-	#	if player.GetStatus() == Network.PLAYING:
-	#		return
+	if not all_players_have_left_gameplay():
+		return
+
+	for entry in $Room/PlayQueue.get_children():
+		entry.disconnect("status_changed", self, "_DoResetRoomOnAllPlayersLeaveGameplay")
+
+		# Remove disconnected players
+		if entry.get_status() == "DISCONNECTED":
+			entry.ExitTree()
+
+		else: # Reset players' statuses
+			entry.set_status("PREPARING")
 			
-	# Delete all Disconnected players:
-	#for player in $Room/PlayQueue.get_children():
-	#	var stat = player.GetStatus()
-	#	if stat == Network.DISCONNECTED:
-	#		$Room/PlayQueue.remove_child(player)
-		
-		# Reset players in queues
-	#	else:
-	#		player.SetStatus(Network.PREPARING)
-		
-	# Reset waiting players' states
-	#for player in $Queue/WaitQueue.get_children():
-	#	if player.GetStatus() != Network.WAITING:
-	#		player.SetStatus(Network.WAITING)
-	print(get_class() + " hasn't implemented DoResetRoom")
+	# Reset players' statuses
+	for entry in $Queue/WaitQueue.get_children():
+		entry.set_status("WAITING")
+
+
+func all_players_have_left_gameplay():
+	for entry in $Room/PlayQueue.get_children():
+		if entry.get_status() == "PLAYING":
+			return false
+	return true

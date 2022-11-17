@@ -3,7 +3,6 @@ extends Node2D
 signal end_game
 
 
-
 func _on_MainMenuButton_pressed():
 	BackToLobby()
 
@@ -19,17 +18,24 @@ func _on_player_die(player):
 
 func Initialize():
 	visible = true
-	var map = $Map.get_child(0)
-	map.LoadPlayers()
-	_playerLeft = map.get_players()
-	for player in map.get_players():
+	var map = preload("res://Maps/Colliseum/Colliseum.tscn").instance()
+	map.name = "Map"
+	add_child(map)
+	$Map.LoadPlayers()
+	$Dump
+	_playerLeft = $Map.get_players()
+	for player in $Map.get_players():
 		player.connect("die", self, "_on_player_die")
 
 
 func BackToLobby():
-	Menu.GetLobby().GetRoom().SetStatusOf(get_tree().get_network_unique_id(), "WATCHING")
+	Menu.GetLobby().GetRoom().GetEntry(get_tree().get_network_unique_id()).rpc("set_status", "WATCHING")
 	Menu.visible = true
 	visible = false
+	
+	var map = $Map 
+	remove_child(map)
+	map.queue_free()
 	$CanvasLayer.visible = false
 
 
