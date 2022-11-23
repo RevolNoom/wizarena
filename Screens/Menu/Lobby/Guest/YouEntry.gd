@@ -1,13 +1,9 @@
 extends GuestEntry
 
+
 func _ready():
-	connect("to_play_queue", self, "_on_YouEntry_to_play_queue")
-	connect("to_wait_queue", self, "_on_YouEntry_to_wait_queue")
-
-
-func _on_YouEntry_to_play_queue(_entry):
-	$Move.disabled = false
+	connect("move", self, "_on_self_move")
 	
 	
-func _on_YouEntry_to_wait_queue(_entry):
-	$Move.disabled = true
+func _on_self_move(_entry):
+	$Move.disabled = not $Move.disabled

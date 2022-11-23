@@ -1,0 +1,219 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Spell/LightningZap/LightningSegment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Spell/LightningZap/LightningSpawn.gd" type="Script" id=2]
+
+[node name="LightningSpawn" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="LightningSegment" parent="." instance=ExtResource( 1 )]
+position = Vector2( 50, 0 )
+rotation = -0.483638
+
+[node name="LightningSegment2" parent="LightningSegment" instance=ExtResource( 1 )]
+position = Vector2( 49.6487, 0.0980206 )
+rotation = 0.315775
+
+[node name="LightningSegment3" parent="LightningSegment/LightningSegment2" instance=ExtResource( 1 )]
+position = Vector2( 49.6479, 0.299164 )
+rotation = -0.225946
+
+[node name="LightningSegment4" parent="LightningSegment/LightningSegment2/LightningSegment3" instance=ExtResource( 1 )]
+position = Vector2( 49.7693, 0.104969 )
+rotation = 0.228715
+
+[node name="LightningSegment5" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4" instance=ExtResource( 1 )]
+position = Vector2( 21.2075, 0.492039 )
+rotation = -0.344349
+
+[node name="LightningSegment7" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment5" instance=ExtResource( 1 )]
+position = Vector2( 49.2443, 0.018322 )
+rotation = -0.174676
+
+[node name="LightningSegment8" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment7" instance=ExtResource( 1 )]
+position = Vector2( 49.5176, -0.0586243 )
+rotation = 0.253519
+
+[node name="LightningSegment9" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment7/LightningSegment8" instance=ExtResource( 1 )]
+position = Vector2( 49.3958, 0.244598 )
+rotation = -0.170354
+
+[node name="LightningSegment10" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment7/LightningSegment8/LightningSegment9" instance=ExtResource( 1 )]
+position = Vector2( 49.5283, -0.313866 )
+rotation = -0.276256
+
+[node name="LightningSegment8" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment5" instance=ExtResource( 1 )]
+position = Vector2( 49.2443, 0.018322 )
+rotation = 0.330814
+
+[node name="LightningSegment8" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8" instance=ExtResource( 1 )]
+position = Vector2( 49.5176, -0.0586243 )
+rotation = -0.20126
+
+[node name="LightningSegment9" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8/LightningSegment8" instance=ExtResource( 1 )]
+position = Vector2( 49.3958, 0.244598 )
+rotation = 0.0568772
+
+[node name="LightningSegment10" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8/LightningSegment8/LightningSegment9" instance=ExtResource( 1 )]
+position = Vector2( 34.1535, -0.224838 )
+rotation = -0.415228
+
+[node name="LightningSegment11" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8/LightningSegment8/LightningSegment9/LightningSegment10" instance=ExtResource( 1 )]
+position = Vector2( 49.5758, 0.491928 )
+rotation = -0.148071
+
+[node name="LightningSegment11" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8/LightningSegment8/LightningSegment9" instance=ExtResource( 1 )]
+position = Vector2( 49.9649, -0.204887 )
+rotation = 0.291496
+
+[node name="LightningSegment11" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8/LightningSegment8/LightningSegment9/LightningSegment11" instance=ExtResource( 1 )]
+position = Vector2( 49.5758, 0.491928 )
+rotation = -0.425318
+
+[node name="LightningSegment12" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8/LightningSegment8/LightningSegment9/LightningSegment11/LightningSegment11" instance=ExtResource( 1 )]
+position = Vector2( 49.5502, -0.08078 )
+rotation = 0.374215
+
+[node name="LightningSegment6" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4" instance=ExtResource( 1 )]
+position = Vector2( 49.6485, 0.161678 )
+rotation = 0.251097
+
+[node name="LightningSegment7" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment6" instance=ExtResource( 1 )]
+position = Vector2( 49.1625, -0.223709 )
+rotation = -0.359535
+
+[node name="LightningSegment8" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7" instance=ExtResource( 1 )]
+position = Vector2( 48.7644, 0.179604 )
+rotation = -0.0956181
+
+[node name="LightningSegment9" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment8" instance=ExtResource( 1 )]
+position = Vector2( 49.396, -0.189541 )
+rotation = 0.357863
+
+[node name="LightningSegment10" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment8/LightningSegment9" instance=ExtResource( 1 )]
+position = Vector2( 50.0081, -0.435539 )
+rotation = -0.237125
+
+[node name="LightningSegment11" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment8/LightningSegment9/LightningSegment10" instance=ExtResource( 1 )]
+position = Vector2( 49.477, 0.169937 )
+rotation = 0.543079
+
+[node name="LightningSegment9" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7" instance=ExtResource( 1 )]
+position = Vector2( 8.24284, 0.235424 )
+rotation = 0.608346
+
+[node name="LightningSegment9" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment9" instance=ExtResource( 1 )]
+position = Vector2( 49.396, -0.189541 )
+rotation = 0.357863
+
+[node name="LightningSegment10" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment9/LightningSegment9" instance=ExtResource( 1 )]
+position = Vector2( 50.0081, -0.435539 )
+rotation = -1.04325
+
+[node name="LightningSegment11" parent="LightningSegment/LightningSegment2/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment9/LightningSegment9/LightningSegment10" instance=ExtResource( 1 )]
+position = Vector2( 49.477, 0.169937 )
+rotation = 0.543079
+
+[node name="LightningSegment3" parent="LightningSegment" instance=ExtResource( 1 )]
+position = Vector2( 10.2928, -0.241518 )
+rotation = 1.0143
+
+[node name="LightningSegment3" parent="LightningSegment/LightningSegment3" instance=ExtResource( 1 )]
+position = Vector2( 49.6479, 0.299164 )
+rotation = -0.0076253
+
+[node name="LightningSegment4" parent="LightningSegment/LightningSegment3/LightningSegment3" instance=ExtResource( 1 )]
+position = Vector2( 49.7693, 0.104969 )
+rotation = 0.192595
+
+[node name="LightningSegment5" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4" instance=ExtResource( 1 )]
+position = Vector2( 0.637955, 0.324722 )
+rotation = -0.802419
+
+[node name="LightningSegment8" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment5" instance=ExtResource( 1 )]
+position = Vector2( 49.2443, 0.018322 )
+rotation = 0.14059
+
+[node name="LightningSegment8" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8" instance=ExtResource( 1 )]
+position = Vector2( 49.5176, -0.0586243 )
+rotation = -0.16397
+
+[node name="LightningSegment9" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8/LightningSegment8" instance=ExtResource( 1 )]
+position = Vector2( 49.3958, 0.244598 )
+rotation = 0.343436
+
+[node name="LightningSegment10" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8/LightningSegment8/LightningSegment9" instance=ExtResource( 1 )]
+position = Vector2( 34.1535, -0.224838 )
+rotation = -0.415228
+
+[node name="LightningSegment11" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8/LightningSegment8/LightningSegment9/LightningSegment10" instance=ExtResource( 1 )]
+position = Vector2( 49.5758, 0.491928 )
+rotation = -0.148071
+
+[node name="LightningSegment12" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8/LightningSegment8/LightningSegment9/LightningSegment10/LightningSegment11" instance=ExtResource( 1 )]
+position = Vector2( 49.0452, -0.487366 )
+rotation = 0.203679
+
+[node name="LightningSegment13" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8/LightningSegment8/LightningSegment9/LightningSegment10/LightningSegment11/LightningSegment12" instance=ExtResource( 1 )]
+position = Vector2( 49.3655, 0.22261 )
+rotation = 0.423295
+
+[node name="LightningSegment11" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment5/LightningSegment8/LightningSegment8/LightningSegment9" instance=ExtResource( 1 )]
+position = Vector2( 49.9649, -0.204887 )
+rotation = -0.074828
+
+[node name="LightningSegment6" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4" instance=ExtResource( 1 )]
+position = Vector2( 49.6485, 0.161678 )
+rotation = -0.340366
+
+[node name="LightningSegment7" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6" instance=ExtResource( 1 )]
+position = Vector2( 49.1625, -0.223709 )
+rotation = -0.412299
+
+[node name="LightningSegment8" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7" instance=ExtResource( 1 )]
+position = Vector2( 48.7644, 0.179604 )
+rotation = -0.0956181
+
+[node name="LightningSegment9" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment8" instance=ExtResource( 1 )]
+position = Vector2( 49.396, -0.189541 )
+rotation = 0.288932
+
+[node name="LightningSegment10" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment8/LightningSegment9" instance=ExtResource( 1 )]
+position = Vector2( 50.0081, -0.435539 )
+rotation = 0.328336
+
+[node name="LightningSegment11" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment8/LightningSegment9/LightningSegment10" instance=ExtResource( 1 )]
+position = Vector2( 49.477, 0.169937 )
+rotation = -0.524916
+
+[node name="LightningSegment10" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7" instance=ExtResource( 1 )]
+position = Vector2( 48.7644, 0.179604 )
+rotation = 0.271267
+
+[node name="LightningSegment9" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment10" instance=ExtResource( 1 )]
+position = Vector2( 49.396, -0.189541 )
+rotation = 0.288932
+
+[node name="LightningSegment10" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment10/LightningSegment9" instance=ExtResource( 1 )]
+position = Vector2( 50.0081, -0.435539 )
+rotation = -0.446631
+
+[node name="LightningSegment11" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7" instance=ExtResource( 1 )]
+position = Vector2( 48.7644, 0.179604 )
+rotation = 0.764665
+
+[node name="LightningSegment9" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment11" instance=ExtResource( 1 )]
+position = Vector2( 49.396, -0.189541 )
+rotation = 0.135561
+
+[node name="LightningSegment10" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment11/LightningSegment9" instance=ExtResource( 1 )]
+position = Vector2( 50.0081, -0.435539 )
+rotation = -0.778702
+
+[node name="LightningSegment9" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7" instance=ExtResource( 1 )]
+position = Vector2( 36.126, -0.506058 )
+rotation = -0.701056
+
+[node name="LightningSegment9" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment9" instance=ExtResource( 1 )]
+position = Vector2( 49.396, -0.189541 )
+rotation = 0.645203

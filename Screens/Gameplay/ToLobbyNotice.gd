@@ -10,9 +10,9 @@ func _ready():
 
 func Start():
 	visible = true
-	_timer = get_tree().create_timer(Start_Time)
+	_timer = get_tree().create_timer(duration)
 	_timer.connect("timeout", self, "_on_timer_timeout")
-	$Bar.max_value = Start_Time
+	$Bar.max_value = _timer.time_left
 	set_process(true)
 
 
@@ -39,4 +39,4 @@ func DisableTimer():
 
 
 var _timer = null
-export var Start_Time = 10
+export var duration = 5

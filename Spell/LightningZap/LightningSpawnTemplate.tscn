@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Spell/LightningZap/LightningSegment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Spell/LightningZap/lightning.jpeg" type="Texture" id=2]
+[ext_resource path="res://Spell/LightningZap/LightningSegment.gd" type="Script" id=3]
+
+[node name="LightningSpawn" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.999999, 0 )
+rotation = 2.8792
+scale = Vector2( 1.70803, 1.70803 )
+texture = ExtResource( 2 )
+offset = Vector2( -175.647, -11.9028 )
+
+[node name="LightningSegment" parent="." instance=ExtResource( 1 )]
+rotation = -0.483638
+monitorable = false
+
+[node name="LightningSegment2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 44, -23 )
+rotation = -0.167863
+monitorable = false
+
+[node name="LightningSegment3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 93, -31 )
+rotation = -0.393809
+monitorable = false
+
+[node name="LightningSegment4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 139, -50 )
+rotation = -0.165094
+monitorable = false
+
+[node name="LightningSegment5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 188, -58 )
+rotation = -0.509443
+monitorable = false
+
+[node name="LightningSegment7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 231, -82 )
+rotation = -0.812778
+monitorable = false
+
+[node name="LightningSegment6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 188, -58 )
+rotation = 0.0860026
+monitorable = false

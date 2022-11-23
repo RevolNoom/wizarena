@@ -120,7 +120,7 @@ func _on_Gameplay_end_game():
 		entry.connect("status_changed", self, "_DoResetRoomOnAllPlayersLeaveGameplay")
 	
 	
-func _DoResetRoomOnAllPlayersLeaveGameplay(entry):
+func _DoResetRoomOnAllPlayersLeaveGameplay(_entry):
 	
 	if not all_players_have_left_gameplay():
 		return

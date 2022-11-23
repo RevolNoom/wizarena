@@ -22,7 +22,10 @@ shape = SubResource( 1 )
 [node name="Collective" type="Node" parent="."]
 
 [node name="Health" parent="." instance=ExtResource( 2 )]
+max_value = 1e+11
 
 [node name="Mana" parent="." instance=ExtResource( 2 )]
+max_value = 1e+11
 
 [node name="Focus" parent="." instance=ExtResource( 2 )]
+max_value = 1e+11

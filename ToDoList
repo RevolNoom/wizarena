@@ -1,12 +1,24 @@
-[Spell] Glacial bol
-
+[Spell] Glacial bolt
 [Spell] Lightning zap
+[Spell] Lightning Armor 
+[Spell] Unnatural growth: +max hp
+[Spell] Heal: +hp
+[Spell] Add Power attribute
+[Spell] Blood tribute: +Power -hp
+[Spell] Spirit step: +speed, -mana regen
+[Spell] Anesthetic: Heal for part of damage taken
+[Spell] Energize: -mana +stamina
+[Spell] Peace of Mind: +max mana +mana regen
+[Spell] Sedation: +mana -stamina
+[Spell] Bloodmancy: +Power -hp regen
 
-[Artwork] Change Stars artwork
+
+[Animation] Fireball particle 
 
 [Optimization] queue_free Rock and RockSpawn
 
 [Gameplay]: Create more maps, randomize them
+[Gameplay]: Replace mouse with collidable object
 
 [Network] Some players might wait in the room without playing. Don't send gameplay rpc to them
 

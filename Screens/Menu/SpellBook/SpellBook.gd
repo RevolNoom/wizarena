@@ -3,21 +3,22 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	var startingSpells = [
-		preload("res://Spell/Fireball/Fireball.tscn"), 
+	#var startingSpells = [
+	#	preload("res://Spell/Fireball/Fireball.tscn"), 
+	#	preload("res://Spell/LightningZap/LightningZap.tscn"), 
 		#preload("res://Spell/Seisme/Seisme.tscn"),
 		#preload("res://Spell/Telekinesis/Telekinesis.tscn")]
-		]
+	#	]
 	for i in _spellBook.keys():
 		$VBoxContainer/ItemList.add_icon_item(_spellBook[i].get_texture())
 		
 	for i in range(0, 10):
-		var eqs = startingSpells[i%startingSpells.size()].instance()
+		#var eqs = startingSpells[i%startingSpells.size()].instance()
+		var eqs = _spellBook[i%_spellBook.size()].duplicate()
 		$Panel/MilkyWay.get_child(i).add_child(eqs)
 		eqs.visible = true
 
 
-# Transfer Spells in slots to GlobalSettings' Spell Book
 func GetSpells():
 	var spells = []
 	spells.resize(10)
@@ -33,6 +34,7 @@ func _on_ItemList_item_selected(index):
 var _spellBook = {
 	#-1 : preload("res://Spell/Mystery/Mystery.tscn").instance(),
 	0 : preload("res://Spell/Fireball/Fireball.tscn").instance(),
+	1 : preload("res://Spell/LightningZap/LightningZap.tscn").instance(), 
 	#1 : preload("res://Spell/Seisme/Seisme.tscn").instance(),
 	#2 : preload("res://Spell/Telekinesis/Telekinesis.tscn").instance(),
 	}

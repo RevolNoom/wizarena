@@ -25,7 +25,6 @@ func SetupClient(player_name, ip, port):
 	
 	_youEntry = _entryScene["You"].instance()
 	_youEntry.set_name(player_name)
-	_youEntry.connect("move_pressed", self, "_on_You_move_pressed")
 	_youEntry.connect("exit_pressed", self, "_on_You_exit")
 	_youEntry.connect("move", self, "_on_You_move")
 	$Queue/WaitQueue.add_child(_youEntry)

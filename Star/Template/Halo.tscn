@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Star/Star/Halo.gd" type="Script" id=1]
+[ext_resource path="res://Star/Template/Halo.gd" type="Script" id=1]
 
 [node name="Halo" type="Sprite"]
 script = ExtResource( 1 )

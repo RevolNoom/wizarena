@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Star/Star/RedStar.svg" type="Texture" id=1]
+[ext_resource path="res://Star/Template/StarTemplate.svg" type="Texture" id=1]
 [ext_resource path="res://Screens/GUI/ProgressBars/HealthBarUnder.png" type="Texture" id=2]
 [ext_resource path="res://Screens/GUI/GUI.gd" type="Script" id=3]
 [ext_resource path="res://Screens/GUI/SpellKey.gd" type="Script" id=4]
