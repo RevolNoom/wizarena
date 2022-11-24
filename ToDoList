@@ -1,5 +1,4 @@
 [Spell] Glacial bolt
-[Spell] Lightning zap
 [Spell] Lightning Armor 
 [Spell] Unnatural growth: +max hp
 [Spell] Heal: +hp
@@ -11,7 +10,6 @@
 [Spell] Peace of Mind: +max mana +mana regen
 [Spell] Sedation: +mana -stamina
 [Spell] Bloodmancy: +Power -hp regen
-
 
 [Animation] Fireball particle 
 

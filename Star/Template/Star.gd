@@ -26,8 +26,7 @@ func DoSwitchToTouchedState():
 func Reset():
 	_touched = false
 
-# A Touched Star cannot be locked by any other star logic
-# Example could be Black Hole, Sun, Vector
+
 func IsTouched():
 	return _touched
 

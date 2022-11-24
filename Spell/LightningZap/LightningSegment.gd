@@ -2,7 +2,9 @@ extends Area2D
 
 class_name LightningSegment
 
-export var delay_time = 0.01
+#TODO: This delay time is framerate dependent
+#Remove the dependency
+export var delay_time = 0.02
 export var damage = 10
 var _branch = []
 var _time_until_child_zap = 0
@@ -26,6 +28,7 @@ func Zap():
 	TweenVisibility()
 	
 	_zappedBranch = 0
+	
 	if get_overlapping_bodies().size() == 0:
 		_time_until_child_zap = delay_time
 		set_process(true)
@@ -51,6 +54,8 @@ func _process(delta):
 	if _time_until_child_zap <= 0:
 		set_process(false)
 		for branch in _branch:
+			# Divide damage 
+			branch.damage = damage/_branch.size()
 			branch.Zap()
 	
 

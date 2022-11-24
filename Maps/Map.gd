@@ -3,7 +3,6 @@ extends Node2D
 class_name Map
 
 func LoadPlayers():
-	#$RockSpawn.Spawn()
 	_players.clear()
 	var spawnpoint = 1
 	var players = Menu.GetLobby().GetRoom().GetPlayerEntries()

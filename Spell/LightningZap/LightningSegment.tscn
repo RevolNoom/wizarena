@@ -3,23 +3,21 @@
 [ext_resource path="res://Spell/LightningZap/LightningSegment.gd" type="Script" id=1]
 [ext_resource path="res://Spell/LightningZap/LightningSegment.svg" type="Texture" id=2]
 
-[sub_resource type="RayShape2D" id=1]
-length = 50.0
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25, 2 )
 
 [node name="LightningSegment" type="Area2D"]
 collision_layer = 0
 collision_mask = 3
-input_pickable = false
 monitorable = false
 script = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -1.5708
-shape = SubResource( 1 )
-
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 rotation = 1.5708
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( -2.5, -50 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 25, 0 )
+shape = SubResource( 1 )

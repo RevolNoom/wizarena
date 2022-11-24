@@ -9,6 +9,7 @@ script = ExtResource( 2 )
 [node name="LightningSegment" parent="." instance=ExtResource( 1 )]
 position = Vector2( 50, 0 )
 rotation = -0.483638
+damage = 100
 
 [node name="LightningSegment2" parent="LightningSegment" instance=ExtResource( 1 )]
 position = Vector2( 49.6487, 0.0980206 )
@@ -217,3 +218,5 @@ rotation = -0.701056
 [node name="LightningSegment9" parent="LightningSegment/LightningSegment3/LightningSegment3/LightningSegment4/LightningSegment6/LightningSegment7/LightningSegment9" instance=ExtResource( 1 )]
 position = Vector2( 49.396, -0.189541 )
 rotation = 0.645203
+
+[connection signal="zapped" from="LightningSegment" to="." method="_on_LightningSegment_zapped"]
