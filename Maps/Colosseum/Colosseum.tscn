@@ -1,21 +1,24 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Maps/Colliseum/Arena.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Maps/Colosseum/Arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Maps/Map.tscn" type="PackedScene" id=2]
 
-[node name="Colliseum" instance=ExtResource( 2 )]
+[node name="Colosseum" instance=ExtResource( 2 )]
 
 [node name="Arena" parent="." index="0" instance=ExtResource( 1 )]
-position = Vector2( 449, 329 )
-scale = Vector2( 7.30125, 4.8675 )
+position = Vector2( 451, 292 )
+
+[node name="SpawnPoint" parent="." index="1"]
+position = Vector2( 0, -1 )
 
 [node name="1" type="Position2D" parent="SpawnPoint" index="0"]
+position = Vector2( 120, 84 )
 
 [node name="2" type="Position2D" parent="SpawnPoint" index="1"]
-position = Vector2( 507, -37 )
+position = Vector2( 755, 43 )
 
 [node name="3" type="Position2D" parent="SpawnPoint" index="2"]
-position = Vector2( -125, 326 )
+position = Vector2( 121, 488 )
 
 [node name="4" type="Position2D" parent="SpawnPoint" index="3"]
-position = Vector2( 398, 577 )
+position = Vector2( 649, 493 )

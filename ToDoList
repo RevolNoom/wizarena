@@ -1,3 +1,7 @@
+[Gameplay]: Replace mouse with Wand 
+
+
+
 [Spell] Glacial bolt
 [Spell] Lightning Armor 
 [Spell] Unnatural growth: +max hp
@@ -16,7 +20,6 @@
 [Optimization] queue_free Rock and RockSpawn
 
 [Gameplay]: Create more maps, randomize them
-[Gameplay]: Replace mouse with collidable object
 
 [Network] Some players might wait in the room without playing. Don't send gameplay rpc to them
 

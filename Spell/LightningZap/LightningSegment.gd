@@ -1,10 +1,9 @@
-extends Area2D
+extends RayCast2D
 
 class_name LightningSegment
 
-#TODO: This delay time is framerate dependent
-#Remove the dependency
-export var delay_time = 0.02
+
+export var delay_time = 0.03
 export var damage = 10
 var _branch = []
 var _time_until_child_zap = 0
@@ -16,30 +15,37 @@ signal zapped(self_segment)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_process(false)
+	set_physics_process(false)
 	for child in get_children():
 		# WARNING: I'd prefer Area2D to be LightningSegment
 		# but this has to do for now
-		if child is Area2D:
+		if child.get_class() == get_class():
 			_branch.push_back(child)
 			child.connect("zapped", self, "_on_child_zapped")
 
 
 func Zap():
 	TweenVisibility()
-	
 	_zappedBranch = 0
+	set_physics_process(true)
+
+
+func _physics_process(_delta):
+	set_physics_process(false)
+	force_raycast_update()
+	var obj = get_collider()
 	
-	if get_overlapping_bodies().size() == 0:
+	if obj == null:
 		_time_until_child_zap = delay_time
 		set_process(true)
 	else:
-		var obj = get_overlapping_bodies().front() 
 		if obj is Dummy:
 			obj.get_node("Health").TakeDamage(damage)
 			
 	if _branch.size() == 0:
 		set_process(false)
 		emit_signal("zapped", self)
+	
 
 
 func TweenVisibility():

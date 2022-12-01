@@ -18,7 +18,7 @@ func _on_player_die(player):
 
 func Initialize():
 	visible = true
-	var map = preload("res://Maps/Colliseum/Colliseum.tscn").instance()
+	var map = preload("res://Maps/Colosseum/Colosseum.tscn").instance()
 	map.name = "Map"
 	add_child(map)
 	$Map.LoadPlayers()

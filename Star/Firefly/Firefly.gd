@@ -20,4 +20,4 @@ func DoSwitchToTouchedState():
 	
 func DoTouchedBehaviors():
 	.DoTouchedBehaviors()
-	apply_central_impulse(-get_local_mouse_position().normalized()*TOUCH_IMPULSE)
+	apply_central_impulse((global_position - GetWand().GetTip()).normalized()*TOUCH_IMPULSE)

@@ -3,17 +3,13 @@ extends RigidBody2D
 class_name Star
 
 
-# Emits when this star is touched
-signal touched(selfStar)
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Reset()
 
 
 # OVERRIDE ME
-# Called when the mouse touches this star
+# Called when the wand touches this star
 func DoTouchedBehaviors():
 	pass
 
@@ -31,11 +27,15 @@ func IsTouched():
 	return _touched
 
 
-func _on_Star_mouse_entered():
+func GetWand():
+	return get_node("../../Wand")
+
+
+# Called from Wand
+func OnWandTouch():
 	DoTouchedBehaviors()
 	if not _touched:
 		DoSwitchToTouchedState()
-		emit_signal("touched", self)
 
 
 var _touched:= bool(false)
