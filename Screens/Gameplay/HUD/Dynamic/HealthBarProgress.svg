@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="420"
+   width="460"
    height="50"
-   viewBox="0 0 111.12499 13.229167"
+   viewBox="0 0 121.70833 13.229167"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   sodipodi:docname="FocusBarProgress.svg"
+   sodipodi:docname="HealthBarProgress.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -27,10 +27,10 @@
      units="px"
      width="500px"
      inkscape:snap-page="true"
-     inkscape:zoom="2.024393"
-     inkscape:cx="243.52979"
-     inkscape:cy="61.499916"
-     inkscape:window-width="1920"
+     inkscape:zoom="1.8771322"
+     inkscape:cx="228.80647"
+     inkscape:cy="57.800936"
+     inkscape:window-width="1830"
      inkscape:window-height="1016"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -39,40 +39,45 @@
     <inkscape:grid
        type="xygrid"
        id="grid1039"
-       spacingx="2.6458333" />
+       spacingx="2.6458333"
+       enabled="false" />
   </sodipodi:namedview>
   <defs
      id="defs2">
     <linearGradient
        inkscape:collect="always"
-       id="linearGradient972">
+       id="linearGradient1264">
       <stop
-         style="stop-color:#00ff00;stop-opacity:1"
+         style="stop-color:#ff0000;stop-opacity:1"
          offset="0"
-         id="stop968" />
+         id="stop1260" />
       <stop
-         style="stop-color:#aaffaa;stop-opacity:1"
+         style="stop-color:#ffaaaa;stop-opacity:1"
          offset="1"
-         id="stop970" />
+         id="stop1262" />
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient972"
-       id="linearGradient974"
-       x1="0"
-       y1="6.6145835"
-       x2="111.125"
-       y2="6.6145835"
-       gradientUnits="userSpaceOnUse" />
+       xlink:href="#linearGradient1264"
+       id="linearGradient1266"
+       x1="60.854164"
+       y1="27.78125"
+       x2="60.854164"
+       y2="14.552083"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(3.5529297e-6,-14.552086)" />
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <path
-       id="rect846"
-       style="fill:url(#linearGradient974);fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="M 0,0 111.12501,-3.3333334e-7 100.54167,13.229167 H 0 Z"
-       sodipodi:nodetypes="ccccc" />
+    <rect
+       style="fill:url(#linearGradient1266);fill-opacity:1;stroke-width:0.1"
+       id="rect1019"
+       width="121.70833"
+       height="13.229166"
+       x="5.6753493e-06"
+       y="0"
+       ry="6.6145806" />
   </g>
 </svg>

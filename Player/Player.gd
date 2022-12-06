@@ -1,12 +1,10 @@
 extends Dummy
 
 func _ready():
-	$CanvasLayer/GUI.Share($Health, $Mana, $Focus)
-	var ignore_err = $Focus.connect("empty", self, "ExhaustedFromSpellWeaving")
-	ignore_err = $Mana.connect("empty", self, "ExhaustedFromSpellWeaving")
+	var ignore_err = GetAttribute("Focus").connect("empty", self, "ExhaustedFromSpellWeaving")
+	ignore_err = GetAttribute("Mana").connect("empty", self, "ExhaustedFromSpellWeaving")
 	ignore_err = $CanvasLayer/SpellWheel.connect("spell_chosen", self, "_on_SpellWheel_spell_chosen")
 	ignore_err = $CanvasLayer/AstralTable.connect("done", self, "_on_AstralTable_done")
-	ignore_err = $CanvasLayer/GUI.connect("cast_spell", self, "_on_GUI_cast_spell")
 	ignore_err = connect("die", self, "_on_Player_die")
 
 
@@ -14,14 +12,16 @@ func _ready():
 
 func _process(_delta):
 	var velocity = Vector2()
+	var player_speed = GetAttribute("Speed").value
+	
 	if Input.is_action_pressed("ui_left"):
-		velocity.x = - $Speed.value
+		velocity.x = - player_speed
 	if Input.is_action_pressed("ui_right"):
-		velocity.x = $Speed.value
+		velocity.x = player_speed
 	if Input.is_action_pressed("ui_up"):
-		velocity.y = - $Speed.value
+		velocity.y = - player_speed
 	if Input.is_action_pressed("ui_down"):
-		velocity.y = $Speed.value
+		velocity.y = player_speed
 		
 	var dontcare = move_and_slide(velocity, Vector2(0, 0), false, 1, 0.1, false)
 	
@@ -29,19 +29,22 @@ func _process(_delta):
 
 
 func ExhaustedFromSpellWeaving():
+	_StopSustainWeave()
+	_spellReceipt = null
 	$CanvasLayer/AstralTable.StopWeaving()
 	$CanvasLayer/SpellWheel.Enable()
-	_spellInWeave.StopSuckingResourceFrom(self)
-	_spellInWeave = null
+	
 
 
 func _on_Player_die(_self):
+	# TODO: Stop Player's regen?
 	$CanvasLayer/AstralTable.StopWeaving()
 	$CanvasLayer/SpellWheel.Disable()
 	RemoveProcessors()
 
 
-func _on_GUI_cast_spell():
+# Handle to be called from HUD when player press spell casting key
+func _on_HUD_cast_spell():
 	if _spellInUse != null:
 		_spellInUse.Activate(self)
 		_spellInUse = null
@@ -51,13 +54,11 @@ func AddProcessor(proc):
 	$SpellProcessor.add_child(proc)
 
 
-func _on_AstralTable_done():
+func _on_AstralTable_done(wovenSpell):
 	#print("end weave")
-	_spellInWeave.StopSuckingResourceFrom(self)
-	_spellInUse = _spellInWeave
-	_spellInWeave = null
-	$CanvasLayer/AstralTable.StopWeaving()
-	$CanvasLayer/SpellWheel.Enable()
+	#_spellInWeave.StopSuckingResourceFrom(self)
+	_spellInUse = wovenSpell
+	ExhaustedFromSpellWeaving()
 
 
 func RemoveProcessors():
@@ -67,17 +68,35 @@ func RemoveProcessors():
 
 
 func _on_SpellWheel_spell_chosen(spell):
-	if spell.CheckRequirement(self) == false:
+	_spellReceipt = spell.DoCalculateInitialCost(self) 
+	if _spellReceipt[0] == false:
 		print("Not enough resource for spell")
 		return
 		
 	RemoveProcessors() # from previous Spell
-	_spellInWeave = spell
-	_spellInWeave.SuckResourceFrom(self)
+	_CostSpellResource()
 	$CanvasLayer/SpellWheel.Disable()
-	$CanvasLayer/SpellWheel.PopSpellOffWheel(_spellInWeave)
-	$CanvasLayer/AstralTable.StartWeaving(_spellInWeave)
+	$CanvasLayer/SpellWheel.PopSpellOffWheel(spell)
+	$CanvasLayer/AstralTable.StartWeaving(spell)
 
 
-var _spellInWeave
+func _CostSpellResource():
+	for rss in _spellReceipt[1]:
+		var attr_name = rss[0]
+		var amount = rss[1]
+		var weave_sustain = rss[2]
+		var player_attr = GetAttribute(attr_name)
+		player_attr.Reduce(amount)
+		player_attr.ReduceRegen(weave_sustain)
+
+
+func _StopSustainWeave():
+	for rss in _spellReceipt[1]:
+		GetAttribute(rss[0]).AddRegen(rss[2])
+
+
+var _spellReceipt
+
+
 var _spellInUse
+var _spellInWeave

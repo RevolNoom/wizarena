@@ -20,23 +20,42 @@ position = Vector2( -13, 0 )
 rotation = -1.57082
 texture = ExtResource( 2 )
 
-[node name="Health" parent="." instance=ExtResource( 3 )]
-light_mask = 0
-mouse_filter = 2
-size_flags_horizontal = 0
-value = 100.0
-percent_visible = false
-
-[node name="Mana" parent="." instance=ExtResource( 3 )]
-value = 100.0
-percent_visible = false
-
-[node name="Focus" parent="." instance=ExtResource( 3 )]
-value = 100.0
-percent_visible = false
-
-[node name="Speed" parent="." instance=ExtResource( 3 )]
-value = 100.0
-percent_visible = false
-
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Attribute" type="Node" parent="."]
+
+[node name="Health" parent="Attribute" instance=ExtResource( 3 )]
+max_value = 100.0
+value = 100.0
+
+[node name="Mana" parent="Attribute" instance=ExtResource( 3 )]
+max_value = 100.0
+value = 100.0
+regen = 10.0
+
+[node name="Focus" parent="Attribute" instance=ExtResource( 3 )]
+max_value = 100.0
+value = 100.0
+regen = 30.0
+
+[node name="Speed" parent="Attribute" instance=ExtResource( 3 )]
+value = 100.0
+allow_greater = true
+
+[node name="Power" parent="Attribute" instance=ExtResource( 3 )]
+value = 100.0
+allow_greater = true
+
+[node name="Armor" parent="Attribute" instance=ExtResource( 3 )]
+value = 10.0
+allow_greater = true
+
+[node name="Repellence" parent="Attribute" instance=ExtResource( 3 )]
+value = 10.0
+allow_greater = true
+
+[node name="Will" parent="Attribute" instance=ExtResource( 3 )]
+allow_greater = true
+
+[node name="Resilience" parent="Attribute" instance=ExtResource( 3 )]
+allow_greater = true

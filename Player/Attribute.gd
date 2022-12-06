@@ -1,56 +1,54 @@
 extends ProgressBar
 
-signal full() #(player)
+signal full() 
 signal empty()
 
-signal healed(amount)
-signal damaged(amount)
-
-export var regen= 0.0
+export var regen = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
-func _process(delta):	
-	value += regen * delta
-	
-	# Only signal once when value touches max or min,
-	# not signalling every frame
-	TestSignal()
-		
-		
-func TakeDamage(amount):
-	
-	amount = clamp(amount, 0, value)
-	value -= amount
-	
-	if amount > 0:
-		emit_signal("damaged", amount)
-		TestSignal()
-		
-		
-func TakeDamageOverTime(amount):
-	regen -= amount
-	
-func Heal(amount):
-	amount = clamp(amount, 0, max_value - value)
-	value += amount
-	
-	if amount > 0:
-		emit_signal("healed", amount)
-		TestSignal()
-		
-		
-func HealOverTime(amount):
-	regen += amount
-		
-		
-func TestSignal():
+
+# TODO: Regen every sec, not every frame
+func _process(delta):
+	Add(regen * delta)
+
+
+func CurrentPercentage():
+	return value/max_value
+
+
+func MissingPercentage():
+	return 1 - CurrentPercentage()
+
+
+func Set(amount):
+	value = amount
+
 	if value >= max_value:
-		# TODO: Disable _process when full
-		
+		value = max_value
 		emit_signal("full")
 	elif value <= 0:
+		value = 0
 		emit_signal("empty")
-	
+
+
+func Add(amount):
+	Set(value + amount)
+
+
+func Reduce(amount):
+	Set(value - amount)
+
+
+func SetRegen(amountPerSec):
+	regen = amountPerSec
+
+
+func AddRegen(amountPerSec):
+	regen += amountPerSec
+
+
+func ReduceRegen(amountPerSec):
+	regen -= amountPerSec

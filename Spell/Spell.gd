@@ -9,9 +9,6 @@ func _ready():
 	for star in StarList:
 		$Star.remove_child(star)
 
-	for cost in [$Health, $Mana, $Focus]:
-		cost.set_process(false)
-
 
 # OVERRIDE ME
 # Called when Player wants to get more input to prepare spell
@@ -23,37 +20,37 @@ func Activate(_caster):
 # Called from Dummy when syncing spell casts
 func Instantiate(_customSpellArguments: Array):
 	pass
-	
-	
-func get_activable():
-	return $Activable
 
 
-func CheckRequirement(player):
-	if player.get_node("Health").value < $Health.value or\
-	player.get_node("Mana").value < $Mana.value or\
-	player.get_node("Focus").value < $Focus.value:
-		return false
-	return true
-	
-
-# Try costing the player's resource: Hp, mana, focus, speed?
-# Return true if the spell costed the player successfully
-# False otherwise
-func SuckResourceFrom(player):
-	#print(name + " sucking")
-	#print_stack()
-	for attribute in ["Health", "Mana", "Focus"]:
-		player.get_node(attribute).TakeDamage(get_node(attribute).value)
-		player.get_node(attribute).TakeDamageOverTime(get_node(attribute).regen)
-
-
-# Return the spell cost to the player
-func StopSuckingResourceFrom(player):
-	#print(name + " stops sucking")
-	for attribute in ["Health", "Mana", "Focus"]:
-		#player.get_node(attribute).Heal(get_node(attribute).value)
-		player.get_node(attribute).HealOverTime(get_node(attribute).regen)
+# Return an array of 2 values:
+# [0]: true if the player has enough resource to cast spell
+#		false otherwise
+# [1]: An array of array. Each element of array is of the form:
+#		[1][i] = ["Mana", 12, 10]
+#		That means it takes 12 mana to cast the spell, 10 mana to sustain spell weavement
+func DoCalculateInitialCost(player):
+	var receipt = [true, []]
+	receipt[1].resize($Cost.get_child_count())
+	for i in range(0, $Cost.get_child_count()):
+		var cost = $Cost.get_child(i)
+		var attr_name = cost.name
+		var pattribute = player.GetAttribute(attr_name)
+		
+		var total_cost = cost.base_value\
+						+ pattribute.value * cost.current_percentage\
+						+ pattribute.max_value * cost.max_percentage\
+						+ (pattribute.max_value-pattribute.value) * cost.missing_percentage
+		
+		
+		receipt[0] = (cost.allow_overprice or pattribute.value >= total_cost)\
+					and pattribute.value > cost.min_required_value\
+					and pattribute.CurrentPercentage() >= cost.min_required_percentage
+					#and pattribute.CurrentPercentage() <= cost.max_required_percentage\
+#					and pattribute.value < cost.max_required_value\
+					
+		receipt[1][i] = [attr_name, total_cost, cost.sustain_weave]
+		
+	return receipt
 
 
 func get_texture():

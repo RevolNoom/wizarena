@@ -1,7 +1,3 @@
-[Gameplay]: Replace mouse with Wand 
-
-
-
 [Spell] Glacial bolt
 [Spell] Lightning Armor 
 [Spell] Unnatural growth: +max hp
@@ -9,11 +5,13 @@
 [Spell] Add Power attribute
 [Spell] Blood tribute: +Power -hp
 [Spell] Spirit step: +speed, -mana regen
+[Spell] Spiritual tether: +mana regen, -stamina
 [Spell] Anesthetic: Heal for part of damage taken
 [Spell] Energize: -mana +stamina
 [Spell] Peace of Mind: +max mana +mana regen
 [Spell] Sedation: +mana -stamina
 [Spell] Bloodmancy: +Power -hp regen
+[Spell] Bat Siphon: Release a bat, hit enemy, and then return to caster. -Hp -mana
 
 [Animation] Fireball particle 
 

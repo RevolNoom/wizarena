@@ -21,11 +21,14 @@ func Initialize():
 	var map = preload("res://Maps/Colosseum/Colosseum.tscn").instance()
 	map.name = "Map"
 	add_child(map)
-	$Map.LoadPlayers()
-	$Dump
+	get_node("Map").LoadPlayers()
+	$Dump.Clear()
 	_playerLeft = $Map.get_players()
 	for player in $Map.get_players():
 		player.connect("die", self, "_on_player_die")
+	
+	$CanvasLayer/HUD.DisplayFor(get_node("Map").get_player(get_tree().get_network_unique_id()))
+	$CanvasLayer.visible = true
 
 
 func BackToLobby():

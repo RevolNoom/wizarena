@@ -1,34 +1,31 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player/Dummy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://Screens/GUI/GUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/SpellWheel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/AstralTable/AstralTable.tscn" type="PackedScene" id=5]
 
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Mana" parent="." index="3"]
-regen = 5.0
-
-[node name="Focus" parent="." index="4"]
-regen = 15.0
-
-[node name="Camera2D" parent="." index="6"]
+[node name="Camera2D" parent="." index="2"]
 current = true
 
-[node name="SpellProcessor" type="Node2D" parent="." index="7"]
+[node name="Mana" parent="Attribute" index="1"]
+regen = 5.0
+
+[node name="Focus" parent="Attribute" index="2"]
+regen = 15.0
+
+[node name="SpellProcessor" type="Node2D" parent="." index="4"]
 __meta__ = {
 "_editor_description_": "This node holds Spell's artifacts when it needs interaction with the world before castable "
 }
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="8"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="5"]
 
-[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 3 )]
-
-[node name="AstralTable" parent="CanvasLayer" index="1" instance=ExtResource( 5 )]
+[node name="AstralTable" parent="CanvasLayer" index="0" instance=ExtResource( 5 )]
 visible = false
 
-[node name="SpellWheel" parent="CanvasLayer" index="2" instance=ExtResource( 4 )]
+[node name="SpellWheel" parent="CanvasLayer" index="1" instance=ExtResource( 4 )]
 visible = false

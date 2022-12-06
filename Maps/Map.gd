@@ -23,6 +23,12 @@ func LoadPlayers():
 
 func get_players():
 	return _players
+
+
+func get_player(network_id):
+	for player in _players:
+		if player.get_network_master() == network_id:
+			return player
 	
 	
 var _players = []

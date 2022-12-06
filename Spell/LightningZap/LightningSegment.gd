@@ -40,7 +40,7 @@ func _physics_process(_delta):
 		set_process(true)
 	else:
 		if obj is Dummy:
-			obj.get_node("Health").TakeDamage(damage)
+			obj.TakeDamageMagical(damage)
 			
 	if _branch.size() == 0:
 		set_process(false)
