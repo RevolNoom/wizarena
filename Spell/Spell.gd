@@ -11,6 +11,7 @@ func _ready():
 
 
 # OVERRIDE ME
+# TODO: Called after player done weaving it
 # Called when Player wants to get more input to prepare spell
 func Activate(_caster):
 	pass

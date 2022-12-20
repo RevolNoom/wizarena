@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Screens/Menu/Lobby/Guest/GuestRoom.gd" type="Script" id=1]
+[ext_resource path="res://Screens/Menu/Lobby/RFC8489_STUN.tscn" type="PackedScene" id=2]
 
 [node name="GuestRoom" type="HBoxContainer"]
 anchor_right = 1.0
@@ -52,14 +53,15 @@ disabled = true
 toggle_mode = true
 text = "Opening"
 
-[node name="HostIP" type="MenuButton" parent="Room/Controller/State/HBox"]
+[node name="IP" type="MenuButton" parent="Room/Controller/State/HBox"]
 margin_right = 253.0
 margin_bottom = 57.0
-focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "HostIP"
+toggle_mode = false
+text = "Room IPs"
 flat = false
+items = [ "Host IP: ", null, 0, false, false, 0, 0, null, "", false, "LAN IP:", null, 0, false, false, 1, 0, null, "", false ]
 
 [node name="Launch" type="Button" parent="Room/Controller/State"]
 margin_top = 61.0
@@ -92,4 +94,8 @@ margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="RFC8489_STUN" parent="." instance=ExtResource( 2 )]
+
 [connection signal="toggled" from="Room/Controller/State/Launch" to="." method="_on_Launch_toggled"]
+[connection signal="external_address_resolved" from="RFC8489_STUN" to="." method="_on_RFC8489_STUN_external_address_resolved"]
+[connection signal="time_out" from="RFC8489_STUN" to="." method="_on_RFC8489_STUN_time_out"]

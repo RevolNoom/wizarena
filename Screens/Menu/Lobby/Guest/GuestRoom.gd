@@ -72,3 +72,11 @@ func _DoResetRoomOnAllPlayersLeaveGameplay(entry):
 # TODO
 #func _on_Gameplay_end_game():
 #	$Room/Controller/State/Launch.disabled = true
+
+
+func _on_RFC8489_STUN_external_address_resolved(_ip, _port):
+	pass # Replace with function body.
+
+
+func _on_RFC8489_STUN_time_out():
+	pass # Replace with function body.

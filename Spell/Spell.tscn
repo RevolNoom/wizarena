@@ -18,6 +18,4 @@ shape = SubResource( 1 )
 
 [node name="Star" type="Node" parent="."]
 
-[node name="Collective" type="Node" parent="."]
-
 [node name="Cost" type="Node" parent="."]

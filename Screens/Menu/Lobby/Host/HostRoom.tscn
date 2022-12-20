@@ -7,9 +7,15 @@
 script = ExtResource( 2 )
 MAX_PLAYERS = 32
 
+[node name="IP" parent="Room/Controller/State/HBox" index="1"]
+items = [  ]
+
 [node name="Launch" parent="Room/Controller/State" index="1"]
 disabled = false
 toggle_mode = false
 text = "Start"
+
+[node name="RFC8489_STUN" parent="." index="2"]
+time_out = 1.0
 
 [connection signal="pressed" from="Room/Controller/State/Launch" to="." method="_on_Launch_pressed"]

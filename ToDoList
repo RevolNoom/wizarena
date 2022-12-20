@@ -1,17 +1,22 @@
+[Gameplay] Item drop randomly around map
+[Gameplay ITEM] Health/Mana/Stamina potion
+[Gameplay ITEM] Power/Armor/Repellence/Speed boost 
+
+[HUD] Hp, Mana, Stamina icons 
+
+[SpellWheel] Add Wheel Switchers. There can be upto 3 wheels
+
+[Spell] Activate()
+
 [Spell] Glacial bolt
 [Spell] Lightning Armor 
-[Spell] Unnatural growth: +max hp
-[Spell] Heal: +hp
-[Spell] Add Power attribute
-[Spell] Blood tribute: +Power -hp
-[Spell] Spirit step: +speed, -mana regen
-[Spell] Spiritual tether: +mana regen, -stamina
-[Spell] Anesthetic: Heal for part of damage taken
-[Spell] Energize: -mana +stamina
-[Spell] Peace of Mind: +max mana +mana regen
-[Spell] Sedation: +mana -stamina
-[Spell] Bloodmancy: +Power -hp regen
+[Spell] Heal [Instant Cast]
+[Spell] Feather light[Instant Cast]: Increase speed for a duration. 
+[Spell] Anesthetic[Instant Cast]: Heal %damage taken over time, for a duration. Max heal amount & max heal amount per hit scales with Power, Max Hp, %missing hp
+[Spell] Energize[Instant Cast]: Exchange %current mana for %stamina, max amount scales with Power, Max mana. Also gain a bit temporary speed.
+[Spell] Bloodmancy[Instant Cast]: Exchange %current hp for %mana, max amount scales with Power, Max hp. Also gain a bit Power.
 [Spell] Bat Siphon: Release a bat, hit enemy, and then return to caster. -Hp -mana
+
 
 [Animation] Fireball particle 
 

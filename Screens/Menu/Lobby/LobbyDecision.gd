@@ -31,7 +31,7 @@ func _on_Host_pressed():
 		PopupErrMsg("Please fill in the port you want to host the game!")
 		return
 
-	emit_signal("host", player_name, port)
+	emit_signal("host", player_name, int(port))
 
 
 func _on_Join_pressed():
@@ -50,4 +50,4 @@ func _on_Join_pressed():
 		PopupErrMsg("Please fill in your friend's port!")
 		return
 		
-	emit_signal("join", player_name, ip, port)
+	emit_signal("join", player_name, ip, int(port))
